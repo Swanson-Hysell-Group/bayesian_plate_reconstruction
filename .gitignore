@@ -1,0 +1,7 @@
+bayesian_plate_reconstruction.pdf
+elsarticle/*
+*.spl
+*.bbl
+*.blg
+*.aux
+*.log
