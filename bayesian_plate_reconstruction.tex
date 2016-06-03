@@ -38,6 +38,9 @@
 
 %% The amssymb package provides various useful mathematical symbols
 \usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color, soul}
+\usepackage{url}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -46,7 +49,25 @@
 %% for the whole article with \linenumbers.
 \usepackage{lineno}
 
-\journal{Nuclear Physics B}
+%% Block of code for fixing corresponding author bug 
+%% in elsarticle template... Don't really understand it
+\makeatletter
+\def\@author#1{\g@addto@macro\elsauthors{\normalsize%
+    \def\baselinestretch{1}%
+    \upshape\authorsep#1\unskip\textsuperscript{%
+      \ifx\@fnmark\@empty\else\unskip\sep\@fnmark\let\sep=,\fi
+      \ifx\@corref\@empty\else\unskip\sep\@corref\let\sep=,\fi
+      }%
+    \def\authorsep{\unskip,\space}%
+    \global\let\@fnmark\@empty
+    \global\let\@corref\@empty  %% Added
+    \global\let\sep\@empty}%
+    \@eadauthor={#1}
+}
+\makeatother
+%% End block of weird code
+
+\journal{Earth and Planetary Science Letters}
 
 \begin{document}
 
@@ -72,14 +93,19 @@
 %% \address{Address\fnref{label3}}
 %% \fntext[label3]{}
 
-\title{}
+\title{Bayesian inversion for paleomagnetic reconstruction and plate kinematics}
 
 %% use optional labels to link authors explicitly to addresses:
 %% \author[label1,label2]{}
 %% \address[label1]{}
 %% \address[label2]{}
 
-\author{}
+\author{Ian Rose\corref{cor1}\fnref{ref1}}
+\author{Bruce Buffett\fnref{ref1}}
+\author{N.L. Swanson-Hysell\fnref{ref1}}
+
+\fntext[ref1]{University of California, Berkeley}
+\cortext[cor1]{Corresponding author, \url{ian.rose@berkeley.edu}}
 
 \address{}
 
@@ -103,10 +129,47 @@
 \linenumbers
 
 %% main text
-\section{}
-\label{}
+\section{Introduction}
+\label{sec:introduction}
 
+\section{Interpretation of APW paths}
+\label{sec:pep}
+
+\subsection{Latitudinal drift}
+\subsection{Running means and spline fits}
+\subsection{Paleomagnetic Euler poles}
+\citet{gordon1984paleomagnetic}
+
+\section{Bayesian inversion}
+\label{sec:bayesian_inversion}
+\subsection{Bayes theorem}
+\subsection{Markov chain Monte Carlo methods}
+
+\section{Choice of priors}
+\label{sec:priors}
+\subsection{Euler poles}
+\subsection{Ages}
+
+\section{Model selection}
+\label{sec:model_selection}
+
+\section{Example inversions}
+\label{sec:example_inversion}
+\subsection{One stage pole}
+\subsection{Two stage poles}
+\subsection{Incorporating age uncertainty}
+
+\section{Application to the Keweenawan province}
+\label{sec:keweenawan}
+\subsection{Geologic context}
 \citet{swanson2009no}
+\subsection{Inversion for paleomagnetic Euler poles}
+\subsection{Plate speeds for Mesoproterozoic Laurentia}
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+
 
 %% The Appendices part is started with the command \appendix;
 %% appendix sections are then done as normal sections
@@ -124,14 +187,6 @@
 %% else use the following coding to input the bibitems directly in the
 %% TeX file.
 
-\begin{thebibliography}{00}
-
-%% \bibitem[Author(year)]{label}
-%% Text of bibliographic item
-
-\bibitem[ ()]{}
-
-\end{thebibliography}
 \end{document}
 
 \endinput
