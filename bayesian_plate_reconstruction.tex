@@ -67,6 +67,10 @@
 \makeatother
 %% End block of weird code
 
+
+%% Command for bold Greek symbols
+\newcommand{\mitbf}[1]{\hbox{\mathversion{bold}$#1$}}
+
 \journal{Earth and Planetary Science Letters}
 
 \begin{document}
@@ -143,6 +147,33 @@
 \section{Bayesian inversion}
 \label{sec:bayesian_inversion}
 \subsection{Bayes theorem}
+\subsection{Distributions on a sphere}
+\subsubsection{Uniform distribution}
+\begin{equation}
+  \rho(\psi, \phi) = \frac{1}{4 \pi}
+\end{equation}
+\subsubsection{Fisher distribution}
+\begin{equation}
+  \begin{aligned}
+  \rho(\psi, \phi) 
+  &= \frac{1}{C_F} \exp \left( \kappa_F \hat{\mathbf{x}}^T \hat{\mitbf{\mu}} \right) \\
+  &= \frac{1}{C_F} \exp \left( \kappa_F \cos \theta \right)
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  C_F = \frac{\kappa_F}{4 \pi \sinh{\kappa}}
+\end{equation}
+\subsubsection{Watson distribution}
+\begin{equation}
+  \begin{aligned}
+  \rho(\psi, \phi) 
+  &= \frac{1}{C_W} \exp \left( \kappa_W (\hat{\mathbf{x}}^T \hat{\mitbf{\mu}})^2 \right) \\
+  &= \frac{1}{C_W} \exp \left( \kappa_W \cos^2 \theta \right)
+  \end{aligned}
+\end{equation}
+\begin{equation}
+  C_W = \left[ {}_1 F_1 \left( \frac{1}{2}, \frac{3}{2}, \kappa_W \right) \right]^{-1}
+\end{equation}
 \subsection{Markov chain Monte Carlo methods}
 
 \section{Choice of priors}
