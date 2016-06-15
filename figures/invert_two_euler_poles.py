@@ -7,6 +7,8 @@ import cartopy.crs as ccrs
 import pymc
 import mcplates
 
+plt.style.use('bpr.mplstyle')
+
 dbname = 'two_euler_poles'
 n_euler_poles=2
 
@@ -30,33 +32,41 @@ path = mcplates.APWPath( dbname, pole_list, n_euler_poles )
 path.create_model()
 
 
-def plot_result( trace ):
+def plot_result():
 
-    #ax = plt.axes(projection = ccrs.Orthographic(0.,30.))
-    ax = plt.axes(projection = ccrs.Mollweide(0.))
+    fig = plt.figure( figsize=(8,4) )
+    ax = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(0.,30.))
+    #ax = fig.add_subplot(1,2,1, projection = ccrs.Mollweide(0.))
     ax.gridlines()
     ax.set_global()
 
     direction_samples = path.euler_directions()
-    print direction_samples
     for directions in direction_samples:
         mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60)
 
-    pathlons, pathlats = path.compute_synthetic_paths(n=100)
-    for pathlon,pathlat in zip(pathlons,pathlats):
-        ax.plot(pathlon,pathlat, transform=ccrs.PlateCarree(), color='b', alpha=0.05 )
+    n_paths=100
+    interval = max(1, int(len(path.mcmc.db.trace('rate_0')[:]) / n_paths))
+    pathlons, pathlats = path.compute_synthetic_paths(n=n_paths)
+    changepoints = path.changepoints()[0][::interval]
+    for pathlon,pathlat,change in zip(pathlons,pathlats,changepoints):
+        switch = int(float(len(pathlon))*change/(max(ages)-min(ages)))
+        ax.plot(pathlon[:switch],pathlat[:switch], transform=ccrs.PlateCarree(), color='darkred', alpha=0.05 )
+        ax.plot(pathlon[switch:],pathlat[switch:], transform=ccrs.PlateCarree(), color='darkgreen', alpha=0.05 )
 
     for p in pole_list:
         p.plot(ax)
+    ax.set_title('(a)')
 
-
-    plt.show()
-
+    ax = fig.add_subplot(1,2,2)
     rate_samples = path.euler_rates()
-    plt.hist(rate_samples)
-    plt.show()
-    changepoint_samples = path.changepoints()
-    plt.hist(changepoint_samples)
+    ax.hist(rate_samples[0], bins=15, normed=True, edgecolor='none', color='darkred', alpha=0.5)
+    ax.hist(rate_samples[1], bins=15, normed=True, edgecolor='none', color='darkgreen', alpha=0.5)
+
+    ax.set_title('(b)')
+    ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
+    ax.set_ylabel(r'Posterior probability density')
+    #plt.savefig("two_euler_poles.pdf")
+    plt.tight_layout()
     plt.show()
 
 if __name__ == "__main__":
@@ -65,4 +75,4 @@ if __name__ == "__main__":
         path.load_mcmc()
     else:
         path.sample_mcmc(100000)
-    plot_result(path.mcmc.db.trace)
+    plot_result()

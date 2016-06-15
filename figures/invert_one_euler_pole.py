@@ -7,6 +7,8 @@ import cartopy.crs as ccrs
 import pymc
 import mcplates
 
+plt.style.use('ian')
+
 dbname = 'one_euler_pole'
 n_euler_poles=1
 
@@ -28,30 +30,34 @@ path = mcplates.APWPath( dbname, pole_list, n_euler_poles )
 path.create_model()
 
 
-def plot_result( trace ):
+def plot_result():
 
-    ax = plt.axes(projection = ccrs.Orthographic(0.,30.))
-    #ax = plt.axes(projection = ccrs.Mollweide(0.))
+    fig = plt.figure( figsize=(8,4) )
+    ax = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(0.,15.))
     ax.gridlines()
     ax.set_global()
 
     direction_samples = path.euler_directions()
-    print direction_samples
     for directions in direction_samples:
         mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60)
 
-    pathlons, pathlats = path.compute_synthetic_paths(n=1000)
+    pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon,pathlat in zip(pathlons,pathlats):
-        ax.plot(pathlon,pathlat, transform=ccrs.PlateCarree(), color='b', alpha=0.05 )
+        ax.plot(pathlon,pathlat, transform=ccrs.PlateCarree(), color='darkred', alpha=0.05 )
 
     for p in pole_list:
         p.plot(ax)
+    ax.set_title('(a)')
 
-
-    plt.show()
-
+    ax = fig.add_subplot(1,2,2)
     rate_samples = path.euler_rates()
-    plt.hist(rate_samples)
+    ax.hist(rate_samples, bins=15, normed=True, edgecolor='none')
+
+    ax.set_title('(b)')
+    ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
+    ax.set_ylabel(r'Posterior probability density')
+    #plt.savefig("one_euler_pole.pdf")
+    plt.tight_layout()
     plt.show()
 
 if __name__ == "__main__":
@@ -60,4 +66,4 @@ if __name__ == "__main__":
         path.load_mcmc()
     else:
         path.sample_mcmc(30000)
-    plot_result(path.mcmc.db.trace)
+    plot_result()
