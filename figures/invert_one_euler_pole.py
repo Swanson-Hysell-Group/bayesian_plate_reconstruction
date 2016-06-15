@@ -51,14 +51,14 @@ def plot_result():
 
     ax = fig.add_subplot(1,2,2)
     rate_samples = path.euler_rates()
-    ax.hist(rate_samples, bins=15, normed=True, edgecolor='none')
+    ax.hist(rate_samples, bins=15, normed=True, edgecolor='none', color='darkred', alpha=0.5)
 
     ax.set_title('(b)')
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
     ax.set_ylabel(r'Posterior probability density')
-    #plt.savefig("one_euler_pole.pdf")
     plt.tight_layout()
-    plt.show()
+    plt.savefig("one_euler_pole.pdf")
+    #plt.show()
 
 if __name__ == "__main__":
     import os 

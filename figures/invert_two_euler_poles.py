@@ -65,9 +65,9 @@ def plot_result():
     ax.set_title('(b)')
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
     ax.set_ylabel(r'Posterior probability density')
-    #plt.savefig("two_euler_poles.pdf")
     plt.tight_layout()
-    plt.show()
+    plt.savefig("two_euler_poles.pdf")
+    #plt.show()
 
 if __name__ == "__main__":
     import os 
