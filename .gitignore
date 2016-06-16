@@ -5,3 +5,5 @@ elsarticle/*
 *.blg
 *.aux
 *.log
+*.pdf
+*.pickle
