@@ -1,3 +1,4 @@
+import itertools
 import numpy as np
 import scipy.optimize
 import matplotlib.pyplot as plt
@@ -7,7 +8,8 @@ import cartopy.crs as ccrs
 import pymc
 import mcplates
 
-plt.style.use('ian')
+plt.style.use('bpr.mplstyle')
+from mcplates.plot import cmap_red, cmap_green
 
 dbname = 'one_euler_pole'
 n_euler_poles=1
@@ -37,9 +39,10 @@ def plot_result():
     ax.gridlines()
     ax.set_global()
 
+    colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60)
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon,pathlat in zip(pathlons,pathlats):

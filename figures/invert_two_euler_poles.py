@@ -1,3 +1,4 @@
+import itertools
 import numpy as np
 import scipy.optimize
 import matplotlib.pyplot as plt
@@ -8,6 +9,7 @@ import pymc
 import mcplates
 
 plt.style.use('bpr.mplstyle')
+from mcplates.plot import cmap_red, cmap_green
 
 dbname = 'two_euler_poles'
 n_euler_poles=2
@@ -40,9 +42,10 @@ def plot_result():
     ax.gridlines()
     ax.set_global()
 
+    colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60)
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
 
     n_paths=100
     interval = max(1, int(len(path.mcmc.db.trace('rate_0')[:]) / n_paths))
