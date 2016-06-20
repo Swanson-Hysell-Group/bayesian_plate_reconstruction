@@ -123,7 +123,7 @@ def plot_synthetic_paths():
         mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=30)
 
 
-    pathlons, pathlats = path.compute_synthetic_paths(n=100)
+    pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon, pathlat in zip(pathlons, pathlats):
         ax.plot(pathlon-180., -pathlat, transform=ccrs.PlateCarree(),
                 color='b', alpha=0.05)
@@ -161,9 +161,11 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        plt.hist(age_samples, normed=True, alpha=0.3)
-        ax.fill_between(age, 0, dist, color=c, alpha=0.7)
+        ax.fill_between(age, 0, dist, color=c, alpha=0.6)
+        ax.hist(age_samples, color=c, normed=True, alpha=0.6)
     #plt.show()
+    ax.set_xlabel('Age (Ma)')
+    ax.set_ylabel('Probability density')
     plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
 
 
@@ -206,7 +208,8 @@ def plot_synthetic_poles():
 def plot_plate_speeds():
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
-    duluth = mcplates.PlateCentroid(slon, slat)
+    uluru = mcplates.PlateCentroid(slon, slat)
+    numbers = iter(['First', 'Second', 'Third', 'Fourth'])
 
     fig = plt.figure()
     i = 1
@@ -215,13 +218,17 @@ def plot_plate_speeds():
         for j in range(len(rates)):
             euler = mcplates.EulerPole(
                 directions[j, 0], directions[j, 1], rates[j])
-            speed_samples[j] = euler.speed_at_point(duluth)
+            speed_samples[j] = euler.speed_at_point(uluru)
 
         ax = fig.add_subplot(1, n_euler_rotations, i)
         ax.hist(speed_samples, bins=30, normed=True)
-        #ax = fig.add_subplot(2, n_euler_rotations, n_euler_rotations + i)
-        #ax.hist(rates, bins=30, normed=True)
+        if n_euler_rotations > 1:
+            ax.set_title(numbers.next() + ' rotation')
+        ax.set_xlabel('Plate speed (cm/yr)')
+        ax.set_ylabel('Probability density')
         i += 1
+
+    plt.tight_layout()
     #plt.show()
     plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
 
