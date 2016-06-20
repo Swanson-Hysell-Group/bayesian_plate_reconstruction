@@ -163,7 +163,6 @@ def plot_age_samples():
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
         ax.fill_between(age, 0, dist, color=c, alpha=0.6)
         ax.hist(age_samples, color=c, normed=True, alpha=0.6)
-    #plt.show()
     ax.set_xlabel('Age (Ma)')
     ax.set_ylabel('Probability density')
     plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
@@ -229,7 +228,6 @@ def plot_plate_speeds():
         i += 1
 
     plt.tight_layout()
-    #plt.show()
     plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
 
 

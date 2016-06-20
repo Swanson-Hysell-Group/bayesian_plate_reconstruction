@@ -9,7 +9,7 @@ import sys
 
 import mcplates
 
-plt.style.use('bpr.mplstyle')
+plt.style.use('../bpr.mplstyle')
 from mcplates.plot import cmap_red, cmap_green, cmap_blue
 
 # Shift all longitudes by 180 degrees to get around some plotting
@@ -93,7 +93,7 @@ def plot_synthetic_paths():
 
     mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
-    pathlons, pathlats = path.compute_synthetic_paths(n=1000)
+    pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon, pathlat in zip(pathlons, pathlats):
         ax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
                 color='b', alpha=0.05)
@@ -120,9 +120,10 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        plt.hist(age_samples, normed=True, alpha=0.3)
-        ax.fill_between(age, 0, dist, color=c, alpha=0.7)
-    #plt.show()
+        ax.fill_between(age, 0, dist, color=c, alpha=0.6)
+        ax.hist(age_samples, color=c, normed=True, alpha=0.6)
+    ax.set_xlabel('Age (Ma)')
+    ax.set_ylabel('Probability density')
     plt.savefig("keweenawan_ages_" + str(n_euler_rotations)+".pdf")
 
 
@@ -144,13 +145,14 @@ def plot_synthetic_poles():
     mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
     colorcycle = itertools.cycle(colors)
-    lons, lats, ages = path.compute_synthetic_poles(n=1000)
+    lons, lats, ages = path.compute_synthetic_poles(n=100)
     for i in range(len(poles)):
         c = colorcycle.next()
         poles[i].plot(ax, color=c)
         ax.scatter(lons[:, i], lats[:, i], color=c,
                    transform=ccrs.PlateCarree())
 
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", s=100)
     #plt.show()
     plt.savefig("keweenawan_poles_" + str(n_euler_rotations)+".pdf")
 
@@ -159,6 +161,7 @@ def plot_plate_speeds():
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
     duluth = mcplates.PlateCentroid(slon, slat)
+    numbers = iter(['First', 'Second', 'Third', 'Fourth'])
 
     fig = plt.figure()
     i = 1
@@ -171,10 +174,13 @@ def plot_plate_speeds():
 
         ax = fig.add_subplot(1, n_euler_rotations, i)
         ax.hist(speed_samples, bins=30, normed=True)
-        #ax = fig.add_subplot(2, n_euler_rotations, n_euler_rotations + i)
-        #ax.hist(rates, bins=30, normed=True)
+        if n_euler_rotations > 1:
+            ax.set_title(numbers.next() + ' rotation')
+        ax.set_xlabel('Plate speed (cm/yr)')
+        ax.set_ylabel('Probability density')
         i += 1
-    #plt.show()
+
+    plt.tight_layout()
     plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
 
 
