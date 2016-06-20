@@ -55,7 +55,7 @@ c = ax.pcolormesh(mesh_lon,mesh_lat, fisher_vals,  transform=ccrs.PlateCarree(),
 ax.scatter(vmf_samples[:,0], vmf_samples[:,1], transform=ccrs.PlateCarree(), c='darkred', edgecolors='darkred')
 ax.gridlines()
 ax.set_global()
-ax.set_title("von Mises-Fisher distribution")
+ax.set_title("Fisher distribution")
 plt.savefig('fisher.pdf')
 
 fig = plt.figure(figsize=(4,4))
