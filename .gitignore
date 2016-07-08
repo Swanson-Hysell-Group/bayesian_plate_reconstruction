@@ -7,3 +7,5 @@ elsarticle/*
 *.log
 *.pdf
 *.pickle
+*.pyc
+*ipynb_checkpoints*
