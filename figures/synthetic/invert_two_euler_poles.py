@@ -8,7 +8,7 @@ import cartopy.crs as ccrs
 import pymc
 import mcplates
 
-plt.style.use('bpr.mplstyle')
+plt.style.use('../bpr.mplstyle')
 from mcplates.plot import cmap_red, cmap_green
 
 dbname = 'two_euler_poles'
