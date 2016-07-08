@@ -180,9 +180,10 @@ This model for understaning APWPs, called paleomagnetic Euler pole (PEP) analysi
  had the attractive feature of providing a complete description of the plate motion, 
 including paleolongitudinal changes and speeds. 
 However, it had the drawback of being somewhat difficult to calculate,
-uncertainties in the fit were not easily computed, and it did not incorporate
-age uncertainties. With a few exceptions 
-\citep{beck1989paleomagnetism, tarling1996palaeomagnetic, bryan1986rotation, beck2003absolute, smirnov2010co} 
+uncertainties in the fit were not easily computed, 
+and it did not incorporate age uncertainties. 
+A rigorous treatment of the uncertanties requires significant computational effort.
+With a few exceptions \citep{beck1989paleomagnetism, tarling1996palaeomagnetic, bryan1986rotation, beck2003absolute, smirnov2010co} 
 PEP analysis has not seen wide adoption.
 
 Herein we extend paleomagnetic Euler pole analysis by placing it within
@@ -197,9 +198,10 @@ The paper is organized as follow. In Section~\ref{sec:apwp} we review different
 approaches for interpreting APWPs. In Section~\ref{sec:bayesian_inversion} we
 describe the formalism of Bayesian inversions and Markov Chain Monte Carlo methods.
 In Section~\ref{sec:model} we describe the statistical model which we will be inverting.
-In Section~\ref{sec:example_inversions} we demonstrate the inversion on several
+In Section~\ref{sec:example_inversion} we demonstrate the inversion on several
 synthetic data sets. In Sections~\ref{sec:australia} and~\ref{sec:keweenawan}
-we show examples using real paleomagnetic data, including interpretations of plate speeds.
+we show examples using real paleomagnetic data from Australia and Laurentia,
+including interpretations of plate speeds.
 
 \section{Interpretation of APW paths}
 \label{sec:apwp}
@@ -297,6 +299,34 @@ and so we will use it to calculate the likelihood function of the model.
 \section{A model for PEP inversion}
 \label{sec:model}
 \subsection{Forward model}
+The forward model for PEP analysis is essentially unchanged from that of \citet{gordon1984paleomagnetic}.
+We describe plate motions (and hence paleomagnetic pole motions) with a series of Euler poles.
+Each Euler pole has three parameters for which we are inverting (a latitude, a longitude and a rotation rate).
+
+We furthermore need a set of changepoints, which denote the ages where we transition from 
+one Euler pole to the next (the cusps, or ``hairpins'' of \citet{irving1972hairpins}).
+
+Finally, we need a starting position on the globe, which, in practice, can be sampled
+from the Fisher distribution of the oldest paleomagnetic pole in the dataset.
+The starting point contributes two parameters (a latitude and a longitude).
+
+All together, this means that the number of parameters for which we are inverting is given by
+\begin{equation}
+\begin{aligned}
+N &= 3 n_e + (n_e -1) + 2 \\
+ &= 4 n_e + 1
+\end{aligned}
+\label{eq:n_parameters}
+\end{equation}
+
+For each Euler pole $\mitbf{\omega}$ the velocity $\mathbf{v}$ of a point 
+$\mathbf{p}$ on the surface of the globe is given by
+\begin{equation}
+\mathbf{v} = \mitbf{\omega} \times \mathbf{p}.
+\label{eq:rigid_rotation}
+\end{equation}
+Finite rotations can be performed by constructing Euler angle rotation matrices \citep[cf.][]{goldstein1965classical}. 
+
 
 \subsection{Choice of priors}
 
@@ -324,6 +354,7 @@ and so we will use it to calculate the likelihood function of the model.
 \subsection{Incorporating age uncertainty}
 
 \section{Application to Cenozoic Australian APW path}
+\label{sec:australia}
 \clearpage
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_paths_1.pdf}
