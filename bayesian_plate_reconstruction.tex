@@ -205,8 +205,16 @@ including interpretations of plate speeds.
 
 \section{Interpretation of APW paths}
 \label{sec:apwp}
+\begin{figure*}
+\includegraphics[width=0.9\textwidth]{figures/gordon.png}
+\caption{ Placeholder figure, Gordon 1984. Cartoon showing the basic concept of PEP}
+\label{fig:uniform}
+\end{figure*}
+A sequence of paleomagnetic poles from the same contintental block form an APW path.
 
 \subsection{Latitudinal drift}
+The simplest analysis of an APW path is to compare the paleolatitudes of successive poles.
+The difference in paleolatitudes gives a mininimum polar wander rate.
 \subsection{Running means and spline fits}
 \subsection{Paleomagnetic Euler poles}
 \citet{gordon1984paleomagnetic}
@@ -244,19 +252,19 @@ review here.
 The simplest probability distribution on a sphere is the spherical uniform distribution, shown in Figure~\ref{fig:uniform}.
 It has a probability density given by
 \begin{equation}
-  \rho(\phi, \psi) = \frac{1}{4 \pi},
+  \rho_U(\phi, \psi) = \frac{1}{4 \pi},
 \end{equation}
-where $\rho$ is the probability density, $\phi$ is the longitude, and $\psi$ is the latitude.
+where $\rho_U$ is the probability density, $\phi$ is the longitude, and $\psi$ is the latitude.
 Most non-uniform distributions on a sphere reduce to the uniform distribution in some limit.
 We will use this distribution when we want to specify an uninformative prior for directional parameters.
 
 \subsubsection{Fisher distribution}
 The Fisher distribution (also called the von Mises-Fisher distribution) is the analogue
 of a 2D normal distribution on a sphere. It is shown in Figure~\ref{fig:fisher}.
-The probability density for a unit vector $\hat{\mathbf{x}}$ is given by
+The probability density $\rho_F$ for a unit vector $\hat{\mathbf{x}}$ is given by
 \begin{equation}
   \begin{aligned}
-  \rho(\psi, \phi) 
+  \rho_F(\phi, \psi ; \kappa_F, \hat{\mitbf{\mu}}) 
   &= \frac{1}{C_F} \exp \left( \kappa_F \hat{\mathbf{x}}^T \hat{\mitbf{\mu}} \right) \\
   &= \frac{1}{C_F} \exp \left( \kappa_F \cos \theta \right),
   \end{aligned}
@@ -280,7 +288,7 @@ and so we will use it to calculate the likelihood function of the model.
 \subsubsection{Watson girdle distribution}
 \begin{equation}
   \begin{aligned}
-  \rho(\psi, \phi) 
+  \rho_W(\phi, \psi; \kappa_W, \hat{\mitbf{\mu}}) 
   &= \frac{1}{C_W} \exp \left( \kappa_W (\hat{\mathbf{x}}^T \hat{\mitbf{\mu}})^2 \right) \\
   &= \frac{1}{C_W} \exp \left( \kappa_W \cos^2 \theta \right)
   \end{aligned}
@@ -310,7 +318,8 @@ Finally, we need a starting position on the globe, which, in practice, can be sa
 from the Fisher distribution of the oldest paleomagnetic pole in the dataset.
 The starting point contributes two parameters (a latitude and a longitude).
 
-All together, this means that the number of parameters for which we are inverting is given by
+All together, this means that for an inversion with $n_e$ Euler poles, 
+the number parameters for which we are inverting is given by
 \begin{equation}
 \begin{aligned}
 N &= 3 n_e + (n_e -1) + 2 \\
@@ -319,16 +328,102 @@ N &= 3 n_e + (n_e -1) + 2 \\
 \label{eq:n_parameters}
 \end{equation}
 
-For each Euler pole $\mitbf{\omega}$ the velocity $\mathbf{v}$ of a point 
+For each Euler pole $\mitbf{\omega}_i$ the velocity $\mathbf{v}$ of a point 
 $\mathbf{p}$ on the surface of the globe is given by
 \begin{equation}
-\mathbf{v} = \mitbf{\omega} \times \mathbf{p}.
+\mathbf{v} = \mitbf{\omega}_i \times \mathbf{p}.
 \label{eq:rigid_rotation}
 \end{equation}
 Finite rotations can be performed by constructing Euler angle rotation matrices \citep[cf.][]{goldstein1965classical}. 
-
+We generate synthetic paleomagnetic pole positions from the forward model by stringing together
+finite rotations through the stage poles until the age of the paleomagnetic pole
+is reached. These positions can then be compared to the actual paleomagnetic poles in our dataset.
 
 \subsection{Choice of priors}
+
+Bayesian analysis requires us to specify prior distributions for each of the parameters going into the inverse problem.
+These distributions reflect our state of belief about the values of the parameters before we begin,
+and allow us the option of incorporating information otherwise not captured by the model.
+Typically we want to avoid biasing the results of the model towards a specific posterior distribution,
+so we try to choose as uninformative a prior as possible. Depending upon the context, and the type
+of parameter, that choice may vary.
+
+The central parameters in the paleomagnetic Euler pole problem are the Euler pole positions,
+the Euler pole magnitudes, the changepoints, and the starting point. 
+The least informative prior for the i'th Euler pole is a uniform spherical distribution:
+\begin{equation}
+\hat{\mitbf{\omega}}_i \sim \rho_U(\phi, \psi)
+\end{equation}
+essentially allowing the Euler pole to be anywhere on the globe with equal probability.
+
+The magnitude of each Euler pole is a strictly positive number, specifying the
+rotation rate of that pole. In order to not bias the inversion towards a particular
+rate we choose a uniform prior with large support. For the inversions shown in
+this manuscript we use
+\begin{equation}
+\vert \mitbf{\omega}_i \vert \sim U(0, 10)
+\end{equation}
+where $U(\cdot, \cdot)$ is a uniform distribution between two values, and is given
+in degrees per Myr. Typical rotation rates for present day plate motions
+are around $1^\circ$/Myr \citep{argus2011geologically}.
+
+The changepoints between successive Euler rotations should happen in the age
+range specified by the oldest (at age $a_\mathrm{max}$) and youngest (at age $a_\mathrm{min}$)
+paleomagnetic poles. We choose a uniform distribution as a prior for these changepoints:
+\begin{equation}
+c_i \sim U( a_\mathrm{min}, a_\mathrm{max}),
+\end{equation}
+where $c_i$ is the i'th changepoint.
+
+Finally, the starting position $\hat{\mathbf{x}}_\mathrm{start}$ for the set of Euler pole rotations needs a prior.
+We could choose another uniform distribution, but a more reasonable choice
+is to start from near the oldest paleomagnetic pole in the dataset.
+We therefore choose the Fisher distribution of the oldest paleomagnetic pole as a reasonable prior for a start point:
+\begin{equation}
+\hat{\mathbf{x}}_\mathrm{start} \sim \rho_F(\phi, \psi; \kappa_{F0}, \hat{\mitbf{\mu_0}})
+\end{equation}
+where $\kappa_{F0}$ and $\hat{\mitbf{\mu}}_0$ are the concentration parameter and mean direction
+of the oldest paleomagnetic pole in the dataset.
+
+One of the major advantages of Bayesian analysis is the ability to naturally incorporate
+uncertainties in as many parameters as we need. A drawback of previous approaches
+for modelling APWPs is that they do not easily account for uncertainties in
+the age of paleomagnetic poles. In our approach we can include age uncertainty
+by simply including the age of the poles as parameters in our model.
+
+There are many different ways to constrain the ages of the geologic units from
+which we obtain paleomagnetic poles, including radiometric dating, biostratigraphy,
+magnetostratigraphy, cross-cutting relations, and stratigraphic relations.
+Here we concentrate on just radiometric dating and stratigraphic constraints.
+If a geologic unit has been radiometrically dated, we can model the age of
+the j'th paleomagnetic pole $a_j$ as a normal distribution with mean $\mu_j$ and standard deviation $\sigma_j$:
+\begin{equation}
+a_j \sim N(\mu_j, \sigma_j)
+\end{equation}
+where $N(.,.)$ denotes a normal distribution.
+
+Freqently, however, the geologic unit from which we obtain a paleomagnetic pole
+is not well dated, and its age can only be constrained to lie between those
+of well-dated units stratigraphically above and below it. In this case,
+we argue that a uniform distribution between those ages is a reasonable choice
+of prior:
+\begin{equation}
+a_j \sim U(a_\mathrm{low}, a_\mathrm{high})
+\end{equation}
+where $a_\mathrm{low}$ and $a_\mathrm{high}$ are the ages of the upper and lower
+well-dated stratigraphic units, respectively.
+
+To summarize our choices for priors:
+\begin{itemize}
+\item Euler pole positions: spherical uniform distribution.
+\item Euler pole magnitudes: Uniform distribution between 0$^\circ$ and 10$^\circ$/Myr.
+\item Changepoints: uniform distribution between $a_\mathrm{min}$ and $a_\mathrm{max}$.
+\item Paleomagnetic pole ages: normal or uniform distribution, depending on the type of age control for the geologic unit.
+\end{itemize}
+
+
+INCLUDE DISCUSSION OF WATSON PRIOR ON EULER POLES?
+
 
 \subsection{Likelihood}
 
@@ -354,12 +449,12 @@ Finite rotations can be performed by constructing Euler angle rotation matrices 
 \subsection{Incorporating age uncertainty}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/age_uncertainty.pdf}
-\caption{Inversion for two successive paleomagnetic Euler poles. (a) Five paleomagnetic poles are generated, beginning with a pole at $0^\circ$N, $60^\circ$W. The first Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at $6.5^\circ$/Myr for 20 Myr. The second Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at the same speed and for the same duration. The red and green distributions show the location of the first and second Euler poles (respectively) recovered by the MCMC inversion. The the red and green lines are a sampling of the synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rates of the Euler poles recovered by the inversion.}
+\caption{Inversion for a single paleomagnetic Euler pole (PEP), but including uncertainty in the ages. (a) Four paleomagnetic poles are generated by a $180^\circ$ rotation about an Euler pole at $0^\circ$N, $0^\circ$E over 30 Myr, for a rotation rate of $6^\circ$/Myr (same as the ``One stage pole'' example). The red distribution is the probability density function recovered by MCMC inversion, and the red lines are a sampling of the synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rate of the Euler pole recovered by the inversion.}
 \label{fig:age_uncertainty}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/age_uncertainty_samples.pdf}
-\caption{Inversion for two successive paleomagnetic Euler poles. (a) Five paleomagnetic poles are generated, beginning with a pole at $0^\circ$N, $60^\circ$W. The first Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at $6.5^\circ$/Myr for 20 Myr. The second Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at the same speed and for the same duration. The red and green distributions show the location of the first and second Euler poles (respectively) recovered by the MCMC inversion. The the red and green lines are a sampling of the synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rates of the Euler poles recovered by the inversion.}
+\caption{}
 \label{fig:age_uncertainty_samples}
 \end{figure*}
 
