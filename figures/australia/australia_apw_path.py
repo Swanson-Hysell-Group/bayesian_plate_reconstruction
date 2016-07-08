@@ -277,8 +277,8 @@ def latitude_time_plot():
 
     colorcycle = itertools.cycle(colors)
     for p in poles[:-1]:
-        ax.errorbar( p.age, -p.latitude, xerr= [p.angular_error,], \
-                     yerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
+        ax.errorbar( p.age, -p.latitude, yerr= [p.angular_error,], \
+                     xerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
                      color = colorcycle.next(), fmt='-')
     ax.set_xlabel("Age (Ma)")
     ax.set_ylabel("Latitude")
