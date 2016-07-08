@@ -195,7 +195,7 @@ if __name__ == "__main__":
         path.load_mcmc()
     else:
         path.sample_mcmc(1000000)
-    #plot_synthetic_paths()
+    plot_synthetic_paths()
     plot_age_samples()
-    #plot_synthetic_poles()
-    #plot_plate_speeds()
+    plot_synthetic_poles()
+    plot_plate_speeds()
