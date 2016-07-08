@@ -17,8 +17,9 @@ from mcplates.plot import cmap_red, cmap_green, cmap_blue
 lon_shift = 0.
 
 # List of colors to use
-colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c',
-          '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
+#colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c',
+#          '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
+colors = ['#348ABD', '#A60628', '#7A68A6', '#467821', '#D55E00', '#CC79A7', '#56B4E9', '#009E73', '#F0E442', '#0072B2']
 
 
 # Parse input
@@ -64,12 +65,14 @@ for i, row in data.iterrows():
 # Add pole with low error for present day pole
 poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
 
+# Reference position on the Australian continent
 slat = -25.3  # Uluru lat
 slon = 131.0 - lon_shift  # Uluru lon
+uluru = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
     'australia_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=-1.0)
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0)
 
 
 ## Create a function that reproduces the APW path
@@ -86,8 +89,8 @@ class muller_etal_1993_apw_path_function(object):
         self.e3 = mcplates.EulerPole( 30.1+180., -22.7, self.angles[2]/(self.changepoints[2]-self.changepoints[1])) 
         self.e4 = mcplates.EulerPole( 27.8+180., -24.0, self.angles[3]/(self.changepoints[3]-self.changepoints[2])) 
         self.e5 = mcplates.EulerPole( 25.9+180., -23.3, self.angles[4]/(self.changepoints[4]-self.changepoints[3])) 
-        self.e6 = mcplates.EulerPole( 26.2+180., -23.0, self.angles[4]/(self.changepoints[5]-self.changepoints[4])) 
-        self.e7 = mcplates.EulerPole( 26.8+180., -18.3, self.angles[4]/(self.changepoints[6]-self.changepoints[5])) 
+        self.e6 = mcplates.EulerPole( 26.2+180., -23.0, self.angles[5]/(self.changepoints[5]-self.changepoints[4])) 
+        self.e7 = mcplates.EulerPole( 26.8+180., -18.3, self.angles[6]/(self.changepoints[6]-self.changepoints[5])) 
         self.euler_poles = [self.e1,self.e2,self.e3,self.e4,self.e5,self.e6,self.e7]
 
     def __call__(self,age):
@@ -101,6 +104,13 @@ class muller_etal_1993_apw_path_function(object):
                 pole.rotate( euler, -euler.rate*(age-current_age))
                 break
         return pole.longitude, pole.latitude
+
+    def speed(self, age):
+        assert(age < self.changepoints[-1] and age >= 0)
+        for i,c in enumerate(self.changepoints):
+            if c > age:
+                return self.euler_poles[i].speed_at_point(uluru)
+
 muller_apw = muller_etal_1993_apw_path_function()
 
 def plot_synthetic_paths():
@@ -150,7 +160,8 @@ def plot_synthetic_paths():
 
 def plot_age_samples():
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles[:-1], path.ages()[:-1]):
@@ -161,10 +172,15 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        ax.fill_between(age, 0, dist, color=c, alpha=0.6)
-        ax.hist(age_samples, color=c, normed=True, alpha=0.6)
-    ax.set_xlabel('Age (Ma)')
-    ax.set_ylabel('Probability density')
+        ax1.fill_between(age, 0, dist, color=c, alpha=0.6)
+        ax2.hist(age_samples, color=c, normed=True, alpha=0.6)
+    ax1.set_ylim(0., 1.)
+    ax2.set_ylim(0., 1.)
+    ax2.set_xlabel('Age (Ma)')
+    ax1.set_ylabel('Prior probability')
+    ax2.set_ylabel('Posterior probability')
+    plt.tight_layout()
+    #plt.show()
     plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
 
 
@@ -207,7 +223,6 @@ def plot_synthetic_poles():
 def plot_plate_speeds():
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
-    uluru = mcplates.PlateCentroid(slon, slat)
     numbers = iter(['First', 'Second', 'Third', 'Fourth'])
 
     fig = plt.figure()
@@ -228,18 +243,62 @@ def plot_plate_speeds():
         i += 1
 
     plt.tight_layout()
+    #plt.show()
     plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
+
+
+def speed_time_plot():
+    ages = np.linspace(0., 65., 1000.)
+    speeds = np.array( [ muller_apw.speed(a) for a in ages] )
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(ages,speeds)
+    plt.show()
+
+
+def latitude_time_plot():
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+
+    ages = [p.age for p in poles]
+    #100 is the n_segments returned by synthetic pole computation
+    times = np.linspace( max(ages), min(ages), 100)
+    pathlons, pathlats = path.compute_synthetic_paths(n=100)
+
+    for pathlat in pathlats:
+        ax.plot(times, -pathlat, 'b', alpha=0.03)
+
+    #compute apw path from hotspot data
+    hotspot_lons = np.empty_like(times)
+    hotspot_lats = np.empty_like(times)
+    for i,a in enumerate(times):
+       hotspot_lons[i],hotspot_lats[i] = muller_apw(a)
+    ax.plot(times, hotspot_lats, 'r', lw=3)
+
+    colorcycle = itertools.cycle(colors)
+    for p in poles[:-1]:
+        ax.errorbar( p.age, -p.latitude, xerr= [p.angular_error,], \
+                     yerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
+                     color = colorcycle.next(), fmt='-')
+    ax.set_xlabel("Age (Ma)")
+    ax.set_ylabel("Latitude")
+
+    #plt.show()
+    plt.savefig("australia_latitude_" + str(n_euler_rotations)+".pdf")
 
 
 if __name__ == "__main__":
     import os
     if os.path.isfile(path.dbname):
+        print("Loading MCMC results from disk...")
         path.load_mcmc()
+        print("Done.")
         #print("MAP logp: ", path.find_MAP())
     else:
-        path.sample_mcmc(100000)
+        path.sample_mcmc(10000)
         #print("MAP logp: ", path.logp_at_max)
     plot_synthetic_paths()
     plot_age_samples()
     plot_synthetic_poles()
     plot_plate_speeds()
+    latitude_time_plot()
