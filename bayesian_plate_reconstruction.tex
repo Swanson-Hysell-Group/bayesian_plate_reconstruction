@@ -136,8 +136,73 @@
 \section{Introduction}
 \label{sec:introduction}
 
+Plate tectonics is the motion of near-rigid blocks of lithosphere across the surface of Earth, 
+separated by narrow regions of deformation in spreading centers, transform faults, and subduction zones.
+The overall rigidity of plate motions means that the motion of a great majority of Earth's surface
+can be described by a set of Euler poles which determine the position and magnitude of the rotation axis for a
+given plate \citep[cf.][]{cox2009plate}. The motion of individual points on a plate undergoing
+a rigid rotation is described by small circles.
+
+Euler poles are ubiquitous in describing current plate motions 
+\citep[e.g.][]{demets1990current, argus2011geologically} due to their simplicity and compactness.
+Furthermore, there are good reasons to think that plate motions remain constant, or approximately
+so, over millions to tens of millions of years. This is most dramatically seen in the shape
+of oceanic fracture zones and in hotspot tracks across the lithosphere. These features
+form gently curving arcs over large portions of Earth's surface which are well described by small
+circles, consistent with finite Euler rotations of the plate for an extended period of time.
+As such, the combination of an Euler pole plus a time interval through which it rotates 
+(often called a ``stage pole'') is a convenient description of plate motions through Earth history.
+
+The stage pole description of plate motions is therefore a convenient way of reconstructing
+plate tectonic history, and is widely used in both continental reconstruction 
+\citep[e.g.][]{boyden2011next} and in geodynamical
+modeling \citep[e.g.][]{mcnamara2005thermochemical, bull2014effect, rudolph2014history}.
+Most reconstructions of plate motions rely heavily on fitting Euler pole rotations
+to oceanic fracture zones, hotspot tracks, seafloor magnetic isochrons,
+and, to a lesser extent, paleomagnetic data \citep{muller1993revised, seton2012global}.
+However, as we look further back in Earth history, the records on which these
+plate tectonic reconstructions rely largely disappear due to the continual
+subduction of oceanic lithosphere. Before $\sim$200 Ma there is no oceanic record,
+and the paleomagnetic record from continental rocks is all that remains.
+
+It is more challenging to reconstruct past plate motions from the paleomagnetic
+record for a number of reasons, including 
+(1) the data is usually sparser and with larger uncertainties,
+(2) traditional paleomagnetic analysis has no way of constraining paleolongitude, and
+(3) many paleomagnetic poles have poor age control.
+
+\citet{gordon1984paleomagnetic} noted that apparent polar wander paths (APWPs) have 
+arcing trajectories similar to fracture zones and hotspot tracks, which is
+to be expected if similar tectonic processes are responsible for creating them.
+They therefore suggested fitting small circles to paleomagnetic poles tracks,
+which would furnish Euler poles for the plate in question for that time period.
+This model for understaning APWPs, called paleomagnetic Euler pole (PEP) analysis,
+ had the attractive feature of providing a complete description of the plate motion, 
+including paleolongitudinal changes and speeds. 
+However, it had the drawback of being somewhat difficult to calculate,
+uncertainties in the fit were not easily computed, and it did not incorporate
+age uncertainties. With a few exceptions 
+\citep{beck1989paleomagnetism, tarling1996palaeomagnetic, bryan1986rotation, beck2003absolute, smirnov2010co} 
+PEP analysis has not seen wide adoption.
+
+Herein we extend paleomagnetic Euler pole analysis by placing it within
+a Bayesian statistical framework, and demonstrate how to invert for PEPs
+using Markov Chain Monte Carlo (MCMC) methods. This framework has the advantage
+of naturally incorporating uncertainties in the paleomagnetic pole positions,
+as well as widely disparate age uncertainties that commonly occur in APWPs.
+The resulting stage poles for which we invert is not a single answer, but is instead
+a distribution of possible answers, furnishing uncertainties as part of the solution process.
+
+The paper is organized as follow. In Section~\ref{sec:apwp} we review different
+approaches for interpreting APWPs. In Section~\ref{sec:bayesian_inversion} we
+describe the formalism of Bayesian inversions and Markov Chain Monte Carlo methods.
+In Section~\ref{sec:model} we describe the statistical model which we will be inverting.
+In Section~\ref{sec:example_inversions} we demonstrate the inversion on several
+synthetic data sets. In Sections~\ref{sec:australia} and~\ref{sec:keweenawan}
+we show examples using real paleomagnetic data, including interpretations of plate speeds.
+
 \section{Interpretation of APW paths}
-\label{sec:pep}
+\label{sec:apwp}
 
 \subsection{Latitudinal drift}
 \subsection{Running means and spline fits}
@@ -147,37 +212,70 @@
 \section{Bayesian inversion}
 \label{sec:bayesian_inversion}
 \subsection{Bayes theorem}
+
+\begin{equation}
+P\left(A \vert B \right) = \frac{ P \left(B \vert A \right) P \left(A\right) }{P \left(B\right)}
+\label{eq:bayes}
+\end{equation}
+It is often unnecessary to calculate the denominator of Equation~\eqref{eq:bayes}, leaving
+\begin{equation}
+P\left(A \vert B \right) \propto P \left(B \vert A \right) P \left(A\right) 
+\label{eq:propbayes}
+\end{equation}
 \subsection{Distributions on a sphere}
 
+In order to proceed with a Bayesian description of the problem, every parameter
+in the model should be described by some statistical distribution that determines
+the probability that the parameter takes a specific value.
+In addition to several more familiar 1D distributions (such as uniform or normal distributions)
+we will also need to describe the statistics of points on a sphere, which we 
+review here.
+
+
+\subsubsection{Uniform distribution}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/uniform.pdf}
-\caption{Probability density for the Fisher distribution, as well as samples drawn from that distribution, plotted with an orthographic projection.}
+\caption{Probability density for the uniform spherical distribution, as well as samples drawn from that distribution, plotted with an orthographic projection.}
 \label{fig:uniform}
 \end{figure*}
 
-\subsubsection{Uniform distribution}
+The simplest probability distribution on a sphere is the spherical uniform distribution, shown in Figure~\ref{fig:uniform}.
+It has a probability density given by
 \begin{equation}
-  \rho(\psi, \phi) = \frac{1}{4 \pi}
+  \rho(\phi, \psi) = \frac{1}{4 \pi},
 \end{equation}
+where $\rho$ is the probability density, $\phi$ is the longitude, and $\psi$ is the latitude.
+Most non-uniform distributions on a sphere reduce to the uniform distribution in some limit.
+We will use this distribution when we want to specify an uninformative prior for directional parameters.
+
 \subsubsection{Fisher distribution}
+The Fisher distribution (also called the von Mises-Fisher distribution) is the analogue
+of a 2D normal distribution on a sphere. It is shown in Figure~\ref{fig:fisher}.
+The probability density for a unit vector $\hat{\mathbf{x}}$ is given by
 \begin{equation}
   \begin{aligned}
   \rho(\psi, \phi) 
   &= \frac{1}{C_F} \exp \left( \kappa_F \hat{\mathbf{x}}^T \hat{\mitbf{\mu}} \right) \\
-  &= \frac{1}{C_F} \exp \left( \kappa_F \cos \theta \right)
+  &= \frac{1}{C_F} \exp \left( \kappa_F \cos \theta \right),
   \end{aligned}
 \end{equation}
+where $C_F$ is a normalization factor, $\kappa$ is the concentration of the distribution, and
+$\hat{\mitbf{\mu}}$ the unit vector of the mean of the distribution. It can be alternatively
+parameterized using $\theta$, which is the angle between $\hat{\mathbf{x}}$ and $\hat{\mitbf{\mu}}$.
+The normalization factor is given by 
 \begin{equation}
-  C_F = \frac{\kappa_F}{4 \pi \sinh{\kappa}}
+  C_F = \frac{\kappa_F}{4 \pi \sinh{\kappa}}.
 \end{equation}
+The position and uncertainty of most paleomagnetic poles are represented by Fisher distributions,
+and so we will use it to calculate the likelihood function of the model.
 
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/fisher.pdf}
-\caption{Probability density for a uniform spherical distribution, as well as samples drawn from that distribution, plotted with an orthographic projection. The center of the distribution is at $30^\circ$N, $30^\circ$E, and the concentration parameter $\kappa=20$.}
+\caption{Probability density for a Fisher distribution, as well as samples drawn from that distribution, plotted with an orthographic projection. The center of the distribution is at $30^\circ$N, $30^\circ$E, and the concentration parameter $\kappa=20$.}
 \label{fig:fisher}
 \end{figure*}
 
-\subsubsection{Watson distribution}
+\subsubsection{Watson girdle distribution}
 \begin{equation}
   \begin{aligned}
   \rho(\psi, \phi) 
@@ -196,16 +294,20 @@
 \end{figure*}
 \subsection{Markov chain Monte Carlo methods}
 
-\section{Choice of priors}
-\label{sec:priors}
-\subsection{Euler poles}
-\subsection{Ages}
+\section{A model for PEP inversion}
+\label{sec:model}
+\subsection{Forward model}
 
-\section{Model selection}
-\label{sec:model_selection}
+\subsection{Choice of priors}
+
+\subsection{Likelihood}
+
+\subsection{Model selection}
 
 \section{Example inversions}
 \label{sec:example_inversion}
+
+
 \subsection{One stage pole}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/one_euler_pole.pdf}
