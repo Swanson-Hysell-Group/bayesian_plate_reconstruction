@@ -109,7 +109,8 @@ def plot_synthetic_paths():
 
 def plot_age_samples():
     fig = plt.figure()
-    ax = fig.add_subplot(111)
+    ax1 = fig.add_subplot(211)
+    ax2 = fig.add_subplot(212)
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles, path.ages()):
@@ -120,10 +121,14 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        ax.fill_between(age, 0, dist, color=c, alpha=0.6)
-        ax.hist(age_samples, color=c, normed=True, alpha=0.6)
-    ax.set_xlabel('Age (Ma)')
-    ax.set_ylabel('Probability density')
+        ax1.fill_between(age, 0, dist, color=c, alpha=0.6)
+        ax2.hist(age_samples, color=c, normed=True, alpha=0.6)
+    ax1.set_ylim(0., 1.)
+    ax2.set_ylim(0., 1.)
+    ax2.set_xlabel('Age (Ma)')
+    ax1.set_ylabel('Prior probability')
+    ax2.set_ylabel('Posterior probability')
+    plt.tight_layout()
     plt.savefig("keweenawan_ages_" + str(n_euler_rotations)+".pdf")
 
 
