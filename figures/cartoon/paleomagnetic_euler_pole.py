@@ -83,8 +83,20 @@ for a in ages[1:-1]:
         ax.imshow(imv,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
     else:
         ax.imshow(imm,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
-    #ax.scatter( lon_lat[0], lon_lat[1], c='r', marker='o', s=30, transform=ccrs.PlateCarree())
 
+# Make plate motion arrow
+times = np.linspace(ages[1], ages[-2])
+arrow_lon = np.empty_like(times)
+arrow_lat = np.empty_like(times)
+for i,t in enumerate(times):
+    lon_lat = dummy_pole_position_fn([40,25], t, hidden_euler_pole, hidden_euler_rate)
+    arrow_lon[i] = lon_lat[0]
+    arrow_lat[i] = lon_lat[1]
+ax.plot(arrow_lon, arrow_lat, lw=4, c='k', transform=ccrs.PlateCarree())
+ax.arrow(arrow_lon[0], arrow_lat[0], (arrow_lon[0]-arrow_lon[1])*1.e-10, (arrow_lat[0]-arrow_lat[1])*1.e-10, transform=ccrs.PlateCarree(), head_width=3.0, head_length=3.0, fc='k', ec='k', lw=3)
+
+
+# Make subduction zone
 n_arrows = 20
 stride = int(len(pb4_lon)/n_arrows)
 for i in range(1,n_arrows):
@@ -92,4 +104,5 @@ for i in range(1,n_arrows):
 
 ax.scatter( hidden_euler_pole[0], hidden_euler_pole[1], c='b', marker='o', s=30, transform=ccrs.PlateCarree())
 
-plt.show()
+#plt.show()
+plt.savefig("paleomagnetic_euler_pole.png", dpi=600)

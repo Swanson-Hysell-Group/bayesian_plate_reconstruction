@@ -206,9 +206,9 @@ including interpretations of plate speeds.
 \section{Interpretation of APW paths}
 \label{sec:apwp}
 \begin{figure*}
-\includegraphics[width=0.9\textwidth]{figures/gordon.png}
+\includegraphics[width=0.9\textwidth]{figures/cartoon/paleomagnetic_euler_pole.png}
 \caption{ Placeholder figure, Gordon 1984. Cartoon showing the basic concept of PEP}
-\label{fig:uniform}
+\label{fig:pep}
 \end{figure*}
 A sequence of paleomagnetic poles from the same contintental block form an APW path.
 
@@ -244,9 +244,9 @@ review here.
 
 \subsubsection{Uniform distribution}
 \begin{figure*}
-\includegraphics[width=0.9\textwidth]{figures/cartoon/uniform.pdf}
-\caption{Probability density for the uniform spherical distribution, as well as samples drawn from that distribution, plotted with an orthographic projection.}
-\label{fig:uniform}
+\includegraphics[width=0.9\textwidth]{figures/cartoon/distributions.pdf}
+\caption[Spherical probability distributions.]{Probability densities for spherical distributions, as well as samples drawn from them. All are plotted using an orthographic projection. (a) Uniform distribution. (b) Fisher distribution. The center of the distribution is at $30^\circ$N, $30^\circ$E, and the concentration parameter $\kappa=20$. (c) Watson girdle distribution. The pole of symmetry is at $70^\circ$N, $90^\circ$E, and the concentration parameter $\kappa=-5$.}
+\label{fig:distributions}
 \end{figure*}
 
 The simplest probability distribution on a sphere is the spherical uniform distribution, shown in Figure~\ref{fig:uniform}.
@@ -279,12 +279,6 @@ The normalization factor is given by
 The position and uncertainty of most paleomagnetic poles are represented by Fisher distributions,
 and so we will use it to calculate the likelihood function of the model.
 
-\begin{figure*}
-\includegraphics[width=0.9\textwidth]{figures/cartoon/fisher.pdf}
-\caption{Probability density for a Fisher distribution, as well as samples drawn from that distribution, plotted with an orthographic projection. The center of the distribution is at $30^\circ$N, $30^\circ$E, and the concentration parameter $\kappa=20$.}
-\label{fig:fisher}
-\end{figure*}
-
 \subsubsection{Watson girdle distribution}
 \begin{equation}
   \begin{aligned}
@@ -297,11 +291,6 @@ and so we will use it to calculate the likelihood function of the model.
   C_W = \left[ {}_1 F_1 \left( \frac{1}{2}, \frac{3}{2}, \kappa_W \right) \right]^{-1}
 \end{equation}
 
-\begin{figure*}
-\includegraphics[width=0.9\textwidth]{figures/cartoon/watson.pdf}
-\caption{Probability density for the Watson girdle distribution, as well as samples drawn from that distribution, plotted with an Orthographic projection. The pole of symmetry is at $70^\circ$N, $90^\circ$E, and the concentration parameter $\kappa=-5$.}
-\label{fig:watson}
-\end{figure*}
 \subsection{Markov chain Monte Carlo methods}
 
 \section{A model for PEP inversion}
