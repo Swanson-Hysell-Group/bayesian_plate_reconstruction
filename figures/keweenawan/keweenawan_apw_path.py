@@ -45,8 +45,12 @@ print("Fitting Keweenawan APW track with "+str(n_euler_rotations)+" Euler rotati
 
 data = pd.read_csv("pole_means.csv")
 # Give unnamed column an appropriate name
-data.rename(columns={'Unnamed: 14': 'GaussianOrUniform'}, inplace=True)
-data.drop(2, inplace=True, axis=0)  # Remove data row with huge uncertainty
+data.rename(columns={'Unnamed: 0': 'Name',\
+                     'Unnamed: 14': 'GaussianOrUniform'},\
+            inplace=True)
+data = data[data.Name != 'Osler_N'] #Huge error, does not contribute much to the model
+data = data[data.PoleName != 'Abitibi'] # Standstill at the beginning, not realistic to fit
+data = data[data.PoleName != 'Haliburton'] #Much younger, far away pole, difficutlt to fit
 data.sort_values('AgeNominal', ascending=False, inplace=True)
 
 poles = []
@@ -72,7 +76,7 @@ slon = 360. - 92.1 - lon_shift  # Duluth lon
 
 path = mcplates.APWPath(
     'keweenawan_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=-1.0)
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0)
 
 
 def plot_synthetic_paths():
@@ -115,7 +119,7 @@ def plot_age_samples():
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles, path.ages()):
         c = colorcycle.next()
-        age = np.linspace(1080, 1115, 1000)
+        age = np.linspace(1070, 1115, 1000)
         if p.age_type == 'gaussian':
             dist = st.norm.pdf(age, loc=p.age, scale=p.sigma_age)
         else:
@@ -125,6 +129,8 @@ def plot_age_samples():
         ax2.hist(age_samples, color=c, normed=True, alpha=0.6)
     ax1.set_ylim(0., 1.)
     ax2.set_ylim(0., 1.)
+    ax1.set_xlim(1070, 1115)
+    ax2.set_xlim(1070, 1115)
     ax2.set_xlabel('Age (Ma)')
     ax1.set_ylabel('Prior probability')
     ax2.set_ylabel('Posterior probability')
