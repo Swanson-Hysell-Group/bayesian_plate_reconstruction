@@ -1,12 +1,6 @@
-all: uniform.pdf watson.pdf fisher.pdf
+all: distributions.pdf
 
-uniform.pdf: spherical_distributions.py
-	python spherical_distributions.py
-
-fisher.pdf: spherical_distributions.py
-	python spherical_distributions.py
-
-watson.pdf: spherical_distributions.py
+distributions.pdf: spherical_distributions.py
 	python spherical_distributions.py
 
 .PHONY: clean
