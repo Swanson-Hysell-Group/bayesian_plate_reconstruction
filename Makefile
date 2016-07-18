@@ -1,8 +1,4 @@
-bayesian_plate_reconstruction.pdf: bayesian_plate_reconstruction.tex bayesian_plate_reconstruction.bib figures tables
-	pdflatex bayesian_plate_reconstruction
-	bibtex bayesian_plate_reconstruction
-	pdflatex bayesian_plate_reconstruction
-	pdflatex bayesian_plate_reconstruction
+all: figures tables
 
 .PHONY: figures
 figures:
