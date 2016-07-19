@@ -142,17 +142,13 @@ def plot_synthetic_paths():
     for p in poles[:-1]:
         p.plot(ax, south_pole=True, color=colorcycle.next())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", s=100)
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
 
-    for e in muller_apw.euler_poles:
-        ax.scatter(e.longitude, e.latitude, color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
+    #Plot average rotation pole from Seton et al data
+    ax.scatter([210.9,], [-15.2,], color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
 
-    ages = np.linspace(0., 60., 100.)
-    pathlons = np.empty_like(ages)
-    pathlats = np.empty_like(ages)
-    for i,a in enumerate(ages):
-       pathlons[i],pathlats[i] = muller_apw(a)
-    ax.plot(pathlons, pathlats, 'r', lw=3, transform=ccrs.PlateCarree())
+    seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
+    ax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
 
     #plt.show()
     plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
@@ -211,10 +207,13 @@ def plot_synthetic_poles():
         ax.scatter(lons[:, i]-180., -lats[:, i], color=c,
                    transform=ccrs.PlateCarree())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", s=100)
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
 
-    for e in muller_apw.euler_poles:
-        ax.scatter(e.longitude, e.latitude, color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
+    #Plot average rotation pole from Seton et al data
+    ax.scatter([210.9,], [-15.2,], color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
+
+    seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
+    ax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
 
     #plt.show()
     plt.savefig("australia_poles_" + str(n_euler_rotations)+".pdf")
@@ -269,11 +268,8 @@ def latitude_time_plot():
         ax.plot(times, -pathlat, 'b', alpha=0.03)
 
     #compute apw path from hotspot data
-    hotspot_lons = np.empty_like(times)
-    hotspot_lats = np.empty_like(times)
-    for i,a in enumerate(times):
-       hotspot_lons[i],hotspot_lats[i] = muller_apw(a)
-    ax.plot(times, hotspot_lats, 'r', lw=3)
+    seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
+    ax.plot(seton_apw[:,0], seton_apw[:,2], 'r', lw=3)
 
     colorcycle = itertools.cycle(colors)
     for p in poles[:-1]:
@@ -295,7 +291,7 @@ if __name__ == "__main__":
         print("Done.")
         #print("MAP logp: ", path.find_MAP())
     else:
-        path.sample_mcmc(10000)
+        path.sample_mcmc(100000)
         #print("MAP logp: ", path.logp_at_max)
     plot_synthetic_paths()
     plot_age_samples()
