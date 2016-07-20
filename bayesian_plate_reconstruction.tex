@@ -194,7 +194,7 @@ as well as widely disparate age uncertainties that commonly occur in APWPs.
 The resulting stage poles for which we invert is not a single answer, but is instead
 a distribution of possible answers, furnishing uncertainties as part of the solution process.
 
-The paper is organized as follow. In Section~\ref{sec:apwp} we review different
+The paper is organized as follows: in Section~\ref{sec:apwp} we review different
 approaches for interpreting APWPs. In Section~\ref{sec:bayesian_inversion} we
 describe the formalism of Bayesian inversions and Markov Chain Monte Carlo methods.
 In Section~\ref{sec:model} we describe the statistical model which we will be inverting.
@@ -206,7 +206,7 @@ including interpretations of plate speeds.
 \section{Interpretation of APW paths}
 \label{sec:apwp}
 \begin{figure*}
-\includegraphics[width=0.9\textwidth]{figures/cartoon/paleomagnetic_euler_pole.png}
+%%\includegraphics[width=0.9\textwidth]{figures/cartoon/paleomagnetic_euler_pole.png}
 \caption[Conceptual model for a paleomagnetic Euler pole.]{Conceptual model for a paleomagnetic Euler pole. A finite rotation of the plate around an Euler pole results in long, arcuate oceanic fracture zones and hotspot tracks which describe small circles on the globe. The same finite rotation produces a small circle in the APW path. By fitting a small circle to the APW path we may recover the Euler pole that produced the rotation.}
 \label{fig:pep}
 \end{figure*}
@@ -221,17 +221,73 @@ The difference in paleolatitudes gives a mininimum polar wander rate.
 
 \section{Bayesian inversion}
 \label{sec:bayesian_inversion}
-\subsection{Bayes theorem}
-
+\subsection{A general desciption of inverse problems}
+\label{sec:intro_inverse_problems}
+The central question motivating inverse problems is ``How probable is a particular model, given my observations?''.
+We represent a vector of individual observation by the data vector $\mathbf{d}$, and a model
+by the vector of model parameters $\mathbf{m}$, so the above question can be written expressed as the function $P(\mathbf{m} \vert \mathbf{d})$.
+Traditional frequentist approaches to an inverse problem often proceed by maximizing the likelihood function,
+defined by the probability of the data given a particular model:
 \begin{equation}
-P\left(A \vert B \right) = \frac{ P \left(B \vert A \right) P \left(A\right) }{P \left(B\right)}
+\mathcal{L} ( \mathbf{m} \vert \mathbf{d} ) = P( \mathbf{d} \vert \mathbf{m} ).
+\label{eq:likelihood}
+\end{equation}
+The likelihood function replaces something that is difficult to compute ($P(\mathbf{m} \vert \mathbf{d})$)
+with something that is less difficult to compute. 
+To compute $\mathcal{L}(\mathbf{m}, \mathbf{d})$ we need to have two things: a statistical model for 
+uncertainties in the observations $\mathbf{d}$ and forward model that allows us to compute
+predictions ($\mathbf{d}_p$ of the observations from the model parameters, denoted by $\mathbf{g}$:
+\begin{equation}
+\mathbf{d}_p = \mathbf{g}(\mathbf{m}).
+\label{eq:forward}
+\end{equation}
+For example, if each of the observed data $d_i$ are described with Gaussian uncertainties
+with standard deviations $\sigma_i$, the likelihood function is given by the product
+of the individual likelihoods of the observations:
+\begin{equation}
+\mathcal{L}(\mathbf{d} | \mathbf{m} ) = \displaystyle\prod_i \exp\left({-\frac{(d_i - d_{p,i})^2}{2 \sigma_i^2}}\right)
+\label{eq:example_likelihood}
+\end{equation}
+The likelihood function $\mathcal{L}$ is maximized by searching over the model parameter space.
+If the uncertainties in the observations are Gaussian, then maximizing the likelihood function is
+equivalent to the least squares solution \citep{aster2005parameter}.
+
+Frequently an unomdified maximum likelihood fit will overfit the observations, resulting
+in unrealistic solutions. In the context of APW paths, these overfit solutions may
+pass through every paleomagnetic pole, including less reliable ones, resulting in
+loopy, sinuous paths. In order to address this, some form of regularization is usually
+included in the solution of the inverse problem, such as penalizing the magnitude or
+curvature of the solution. Both the running-mean and the spline under tension approaches
+to APW paths can be seen as a form of regularization on the problem.
+
+\subsection{Bayesian approach}
+
+The Bayesian approach to inverse problems takes a different strategy from the frequentist one.
+Rather than finding point estimates of a model fit, it treats the underlying model
+as a set of random variables with individual probability distributions.
+The probability distribution of the model $P(\mathbf{m} \vert \mathbf{d})$ 
+is then found by an application of Bayes theorem:
+\begin{equation}
+P\left(\mathbf{m} \vert \mathbf{d} \right) = \frac{ P \left(\mathbf{d}\vert \mathbf{m} \right) P \left( \mathbf{m} \right) }{P \left( \mathbf{d}\right)}
 \label{eq:bayes}
 \end{equation}
 It is often unnecessary to calculate the denominator of Equation~\eqref{eq:bayes}, leaving
 \begin{equation}
-P\left(A \vert B \right) \propto P \left(B \vert A \right) P \left(A\right) 
+P\left(\mathbf{m} \vert \mathbf{d} \right) \propto P \left( \mathbf{d} \vert \mathbf{m} \right) P \left( \mathbf{m} \right) 
 \label{eq:propbayes}
 \end{equation}
+The quantity $P(\mathbf{m} \vert | \mathbf{d})$ is known as the posterior probability,
+and represents our desired knowledge about the distributions of the paramters $\mathbf{m}$.
+The first factor on the left-hand-side of Equation~\eqref{eq:propbayes} is identical to the likelihood
+function described in Section~\ref{sec:intro_inverse_problems}, and the second factor
+is known as the prior probability.
+
+The inclusion of the prior probability allows us to incorporate additional knowledge
+and beliefs about our inverse problem that is not otherwise included in the model.
+
+\subsection{Markov chain Monte Carlo methods}
+
+
 \subsection{Distributions on a sphere}
 
 In order to proceed with a Bayesian description of the problem, every parameter
@@ -249,7 +305,7 @@ review here.
 \label{fig:distributions}
 \end{figure*}
 
-The simplest probability distribution on a sphere is the spherical uniform distribution, shown in Figure~\ref{fig:uniform}.
+The simplest probability distribution on a sphere is the spherical uniform distribution, shown in Figure~\ref{fig:distributions}a.
 It has a probability density given by
 \begin{equation}
   \rho_U(\phi, \psi) = \frac{1}{4 \pi},
@@ -292,11 +348,11 @@ and so we will use it to calculate the likelihood function of the model.
   C_W = \left[ {}_1 F_1 \left( \frac{1}{2}, \frac{3}{2}, \kappa_W \right) \right]^{-1}
 \end{equation}
 
-\subsection{Markov chain Monte Carlo methods}
 
 \section{A model for PEP inversion}
 \label{sec:model}
 \subsection{Forward model}
+\label{sec:forward_model}
 The forward model for PEP analysis is essentially unchanged from that of \citet{gordon1984paleomagnetic}.
 We describe plate motions (and hence paleomagnetic pole motions) with a series of Euler poles.
 Each Euler pole has three parameters for which we are inverting (a latitude, a longitude and a rotation rate).
@@ -417,13 +473,33 @@ INCLUDE DISCUSSION OF WATSON PRIOR ON EULER POLES?
 
 \subsection{Likelihood}
 
+In addition to the choice of priors, we also need a statistical description of the observations.
+This will allow us to calculate the likelihood function, which, when combined with the priors,
+allows us to evaluate Bayes' theorem (Equation~\eqref{eq:propbayes}).
+
+In the case of APW paths, our observations are paleomagnetic poles.
+The most common statistical distribution for describing paleomagnetic poles is the Fisher distribution
+(though others are possible, such as the Kent or Bingham distribitions, c.f. \citet{tauxe2009essentials}). 
+Given the set of model parameters $\mathbf{m}$ and the forward model $\mathbf{g}$, described
+in Section~\ref{sec:forward_model}, we can calculate the predicted paleomagnetic pole unit vectors $\hat{\mathbf{x}}_{p,i}$.
+For a set of $i$ paleomagnetic poles, the likelihood is then given by the product of the probabilities
+of each observation:
+\begin{equation}
+P(\mathbf{d} \vert \mathbf{m}) = \displaystyle\prod_i \frac{1}{C_{F,i}} \exp \left( \kappa_{F,i} \hat{\mathbf{x}}_{p,i}^T \hat{\mitbf{\mu}}_i \right).
+\label{eq:model_likelihood}
+\end{equation}
+
+
 \subsection{Model selection}
 
 \section{Example inversions}
 \label{sec:example_inversion}
 
+Before proceeding with inversions for paleomagnetic Euler poles using real paleomagnetic data,
+it is useful to consider a few examples of inversions for synthetic datasets.
 
 \subsection{One stage pole}
+
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/one_euler_pole.pdf}
 \caption[Inversion for a single paleomagnetic Euler pole.]{Inversion for a single paleomagnetic Euler pole (PEP). (a) Four paleomagnetic poles are generated during a net $180^\circ$ rotation about an Euler pole at $0^\circ$N, $0^\circ$E over 30 Myr, for a rotation rate of $6^\circ$/Myr. The red distribution is the probability density function recovered by MCMC inversion, and the red lines are a sampling of the synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rate of the Euler pole recovered by the inversion. The peak of the distribution slightly underestimates the true value of $6^\circ$/Myr, and the great majority of the probability lies between $4^\circ-7^\circ$/Myr. }

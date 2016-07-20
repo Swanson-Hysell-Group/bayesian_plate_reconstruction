@@ -68,6 +68,7 @@ c = ax.pcolormesh(mesh_lon,mesh_lat, watson_vals,  transform=ccrs.PlateCarree(),
 ax.scatter(wat_samples[:,0], wat_samples[:,1], transform=ccrs.PlateCarree(), c='b', edgecolors='b')
 ax.gridlines()
 ax.set_global()
-ax.set_title("(b) Watson girdle")
+ax.set_title("(c) Watson girdle")
+plt.tight_layout()
 plt.savefig('distributions.pdf')
 

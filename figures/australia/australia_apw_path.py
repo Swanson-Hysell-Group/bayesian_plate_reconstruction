@@ -130,7 +130,7 @@ def plot_synthetic_paths():
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=30)
+        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
 
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
@@ -196,7 +196,7 @@ def plot_synthetic_poles():
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=30)
+        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
 
 
     colorcycle = itertools.cycle(colors)
@@ -291,7 +291,7 @@ if __name__ == "__main__":
         print("Done.")
         #print("MAP logp: ", path.find_MAP())
     else:
-        path.sample_mcmc(100000)
+        path.sample_mcmc(1000000)
         #print("MAP logp: ", path.logp_at_max)
     plot_synthetic_paths()
     plot_age_samples()
