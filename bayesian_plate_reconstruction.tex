@@ -210,12 +210,22 @@ including interpretations of plate speeds.
 \caption[Conceptual model for a paleomagnetic Euler pole.]{Conceptual model for a paleomagnetic Euler pole. A finite rotation of the plate around an Euler pole results in long, arcuate oceanic fracture zones and hotspot tracks which describe small circles on the globe. The same finite rotation produces a small circle in the APW path. By fitting a small circle to the APW path we may recover the Euler pole that produced the rotation.}
 \label{fig:pep}
 \end{figure*}
-A sequence of paleomagnetic poles from the same contintental block form an APW path.
+A sequence of paleomagnetic poles from the same contintental block form an APW path,
+which can then be analyzed to inform plate tectonic reconstructions and dynamic models
+of plate speeds through time. 
 
 \subsection{Latitudinal drift}
-The simplest analysis of an APW path is to compare the paleolatitudes of successive poles.
-The difference in paleolatitudes gives a mininimum polar wander rate.
-\subsection{Running means and spline fits}
+Due to the rotational symmetry of Earth's magnetic field, paleomagnetic poles do not
+directly constrain the paleolongitude of the continental block in question \citep{butler1992paleomagnetism}.
+The simplest analysis of an APW path is thus to compare the paleolatitudes of successive poles.
+The difference in paleolatitudes gives a mininimum distance over which the block has traveled, 
+corresponding to the great circle path between the two poles. If the two poles are well-dated,
+this also furnishes a minimum rate of latitudinal motion.
+
+It is also possible to fit
+\subsection{Running means}
+
+\subsection{Spherical splines}
 \subsection{Paleomagnetic Euler poles}
 \citet{gordon1984paleomagnetic}
 
@@ -479,8 +489,8 @@ allows us to evaluate Bayes' theorem (Equation~\eqref{eq:propbayes}).
 
 In the case of APW paths, our observations are paleomagnetic poles.
 The most common statistical distribution for describing paleomagnetic poles is the Fisher distribution
-(though others are possible, such as the Kent or Bingham distribitions, c.f. \citet{tauxe2009essentials}). 
-Given the set of model parameters $\mathbf{m}$ and the forward model $\mathbf{g}$, described
+(though others are possible, such as the Kent or Bingham distribitions, c.f. \citet{tauxe2009essentials}).
+Given the set of model parameters $\mathbf{m}$ and the forward model $\mathbf{g}(\mathbf{m})$, described
 in Section~\ref{sec:forward_model}, we can calculate the predicted paleomagnetic pole unit vectors $\hat{\mathbf{x}}_{p,i}$.
 For a set of $i$ paleomagnetic poles, the likelihood is then given by the product of the probabilities
 of each observation:
@@ -497,6 +507,9 @@ P(\mathbf{d} \vert \mathbf{m}) = \displaystyle\prod_i \frac{1}{C_{F,i}} \exp \le
 
 Before proceeding with inversions for paleomagnetic Euler poles using real paleomagnetic data,
 it is useful to consider a few examples of inversions for synthetic datasets.
+
+We begin by trying to recover the Euler pole for a single rotation.
+We generate a synthetic APW track of four poles
 
 \subsection{One stage pole}
 
