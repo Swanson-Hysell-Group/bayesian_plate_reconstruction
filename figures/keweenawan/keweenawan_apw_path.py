@@ -8,6 +8,7 @@ import cartopy.crs as ccrs
 import sys
 
 import mcplates
+from pymc.utils import hpd
 
 plt.style.use('../bpr.mplstyle')
 from mcplates.plot import cmap_red, cmap_green, cmap_blue
@@ -19,7 +20,8 @@ lon_shift = 180.
 # List of colors to use
 colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c',
           '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
-
+#colors = ['#348ABD', '#A60628', '#7A68A6', '#467821', '#D55E00', '#CC79A7', '#56B4E9', '#009E73', '#F0E442', '#0072B2']
+dist_colors_short = ['darkblue', 'darkred', 'darkgreen']
 
 # Parse input
 #Get number of euler rotations
@@ -73,6 +75,7 @@ for i, row in data.iterrows():
 
 slat = 46.8  # Duluth lat
 slon = 360. - 92.1 - lon_shift  # Duluth lon
+duluth = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
     'keweenawan_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
@@ -106,7 +109,7 @@ def plot_synthetic_paths():
     for p in poles:
         p.plot(ax, color=colorcycle.next())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", s=100)
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
     #plt.show()
     plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
 
@@ -163,7 +166,7 @@ def plot_synthetic_poles():
         ax.scatter(lons[:, i], lats[:, i], color=c,
                    transform=ccrs.PlateCarree())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", s=100)
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", c='k', s=100)
     #plt.show()
     plt.savefig("keweenawan_poles_" + str(n_euler_rotations)+".pdf")
 
@@ -171,27 +174,53 @@ def plot_synthetic_poles():
 def plot_plate_speeds():
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
-    duluth = mcplates.PlateCentroid(slon, slat)
-    numbers = iter(['First', 'Second', 'Third', 'Fourth'])
+
+    # Get a list of intervals for the rotations
+    if n_euler_rotations > 1:
+        changepoints = [ np.median(c) for c in path.changepoints() ]
+    else:
+        changepoints = []
+    age_list = [p.age for p in poles]
+    changepoints.insert( 0, max(age_list) )
+    changepoints.append( min(age_list) )
 
     fig = plt.figure()
-    i = 1
-    for directions, rates in zip(euler_directions, euler_rates):
+    ax = fig.add_subplot(111)
+    ax.set_xlabel('Plate speed (cm/yr)')
+    ax.set_ylabel('Probability density')
+
+    xmin = 1000.
+    xmax = 0.
+    colorcycle = itertools.cycle( dist_colors_short )
+    for i, (directions, rates) in enumerate(zip(euler_directions, euler_rates)):
+
+        #comptute plate speeds
         speed_samples = np.empty_like(rates)
         for j in range(len(rates)):
             euler = mcplates.EulerPole(
                 directions[j, 0], directions[j, 1], rates[j])
             speed_samples[j] = euler.speed_at_point(duluth)
 
-        ax = fig.add_subplot(1, n_euler_rotations, i)
-        ax.hist(speed_samples, bins=30, normed=True)
-        if n_euler_rotations > 1:
-            ax.set_title(numbers.next() + ' rotation')
-        ax.set_xlabel('Plate speed (cm/yr)')
-        ax.set_ylabel('Probability density')
-        i += 1
+        c = next(colorcycle)
 
-    plt.tight_layout()
+        #plot histogram
+        ax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+
+        # plot median, credible interval
+        credible_interval = hpd(speed_samples, 0.05)
+        median = np.median(speed_samples)
+        ax.axvline( median, lw=2, color=c )
+        ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+        ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+
+        xmin = max(0., min( xmin, median - 2.*(median-credible_interval[0])))
+        xmax = max( xmax, median + 2.*(credible_interval[1]-median))
+
+    if n_euler_rotations > 1:
+        ax.legend(loc='upper right')
+    ax.set_xlim(xmin, xmax)
+
+    #plt.show()
     plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
 
 
