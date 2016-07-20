@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 
 import pymc
+from pymc.utils import hpd
 import mcplates
 
 plt.style.use('../bpr.mplstyle')
@@ -16,12 +17,12 @@ dbname = 'age_uncertainty'
 n_euler_poles=1
 
 # Generate a synthetic data set
-ages = [40., 30., 20., 10.]
-age_uncertainties = ( 2.0, (10., 40.), (10., 40.), 2.0 )
-start_age = 40.
+ages = [10., 70., 130., 190.]
+age_uncertainties = ( 2.0, (10., 190.), (10., 190.), 2.0 )
+start_age = 190.
 hidden_start_pole = [30., 0.]
 hidden_euler_pole = [0., 0.]
-hidden_euler_rate = 180./30.
+hidden_euler_rate = 1.
 
 #Make a dummy APW path to create the synthetic data
 dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn( n_euler_poles, start_age)
@@ -56,7 +57,14 @@ def plot_result():
 
     ax = fig.add_subplot(1,2,2)
     rate_samples = path.euler_rates()
-    ax.hist(rate_samples, bins=15, normed=True, edgecolor='none', color='darkred', alpha=0.5)
+    c='darkred'
+    ax.hist(rate_samples, bins=15, normed=True, edgecolor='none', color=c, alpha=0.5)
+    # plot median, credible interval
+    credible_interval = hpd(rate_samples[0], 0.05)
+    median = np.median(rate_samples)
+    ax.axvline( median, lw=2, color=c )
+    ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+    ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
 
     ax.set_title('(b)')
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
@@ -71,7 +79,7 @@ def plot_age_samples():
     ax2 = fig.add_subplot(212)
 
     for p, age_samples in zip(pole_list, path.ages()):
-        age = np.linspace(5., 45., 1000)
+        age = np.linspace(5., 195., 1000)
         if p.age_type == 'gaussian':
             dist = st.norm.pdf(age, loc=p.age, scale=p.sigma_age)
         else:
@@ -79,8 +87,8 @@ def plot_age_samples():
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
         ax1.fill_between(age, 0, dist, color='b', alpha=0.6)
         ax2.hist(age_samples, color='b', normed=True, alpha=0.6)
-    ax1.set_ylim(0., 1.)
-    ax2.set_ylim(0., 1.)
+    ax1.set_ylim(0., 0.2)
+    ax2.set_ylim(0., 0.2)
     ax2.set_xlabel('Age (Ma)')
     ax1.set_ylabel('Prior probability')
     ax2.set_ylabel('Posterior probability')
@@ -93,6 +101,6 @@ if __name__ == "__main__":
     if os.path.isfile(dbname+'.pickle'):
         path.load_mcmc()
     else:
-        path.sample_mcmc(30000)
+        path.sample_mcmc(100000)
     plot_age_samples()
     plot_result()

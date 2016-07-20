@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 
 import pymc
+from pymc.utils import hpd
 import mcplates
 
 plt.style.use('../bpr.mplstyle')
@@ -15,12 +16,12 @@ dbname = 'two_euler_poles'
 n_euler_poles=2
 
 # Generate a synthetic data set
-ages = [40., 30., 20., 10., 0.]
-start_age = 40.
+ages = [260., 195., 130., 65., 0.]
+start_age = 260.
 hidden_start_pole = [-60., 0.]
 hidden_euler_poles = [ [-60., 41.], [60., 41.] ]
-hidden_euler_rates = [130./20., 130./20.]
-hidden_changepoint = 20.
+hidden_euler_rates = [1., 1.]
+hidden_changepoint = 130.
 #Make a dummy APW path to create the synthetic data
 dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn( n_euler_poles, start_age)
 pole_list = []
@@ -62,8 +63,24 @@ def plot_result():
 
     ax = fig.add_subplot(1,2,2)
     rate_samples = path.euler_rates()
-    ax.hist(rate_samples[0], bins=15, normed=True, edgecolor='none', color='darkred', alpha=0.5)
-    ax.hist(rate_samples[1], bins=15, normed=True, edgecolor='none', color='darkgreen', alpha=0.5)
+
+    c = 'darkred'
+    ax.hist(rate_samples[0], bins=15, normed=True, edgecolor='none', color=c, alpha=0.5)
+    # plot median, credible interval
+    credible_interval = hpd(rate_samples[0], 0.05)
+    median = np.median(rate_samples)
+    ax.axvline( median, lw=2, color=c )
+    ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+    ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+
+    c = 'darkgreen'
+    ax.hist(rate_samples[1], bins=15, normed=True, edgecolor='none', color=c, alpha=0.5)
+    # plot median, credible interval
+    credible_interval = hpd(rate_samples[1], 0.05)
+    median = np.median(rate_samples)
+    ax.axvline( median, lw=2, color=c )
+    ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+    ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
 
     ax.set_title('(b)')
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
