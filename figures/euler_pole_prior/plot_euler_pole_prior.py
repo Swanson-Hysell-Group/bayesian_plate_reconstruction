@@ -83,5 +83,6 @@ ax2.set_global()
 plt.colorbar(c, cax=ax2)
 
 plt.tight_layout()
-plt.show()
+#plt.show()
+plt.savefig("euler_pole_prior.pdf")
 
