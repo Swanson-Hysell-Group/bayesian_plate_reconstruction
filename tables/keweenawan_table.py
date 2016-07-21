@@ -16,4 +16,5 @@ df.rename(columns={'PLat': '$\\psi_p$',
 
 with open("keweenawan_poles.tex", 'w') as f:
     df[['Pole name', '$\\psi_p$', '$\\phi_p$', '$\\alpha_{95}$', 'Pole reference',\
-        'Nominal age', 'Lower age', 'Upper age', 'Age reference']].to_latex(f, escape=False, longtable=True, index=False)
+        'Nominal age', 'Lower age', 'Upper age', 'Age reference']].to_latex(f, 
+         float_format="%g", escape=False, longtable=True, index=False)
