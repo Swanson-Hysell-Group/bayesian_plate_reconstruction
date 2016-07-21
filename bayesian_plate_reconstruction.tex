@@ -114,7 +114,6 @@
 \address{}
 
 \begin{abstract}
-%% Text of abstract
 
 \end{abstract}
 
@@ -496,10 +495,10 @@ and allow us the option of incorporating information otherwise not captured by t
 Frequently we want to avoid biasing the results of the model towards a specific posterior distribution,
 so we try to choose as uninformative a prior as possible. Depending upon the context, and the type
 of parameter, that choice may vary.
-
 The central parameters in the paleomagnetic Euler pole problem are the Euler pole positions,
-the Euler pole magnitudes, the changepoints, and the starting point, which we treat in turn.
+the Euler pole magnitudes, the changepoints, the starting point, and the paleomagnetic pole ages, which we treat in turn.
 
+\textbf{Euler pole directions:} 
 The first parameter we consider is the position of the Euler poles, which should be drawn
 from a spherical probability distribution.
 The least informative prior for the i'th Euler pole is the uniform spherical distribution:
@@ -531,17 +530,34 @@ We find that the distribution is best fit with $\kappa_W \approx -0.8$, which co
 to the Euler pole probability density being roughly twice as large $90^\circ$
 away from a given point than on top of the point.
 
+\textbf{Euler pole magnitudes:} 
 The magnitude of each Euler pole is a strictly positive number, specifying the
-rotation rate of that pole. In order to not bias the inversion towards a particular
-rate we choose a uniform prior with large support. For the inversions shown in
-this manuscript we use
+rotation rate of that pole (negative rotations can be accomplished by flipping an Euler
+pole to the antipode).
+There are several possibilities for the prior on the rates.
+In order to not bias the inversion towards a particular
+rate we can choose a uniform prior with large support:
 \begin{equation}
-\vert \mitbf{\omega}_i \vert \sim U(0, 10)
+\vert \mitbf{\omega}_i \vert \sim U(0, 4)
 \end{equation}
 where $U(\cdot, \cdot)$ is a uniform distribution between two values, and is given
 in degrees per Myr. Typical rotation rates for present day plate motions
-are around $1^\circ$/Myr \citep{argus2011geologically}.
+are under $1^\circ$/Myr \citep{argus2011geologically}, which corresponds to rates
+of about $13^\circ$/Myr at a position $90^\circ$ from the pole.
 
+Another option is to choose a weakly informative prior for the Euler pole magnitudes
+informed by current plate motions (similar to the Watson girdle prior for the directions).
+A reasonable choice of distribution for strictly positive numbers is the exponential distribution,
+given by
+\begin{equation}
+\rho_E(x) = \lambda \exp(-\lambda t),
+\end{equation}
+which has higher probability density at lower values, and falls off exponentially.
+We sampled the current plate rates on Earth's surface according to NNR-MORVEL56
+and fit those to an exponential distribution. The best fitting scale parameter $\lambda$
+for current plate rates is $\lambda\approx2$.
+
+\textbf{Changepoints:} 
 The changepoints between successive Euler rotations should happen in the age
 range specified by the oldest (at age $a_\mathrm{max}$) and youngest (at age $a_\mathrm{min}$)
 paleomagnetic poles. We choose a uniform distribution as a prior for these changepoints:
@@ -550,6 +566,7 @@ c_i \sim U( a_\mathrm{min}, a_\mathrm{max}),
 \end{equation}
 where $c_i$ is the i'th changepoint.
 
+\textbf{Starting position:}
 Finally, the starting position $\hat{\mathbf{x}}_\mathrm{start}$ for the set of Euler pole rotations needs a prior.
 We could choose another uniform distribution, but a more reasonable choice
 is to start from near the oldest paleomagnetic pole in the dataset.
@@ -560,9 +577,10 @@ We therefore choose the Fisher distribution of the oldest paleomagnetic pole as 
 where $\kappa_{F0}$ and $\hat{\mitbf{\mu}}_0$ are the concentration parameter and mean direction
 of the oldest paleomagnetic pole in the dataset.
 
+\textbf{Pole ages:}
 One of the major advantages of Bayesian analysis is the ability to naturally incorporate
-uncertainties in as many parameters as we need. A drawback of previous approaches
-for modelling APWPs is that they do not easily account for uncertainties in
+uncertainties in as many parameters as we need. Previous approaches to
+modeling APWPs have the drawback that they do not easily account for uncertainties in
 the age of paleomagnetic poles. In our approach we can include age uncertainty
 by simply including the age of the poles as parameters in our model.
 
@@ -590,8 +608,8 @@ well-dated stratigraphic units, respectively.
 
 To summarize our choices for priors:
 \begin{itemize}
-\item Euler pole positions: spherical uniform distribution.
-\item Euler pole magnitudes: Uniform distribution between 0$^\circ$ and 10$^\circ$/Myr.
+\item Euler pole positions: spherical uniform distribution, or a Watson girdle distribution with $\kappa_W \approx -0.8$.
+\item Euler pole magnitudes: Uniform distribution between 0$^\circ$ and 4$^\circ$/Myr, or an exponential distribution with $\lambda \approx 2$.
 \item Changepoints: uniform distribution between $a_\mathrm{min}$ and $a_\mathrm{max}$.
 \item Paleomagnetic pole ages: normal or uniform distribution, depending on the type of age control for the geologic unit.
 \end{itemize}
