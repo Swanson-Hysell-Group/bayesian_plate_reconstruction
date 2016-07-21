@@ -361,7 +361,7 @@ The Bayesian approach to inverse problems takes a different strategy from the fr
 Rather than finding point estimates of a model fit, it treats the underlying model
 as a set of random variables with individual probability distributions.
 The probability distribution of the model $P(\mathbf{m} \vert \mathbf{d})$ 
-is then found by an application of Bayes theorem:
+is then found by an application of Bayes theorem \citep[cf.][]{sivia2006data}:
 \begin{equation}
 P\left(\mathbf{m} \vert \mathbf{d} \right) = \frac{ P \left(\mathbf{d}\vert \mathbf{m} \right) P \left( \mathbf{m} \right) }{P \left( \mathbf{d}\right)}
 \label{eq:bayes}
@@ -380,13 +380,25 @@ is known as the prior probability.
 The prior probability reflects the state of our knowledge and beliefs of the values
 of the model parameters prior to the consideration of our data, and can allow us
 to incoroporate constraints that are not otherwise included in the forward model.
-In contrast with the classical statistical approach to regularization, the Bayesian
-inverse problem can regularize the problem through the choice of prior, by making
+In contrast with the classical statistical approach of regularization, the Bayesian
+inverse problem can (in effect) regularize the problem through the choice of prior, by making
 choices of probability distributions that are lower for less realistic values 
 \citep{minson2013bayesian, sambridge2013transdimensional}.
 
 \subsection{Markov chain Monte Carlo methods}
 
+It is usually impossible to calculate the posterior
+probability distribution in Equation~\eqref{eq:bayes} directly \citep{davidson2015bayesian}. 
+It is much more tractable to generate a Markov chain which, in the long run,
+generates samples from the desired posterior \citep{gelman2014bayesian}, a
+class of methods known as Markov chain Monte Carlo (MCMC) methods.
+
+The literature on MCMC methods is extensive and we do not cover it here, but
+the interested reader can refer to \citet{gelman1996markov}, \citet{sambridge2013transdimensional},
+and \citet{davidson2015bayesian}. A number of high-quality free software packages
+for implementing MCMC models exist, including WinBUGS \citep{lunn2000winbugs}, 
+PyMC \citep{patil2010pymc}, and Stan \citep{carpenter2016stan}.
+In this work we make extensive use of PyMC.
 
 \subsection{Distributions on a sphere}
 
@@ -673,6 +685,8 @@ Before proceeding with inversions for paleomagnetic Euler poles using real paleo
 it is useful to consider a few examples of inversions for synthetic datasets.
 We have implemented the forward model described in Section~\ref{sec:forward_model}
 in Python, and used the package PyMC \citep{patil2010pymc} for performing the Monte Carlo inversion.
+We use a Metropolis-Hastings sampler, starting from a fit to the maximum a posteriori (MAP) probability.
+In most cases shown here we generate $10^6$ samples, discarding the first 20\%.
 
 \subsection{One stage pole}
 \label{sec:one_stage_pole}
