@@ -211,7 +211,10 @@ including interpretations of plate speeds.
 \end{figure*}
 A sequence of paleomagnetic poles from the same contintental block form an APW path,
 which can then be analyzed to inform plate tectonic reconstructions and dynamic models
-of plate speeds through time. 
+of plate speeds through time. Interpretation of these paths becomes difficult in the
+case of limited or high-uncertainty data, and when the paleomagnetic poles are of uncertain
+ages. A number of approaches to dealing with uncertainty in APW paths have been developed,
+which we briefly review here.
 
 \subsection{Latitudinal drift}
 Due to the rotational symmetry of Earth's magnetic field, paleomagnetic poles do not
@@ -222,7 +225,8 @@ corresponding to the great circle path between the two poles. If the two poles a
 this also furnishes a rate of latitudinal motion.
 
 It is also possible to estimate confidence bounds on the rate of latitudinal drift by
-taking a Monte Carlo approach. \citet{swanson2015new} generated samples from Fisher distributions
+bootstrap resampling \citep[e.g.][]{tarduno1990fast} or by taking a Monte Carlo approach. 
+\citet{swanson2015new} generated samples from Fisher distributions
 for a pair of poles from the Proterozoic Laurentian midcontinent rift zone to estimate the range
 of allowable latitudinal drift rates. They also sampled from the age uncertainties, assuming
 Gaussian distributions on the radiometric dates, which incorporated the age uncertainties of the poles.
@@ -271,7 +275,7 @@ An alternative method for smoothing APW paths is to perform a running Fisher
 mean on the poles with a moving window \citep{van2001evidence, torsvik2008global}.
 Typically the observed paleomagnetic poles are averaged every 1-10 Myr with a 10-30 Myr
 window size. Like spherical splines, the running mean approach has the ability
-to effectively tamp down on spurious loops in the APW path, with the width
+to effectively damp spurious loops in the APW path, with the width
 of the moving window controlling the amount of smoothing.
 Furthermore, it enforces an age progression in the averaged poles.
 \citet{torsvik2008global} also investigated the effects of combining running means
@@ -300,8 +304,12 @@ Since it specifies the Euler pole which produces a given small circle,
 this allows for an estimate of the longitudinal motion of a given plate, 
 as well as the total plate speed (instead of just the latitudinal component of the speed).
 
+On the other hand, Paleomagnetic Euler pole analysis has many of the same
+deficiencies that spline fits and running means have: it is not easy to compute
+uncertainties, especially in the presence of unknown ages of poles.
+Furthermore, one has the additional challenge of deciding how many PEPs to invert.
 In the following sections we develop a Bayesian statistical approach to
-PEP analysis which attempts to remove these deficiencies.
+PEP analysis which attempts to address these deficiencies.
 
 \section{Bayesian inversion}
 \label{sec:bayesian_inversion}
@@ -369,6 +377,10 @@ is known as the prior probability.
 The prior probability reflects the state of our knowledge and beliefs of the values
 of the model parameters prior to the consideration of our data, and can allow us
 to incoroporate constraints that are not otherwise included in the forward model.
+In contrast with the classical statistical approach to regularization, the Bayesian
+inverse problem can regularize the problem through the choice of prior, by making
+choices of probability distributions that are lower for less realistic values 
+\citep{minson2013bayesian, sambridge2013transdimensional}.
 
 \subsection{Markov chain Monte Carlo methods}
 
@@ -378,9 +390,11 @@ to incoroporate constraints that are not otherwise included in the forward model
 In order to proceed with a Bayesian description of the problem, every parameter
 in the model should be described by some statistical distribution that determines
 the probability that the parameter takes a specific value.
-In addition to several more familiar 1D distributions (such as uniform or normal distributions)
-we will also need to describe the statistics of points on a sphere, which we 
-review here. For a comprehensive discussion of spherical probability distributions,
+Parameters like pole ages can be described by familiar 1D probability distributions
+(such as uniform or normal distributions), whereas Euler pole locations are
+described by 2D distributions on the surface of a sphere.
+We review several of these distributions here.
+For a comprehensive discussion of spherical probability distributions,
 see \citet{fisher1987statistical}. Plots of the following distributions, as well as
 samples drawn from them, are shown in Figure~\ref{fig:distributions}. 
 
@@ -458,15 +472,18 @@ The forward model for PEP analysis is essentially unchanged from that of \citet{
 We describe plate motions (and hence paleomagnetic pole motions) with a series of Euler poles.
 Each Euler pole has three parameters for which we are inverting (a latitude, a longitude, and a rotation rate).
 
-We furthermore need a set of changepoints, which denote the ages where we transition from 
+We furthermore need to specify the ages where we transition from 
 one Euler pole to the next (the cusps, or ``hairpins'' of \citet{irving1972hairpins}).
+In the context of parameter inversion these are often known as ``changepoints.''
 
 Finally, we need a starting position on the globe, which, in practice, can be sampled
 from the Fisher distribution of the oldest paleomagnetic pole in the dataset.
 The starting point contributes two parameters (a latitude and a longitude).
 
 All together, this means that for an inversion with $n_e$ Euler poles, 
-the number parameters for which we are inverting is given by
+we have $3 n_e$ parameters for the poles, $(n_e-1)$ parameters for the changepoints,
+and 2 parameters for the starting location.
+The number parameters for which we are inverting is then given by
 \begin{equation}
 \begin{aligned}
 N &= 3 n_e + (n_e -1) + 2 \\
@@ -546,7 +563,9 @@ are under $1^\circ$/Myr \citep{argus2011geologically}, which corresponds to rate
 of about $13^\circ$/Myr at a position $90^\circ$ from the pole.
 
 Another option is to choose a weakly informative prior for the Euler pole magnitudes
-informed by current plate motions (similar to the Watson girdle prior for the directions).
+informed by recent plate motions (similar to the Watson girdle prior for the directions).
+\citet{zahirovic2015tectonic} found based on Cenozoic and Mesozoic plate reconstructions
+that plate speeds much higher than 15 cm/yr were unlikely.
 A reasonable choice of distribution for strictly positive numbers is the exponential distribution,
 given by
 \begin{equation}
@@ -556,11 +575,13 @@ which has higher probability density at lower values, and falls off exponentiall
 We sampled the current plate rates on Earth's surface according to NNR-MORVEL56
 and fit those to an exponential distribution. The best fitting scale parameter $\lambda$
 for current plate rates is $\lambda\approx2$.
+Making this choice of prior for Euler pole rotation rates can bee seen as a form
+of regularization on plate speeds.
 
 \textbf{Changepoints:} 
-The changepoints between successive Euler rotations should happen in the age
-range specified by the oldest (at age $a_\mathrm{max}$) and youngest (at age $a_\mathrm{min}$)
-paleomagnetic poles. We choose a uniform distribution as a prior for these changepoints:
+Changepoints occur sequentially between the oldest (at age $a_\mathrm{max}$) and
+youngest (at age $a_\mathrm{min}$) paleomagnetic poles.
+We choose a uniform distribution as a prior for these changepoints:
 \begin{equation}
 c_i \sim U( a_\mathrm{min}, a_\mathrm{max}),
 \end{equation}
@@ -756,6 +777,36 @@ which we recover from this inversion are visually identical to those in Figure~\
 \citet{swanson2009no}
 \subsection{Inversion for paleomagnetic Euler poles}
 \clearpage
+We investigated inverting the Keweenawan APW track for one, two, and three paleomagnetic Euler poles.
+Adding a third PEP did not improve the fit, and it left one Euler pole completely unconstrained.
+We interpret this as meaning that three PEPs is unnecessary given the data, and therefore focus
+on the results with one and two PEPs.
+We therefore focus on the results with one and two PEPs.
+
+The fit with a single PEP is shown in Figure~\ref{fig:keweenawan_paths_1}.
+The posterior distribution of the position for the Euler pole is shown in in blue,
+and a sampling of the small-circle paths generated from the posterior distribution are ploted over the paleomagnetic poles.
+Figure~\ref{fig:keweenawan_ages_1} shows the prior and posterior distributions for the ages of the poles,
+and Figure~\ref{fig:keweenawan_speeds_1} shows the posterior distribution of the plate speed for Laurentia,
+calculated with respect to Duluth, MN.
+
+The median plate speed for the one-Euler pole inversion is 26.5 cm/yr, with an HPD interval at 95\% of 23.0-30.5 cm/yr.
+
+The fit with two PEPs is shown in Figure~\ref{fig:keweenawan_paths_2}.
+The posterior distribution of the position for the first Euler pole is shown in blue,
+and the posterior distribution of the position for the second Euler pole is shown in red.
+Figure~\ref{fig:keweenawan_ages_2} shows the prior and posterior distributions for the ages of the poles,
+and Figure~\ref{fig:keweenawan_speeds_2} shows the posterior distribution of the plate speeds for the two rotations.
+
+The inversion places the changepoint between the two Euler rotations at roughly 1098 Ma.
+Before the chaingepoint the inverted plate motion is much faster, with median at 30 cm/yr
+and an HPD at 95\% of 22.6-38.5 cm/yr. After the changepoint the plate motion has a median
+of 13.7 cm/yr with and HPD at 95\% of 10.0-22.4 cm/yr.
+
+This slowdown in plate speed at approximately 1098 Ma is consistent with the conclusions of
+\citet{davis1997geochronology} and \citet{swanson2009no}, though the speeds in our
+model reflect overall plate speeds (rather than just latitudinal speeds) and naturally incorporate age uncertainties.
+
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/keweenawan/keweenawan_paths_1.pdf}
 \caption[Inversion of the Keweenawan track for a single Euler rotation]{Inversion of the Keweenawan track for a single Euler rotation. The posterior probability distribution is shown in blue, and a representative sample of the tracks generated by the inversion are drawn over the paleomagnetic poles. Also shown is the outline of Laurentia, with the location of Duluth drawn as a star.}
@@ -773,17 +824,17 @@ which we recover from this inversion are visually identical to those in Figure~\
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/keweenawan/keweenawan_paths_2.pdf}
-\caption{}
+\caption[Inversion of the Keweenawan track for two Euler rotations]{Inversion of the Keweenawan track for a single Euler rotation. The posterior probability distribution is shown in blue, and a representative sample of the tracks generated by the inversion are drawn over the paleomagnetic poles. Also shown is the outline of Laurentia, with the location of Duluth drawn as a star.}
 \label{fig:keweenawan_paths_2}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/keweenawan/keweenawan_ages_2.pdf}
-\caption{}
+\caption[Age probability distributions for the two-Euler pole Keweenawan track inversion]{Age probability distributions for the two-Euler pole Keweenawn track inversion. Top: prior probability distribitions. Poles with radiometric ages are given Gaussian priors. Poles with stratigraphic age control are given uniform priors between their bracketing ages. Bottom: posterior probability distributions.}
 \label{fig:keweenawan_ages_2}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/keweenawan/keweenawan_speeds_2.pdf}
-\caption[Laurentian plate speed distribution for a two-Euler pole inversion]{Laurentian plate speed distribution for a two-Euler pole inversion.}
+\caption[Laurentian plate speed distribution for a two-Euler pole inversion]{Laurentian plate speed distribution for a two-Euler pole inversion. The blue distribution shows the plate speeds for the first rotation, which occurs from approximately 1109-1098 Ma. The red distribution shows the plate speeds for the second rotation, which occurs from approximately 1098-1080 Ma. The changepoint is approximate, since it is also a random variable with its own posterior distribution. This inversion prefers a fast first rotation and a slower second rotation, though there is some overlap of the distributions.}
 \label{fig:keweenawan_speeds_2}
 \end{figure*}
 \subsection{Plate speeds for Mesoproterozoic Laurentia}
