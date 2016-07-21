@@ -581,6 +581,12 @@ for current plate rates is $\lambda\approx2$.
 Making this choice of prior for Euler pole rotation rates can bee seen as a form
 of regularization on plate speeds.
 
+\begin{figure*}
+\includegraphics[width=0.9\textwidth]{figures/euler_pole_prior/euler_pole_prior.pdf}
+\caption[Informative priors on Euler poles]{Informative priors for Euler poles. (a) Prior probabilities for rotation rates. The histogram is the angular rotation rate from one thousand samples from the surface of Earth, using the NNR-MORVEL56 model. A fit to this sample set with an exponential distribution obtains a scale parameter of $\lambda \approx 2.5$. We also show the distribution for $lambda = 1.0$, which imposes less regularization on the rate. (b) Prior probability density for the position of the Euler poles. We again sampled one thousand points on Earth's surface, calculating the angular distance between that point and the Euler pole for its plate. Fitting the resulting angular distribution to a Watson girdle distribution finds $\kappa_W \approx -0.8$. This results in a probability density roughly twice as large at the equator as at the pole.}
+\label{fig:one_euler_pole}
+\end{figure*}
+
 \textbf{Changepoints:} 
 Changepoints occur sequentially between the oldest (at age $a_\mathrm{max}$) and
 youngest (at age $a_\mathrm{min}$) paleomagnetic poles.

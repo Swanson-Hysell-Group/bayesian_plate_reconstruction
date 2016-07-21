@@ -73,6 +73,7 @@ ax1.plot(x, st.expon.pdf(x, scale=1./2.5), label=r'$\lambda = 2.5$', lw=3)
 ax1.legend(loc='upper right')
 ax1.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
 ax1.set_ylabel(r'Probability density')
+ax1.set_title('(a)')
 
 
 #plot position probabilities
@@ -80,6 +81,7 @@ ax2 = fig.add_subplot(1,2,2, projection = ccrs.Orthographic(0., 30.))
 c = ax2.pcolormesh(mesh_lon,mesh_lat, mesh_vals, cmap='copper', transform=ccrs.PlateCarree())
 ax2.gridlines()
 ax2.set_global()
+ax2.set_title('(b)')
 plt.colorbar(c, cax=ax2)
 
 plt.tight_layout()
