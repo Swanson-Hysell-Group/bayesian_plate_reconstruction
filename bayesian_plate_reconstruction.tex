@@ -436,6 +436,7 @@ in a belt orthogonal to the pole. It is useful for characterizing planar data, a
   &= \frac{1}{C_W} \exp \left( \kappa_W (\hat{\mathbf{x}}^T \hat{\mitbf{\mu}})^2 \right) \\
   &= \frac{1}{C_W} \exp \left( \kappa_W \cos^2 \theta \right)
   \end{aligned}
+\label{eq:watson}
 \end{equation}
 where $\kappa_W$ is the concentration of the girdle, $C_W$ is a normalization coefficient,
 and the other parameters are identical to those in the Fisher distribution.
@@ -496,12 +497,38 @@ so we try to choose as uninformative a prior as possible. Depending upon the con
 of parameter, that choice may vary.
 
 The central parameters in the paleomagnetic Euler pole problem are the Euler pole positions,
-the Euler pole magnitudes, the changepoints, and the starting point. 
-The least informative prior for the i'th Euler pole is a uniform spherical distribution:
+the Euler pole magnitudes, the changepoints, and the starting point, which we treat in turn.
+
+The first parameter we consider is the position of the Euler poles, which should be drawn
+from a spherical probability distribution.
+The least informative prior for the i'th Euler pole is the uniform spherical distribution:
 \begin{equation}
 \hat{\mitbf{\omega}}_i \sim \rho_U(\phi, \psi)
 \end{equation}
 essentially allowing the Euler pole to be anywhere on the globe with equal probability.
+
+An interesting alternative choice is to inform our prior for Euler pole position based
+on current plate motions. It has long been observed that, to first order, plate motions
+are well explained by slab-pull torques acting along subduction zones, and to a lesser
+extent, ridge push and continental keel effects \citep{forsyth1975relative, gordon1978absolute, richardson1992ridge}.
+This observation is explained by the fact that plate tectonics is the 
+surface expression of Earth's convection.
+
+We can then ask the question of whether the Euler pole for a given plate is more likely
+to be on top of the plate (corresponding to a spinning motion for that plate) or far away
+from that plate (corresponding to motion across the surface of Earth).
+Given the convective interpretation of plates, we can hypothesize that the second possibility
+is more likely (a spinning plate does not participate much in convection \citep{forte1987plate, gable1991convection}).
+
+To test this, we generated position samples on the surface of Earth and computed
+the angular distance between that point and the Euler pole for the plate in which that point resides.
+We used the NNR-MORVEL56 model for current plate motions \cite{argus2011geologically}
+and restricted our analysis to the fourteen largest plates.
+We then fit those angular distance samples to a Watson girdle distribution (Equation~\eqref{eq:watson}), 
+inverting for the concentration parameter $\kappa_W$.
+We find that the distribution is best fit with $\kappa_W \approx -0.8$, which corresponds
+to the Euler pole probability density being roughly twice as large $90^\circ$
+away from a given point than on top of the point.
 
 The magnitude of each Euler pole is a strictly positive number, specifying the
 rotation rate of that pole. In order to not bias the inversion towards a particular
