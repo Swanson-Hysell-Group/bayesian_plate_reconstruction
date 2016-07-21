@@ -41,6 +41,9 @@
 \usepackage{amsmath}
 \usepackage{color, soul}
 \usepackage{url}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{lscape}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -226,7 +229,7 @@ this also furnishes a rate of latitudinal motion.
 
 It is also possible to estimate confidence bounds on the rate of latitudinal drift by
 bootstrap resampling \citep[e.g.][]{tarduno1990fast} or by taking a Monte Carlo approach. 
-\citet{swanson2015new} generated samples from Fisher distributions
+\citet{swanson2014confirmation} generated samples from Fisher distributions
 for a pair of poles from the Proterozoic Laurentian midcontinent rift zone to estimate the range
 of allowable latitudinal drift rates. They also sampled from the age uncertainties, assuming
 Gaussian distributions on the radiometric dates, which incorporated the age uncertainties of the poles.
@@ -777,6 +780,11 @@ which we recover from this inversion are visually identical to those in Figure~\
 \citet{swanson2009no}
 \subsection{Inversion for paleomagnetic Euler poles}
 \clearpage
+
+\begin{landscape}
+\include{tables/keweenawan_poles}
+\end{landscape}
+
 We investigated inverting the Keweenawan APW track for one, two, and three paleomagnetic Euler poles.
 Adding a third PEP did not improve the fit, and it left one Euler pole completely unconstrained.
 We interpret this as meaning that three PEPs is unnecessary given the data, and therefore focus

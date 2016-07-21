@@ -1,4 +1,4 @@
-bayesian_plate_reconstruction.pdf: bayesian_plate_reconstruction.tex bayesian_plate_reconstruction.bib figures
+bayesian_plate_reconstruction.pdf: bayesian_plate_reconstruction.tex bayesian_plate_reconstruction.bib figures tables
 	pdflatex bayesian_plate_reconstruction
 	bibtex bayesian_plate_reconstruction
 	pdflatex bayesian_plate_reconstruction
@@ -7,6 +7,10 @@ bayesian_plate_reconstruction.pdf: bayesian_plate_reconstruction.tex bayesian_pl
 .PHONY: figures
 figures:
 	make -C figures
+
+.PHONY: tables
+tables:
+	make -C tables
 
 .PHONY: clean
 clean:
