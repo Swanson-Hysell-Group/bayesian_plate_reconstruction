@@ -208,7 +208,7 @@ including interpretations of plate speeds.
 \section{Interpretation of APW paths}
 \label{sec:apwp}
 \begin{figure*}
-%%\includegraphics[width=0.9\textwidth]{figures/cartoon/paleomagnetic_euler_pole.png}
+\includegraphics[width=0.9\textwidth]{figures/cartoon/paleomagnetic_euler_pole.png}
 \caption[Conceptual model for a paleomagnetic Euler pole.]{Conceptual model for a paleomagnetic Euler pole. A finite rotation of the plate around an Euler pole results in long, arcuate oceanic fracture zones and hotspot tracks which describe small circles on the globe. The same finite rotation produces a small circle in the APW path. By fitting a small circle to the APW path we may recover the Euler pole that produced the rotation.}
 \label{fig:pep}
 \end{figure*}
@@ -712,7 +712,7 @@ between $0.8^\circ$/Myr and $1.2^\circ$/Myr, reflecting the resolving power of t
 \subsection{Two stage poles}
 \label{sec:two_stage_poles}
 We next consider an inversion for an APW path with two stage poles.
-Unlike the example in Section~\ref{sec:one_euler_pole}, this inversion also requires a changepoint.
+Unlike the example in Section~\ref{sec:one_stage_pole}, this inversion also requires a changepoint.
 We generate five paleomagnetic poles from a starting point at $0^\circ$ N, $60^\circ$ W.
 The first rotation is around an Euler pole at $41^\circ$ N, $60^\circ$ W, and rotates at $1^\circ$/Myr for 130 Myr.
 The rotation rotation is around an Euler pole at $41^\circ$ N, $60^\circ$ E, rotates at the same rate for the same amount of time.
@@ -752,51 +752,89 @@ which we recover from this inversion are visually identical to those in Figure~\
 
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/age_uncertainty_samples.pdf}
-\caption{}
+\caption[Probability distributions for ages of the paleomagnetic poles in the one-Euler pole inversion test.]{Probability distributions for the ages of the paleomagentic poles in the one-Euler pole inversion test. Top: prior distributios. We presume the first and last poles to be radiometrically dated with one-sigma uncertainties of 2 Myr, and are assigned Gaussian prior distributions. The middle two poles are undated, and are only stratigraphically constrained to be between the first and last poles. Bottom: posterior distributions after $10^5$ MCMC samples. The distributons of the first and last samples are largely unchanged, but the distributions for the middle two poles are centered on their true values of 70 Ma and 130 Ma. Importantly, the middle poles help to constrain the location of the Euler pole, but the wide priors on their ages do not do much to constrain the rotation rates.}
 \label{fig:age_uncertainty_samples}
 \end{figure*}
 
 \section{Application to Cenozoic Australian APW path}
 \label{sec:australia}
 \clearpage
+Our first application of our model for PEP inversion is on the case of Cenozoic Australia.
+Australia's Cenozoic plate motions are relatively well constrained by oceanic fracture zones
+and hotspot volcanism \citep{muller1993revised, seton2012global}.
+This gives us the opportunity to compare the results of our model to those known motions.
+
+The most reliable Cenozoic Australian paleomagnetic data comes from \citet{idnurm1985lateI},
+\citet{idnurm1985lateII}, and \citet{idnurm1994new}.
+Earlier paleomagnetic poles exist, but they show considerably more scatter,
+and there are concerns that they do not adequately average secular variations
+\citep{idnurm1985lateI, klootwijk2009sedimentary}.
+\citet{idnurm1985lateII} found that the latitude-age progression of the paleomagnetic
+data was significantly faster than that given by hotspot tracks.
+He proposed that the best explanation for this discrepancy was a long-lived
+departure of Earth's magnetic field from a geocentric axial dipole (GAD).
+
+Here we reanalyze the available paleomagnetic data with our statistical model,
+which allows us to incorporate more recnet models for Australia's plate motions
+and perform an accounting of the uncertainties within our Bayesian framework.
+We fit the paleomagnetic pole list to one and two PEPs, and compared them
+to the global plate motion model from \citet{seton2012global}.
+
+Figure~\ref{fig:australia_paths_1} shows the result with for a single Euler pole
+plotted on the globe, and Figure~\ref{fig:australia_latitude_1} shows the single Euler pole result
+plotted as latitude vs. age.
+Both the paleomagnetic data and the \citet{seton2012global} model show a speed-up in
+Australia's motion as it approaches the present day, though the paleomagnetic data
+has systematically higher recent latitudes. 
+
+While the single Euler pole fit does a reasonble job of fitting the azimuth of the plate motion model 
+(Figure~\ref{fig:australia_paths_1}), has difficulty fitting that change in speed, 
+and does not pass through all the paleomagnetic poles in Figure~\ref{fig:australia_latitude_1}.
+
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_paths_1.pdf}
-\caption{}
+\caption[Australian Cenozoic APW path fit to one Euler rotation.]{Australian Cenozoic APW path fit to one Euler rotation. The blue distribution shows the posterior distribution of Euler pole positions, and the blue paths show a sampling of paths drawn from the posterior. The red line shows the polar wander path derived from the global plate motion model of \citet{seton2012global}, and the red star shows the average Euler pole defined by the \citet{seton2012global} path. We calculate plate speeds referenced to Uluru, shown by the black star.}
 \label{fig:australia_paths_1}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_latitude_1.pdf}
-\caption{}
+\caption[Latitude vs. age for Cenozoic Australia fit to one Euler rotation]{Latitude vs. age for Cenozoic Australia fit to one Euler rotation. The paleomagnetic poles are shown as data points, with age and latitude uncertainty. The blue lines show a sampling of the posterior path distribution, and the red line shows the \citet{seton2012global} plate motion model. Note that the paleomagnetic poles are systematically above the \citet{seton2012global} model, and that the single Euler rotation paths are not able to pass through all the data points.}
 \label{fig:australia_latitude_1}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_ages_1.pdf}
-\caption{}
+\caption[Age distributions for Cenozoic Australian paleomagnetic poles fit to one Euler rotation.] {Age distributions for Cenozoic Australian paleomagnetic poles fit to one Euler rotation. Top: prior distributions. Bottom: posterior distributions. Note that the inversion prefers the oldest pole to be younger, and the younger poles to be older, within their uncertainties. This reflects the difficulty of finding a single Euler rotation to adequately explain the data (compare with \ref{fig:australia_latitude_1}). }
 \label{fig:australia_ages_1}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_speeds_1.pdf}
-\caption{}
+\caption[Australian plate speed distribution for a single-Euler pole inversion]{Australian plate speed distribution for a single-Euler pole inversion.}
 \label{fig:australia_speeds_1}
 \end{figure*}
+
+The two-Euler pole inversion, shown in Figures~\ref{fig:australia_paths_2}-~\ref{fig:australia_speeds_2} does a better job of
+fitting the paleomagnetic poles, preferring a change in speed at $\sim 23$ Myr.
+However, the $\sim23-0$ Ma speeds are significantly faster than those from the global plate motion model,
+consistent with the conclusions of \citet{idnurm1985lateII}.
+
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_paths_2.pdf}
-\caption{}
 \label{fig:australia_paths_2}
+\caption[Australian Cenozoic APW path fit to two Euler rotations.]{Australian Cenozoic APW path fit to two Euler rotations. The blue distribution shows the posterior of positions for the first Euler pole, and the red distribution shows the posterior for the second Euler pole. The distribution of the first Euler pole is quite broad, reflecting the short length of the portion of the path that it is trying to fit (shorter paths provide less of a constraint on the position). The the blue paths show a sampling of paths drawn from the posterior. As in Figure~\ref{fig:australia_paths_1}, the red line shows the polar wander path derived from the global plate motion model of \citet{seton2012global}, and the red star shows the average Euler pole defined by the \citet{seton2012global} path.}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_ages_2.pdf}
-\caption{}
+\caption[Age distributions for Cenozoic Australian paleomagnetic poles fit to two Euler rotations.] {Age distributions for Cenozoic Australian paleomagnetic poles fit to two Euler rotationis. Top: prior distributions. Bottom: posterior distributions.}
 \label{fig:australia_ages_2}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_speeds_2.pdf}
-\caption{}
+\caption[Australian plate speed distribution for a two-Euler pole inversion]{Australian plate speed distribution for a two-Euler pole inversion. The blue distribution shows the plate speeds for the first rotation, which occurs from approximately 60-23 Ma. The red distribution shows the plate speeds for the second rotation, which occurs from approximately 23-0 Ma. The changepoint is approximate, since it is also a random variable with its own posterior distribution. This inversion prefers a slow first rotation and a fast second rotation}
 \label{fig:australia_speeds_2}
 \end{figure*}
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_latitude_2.pdf}
-\caption{}
+\caption[Latitude vs. age for Cenozoic Australia fit to two Euler rotations]{Latitude vs. age for Cenozoic Australia fit to two Euler rotations. The paleomagnetic poles are shown as data points, with age and latitude uncertainty. The blue lines show a sampling of the posterior path distribution, and the red line shows the \citet{seton2012global} plate motion model. Compared to the single Euler pole fits (\ref{fig:australia_latitude_1}), the two Euler pole fit does a much better job of passing through the paleomagnetic poles. However, while the modeled APW paths are qualitatively similar to the \citet{seton2012global} path in shape, the 0-23 Ma segment rotates significantly faster.}
 \label{fig:australia_latitude_2}
 \end{figure*}
 
