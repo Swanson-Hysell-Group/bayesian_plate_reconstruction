@@ -4,17 +4,21 @@ pd.set_option('max_colwidth', 60)
 
 df = pd.read_csv('pole_means.csv')
 df.fillna('', inplace=True)
-df.rename(columns={'PLat': '$\\psi_p$', 
+df.rename(columns={'PoleName': 'Pole',
+                   'PLat': '$\\psi_p$', 
                    'PLon':'$\\phi_p$', 
-                   'A95': '$\\alpha_{95}$', 
                    'PmagRef': 'Pole reference',
                    'AgeNominal': 'Nominal age',
                    'AgeLower': 'Lower age',
                    'AgeUpper': 'Upper age',
                    'gaussian2sigma': '$2\\sigma$',
                    'AgeRef' : 'Age reference'}, inplace=True)
+df = df[df.Pole != 'Osler_N'] #Huge error, does not contribute much to the model
+df = df[df.Pole != 'Abitibi'] # Standstill at the beginning, not realistic to fit
+df = df[df.Pole != 'Haliburton'] #Much younger, far away pole, difficutlt to fit
 
 with open("keweenawan_poles.tex", 'w') as f:
-    df[['Pole name', '$\\psi_p$', '$\\phi_p$', '$\\alpha_{95}$', 'Pole reference',\
+    df[['Pole', '$\\psi_p$', '$\\phi_p$', 'A95', 'Pole reference',\
         'Nominal age', 'Lower age', 'Upper age', 'Age reference']].to_latex(f, 
-         float_format="%g", escape=False, longtable=True, index=False)
+         float_format="%g", escape=False, longtable=True, index=False,
+         column_format='p{3cm} p{1.0cm} p{1.0cm} p{1.0cm} p{4cm} p{1.5cm} p{1.5cm} p{1.5cm} p{4cm}')
