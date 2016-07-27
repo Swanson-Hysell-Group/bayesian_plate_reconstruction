@@ -156,10 +156,14 @@ def plot_synthetic_paths():
     plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
 
 
-def plot_age_samples():
-    fig = plt.figure()
-    ax1 = fig.add_subplot(211)
-    ax2 = fig.add_subplot(212)
+def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
+    if ax1 is None and ax2 is None:
+        fig = plt.figure()
+        myax1 = fig.add_subplot(211)
+        myax2 = fig.add_subplot(212)
+    elif ax1 is not None and ax2 is not None:
+        myax1 = ax1
+        myax2 = ax2
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles[:-1], path.ages()[:-1]):
@@ -170,16 +174,22 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        ax1.fill_between(age, 0, dist, color=c, alpha=0.6)
-        ax2.hist(age_samples, color=c, normed=True, alpha=0.6)
-    ax1.set_ylim(0., 1.)
-    ax2.set_ylim(0., 1.)
-    ax2.set_xlabel('Age (Ma)')
-    ax1.set_ylabel('Prior probability')
-    ax2.set_ylabel('Posterior probability')
-    plt.tight_layout()
-    #plt.show()
-    plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
+        myax1.fill_between(age, 0, dist, color=c, alpha=0.6)
+        myax2.hist(age_samples, color=c, normed=True, alpha=0.6)
+    myax1.set_ylim(0., 1.)
+    myax2.set_ylim(0., 1.)
+    myax2.set_xlabel('Age (Ma)')
+    myax1.set_ylabel('Prior probability')
+    myax2.set_ylabel('Posterior probability')
+
+    if title1 != '':
+        myax1.set_title(title1)
+    if title2 != '':
+        myax2.set_title(title2)
+
+    if ax1 is None and ax2 is None:
+        plt.tight_layout()
+        plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
 
 
 def plot_synthetic_poles():
@@ -221,7 +231,13 @@ def plot_synthetic_poles():
     plt.savefig("australia_poles_" + str(n_euler_rotations)+".pdf")
 
 
-def plot_plate_speeds():
+def plot_plate_speeds( ax = None, title = ''):
+    if ax is None:
+        fig = plt.figure()
+        myax = fig.add_subplot(111)
+    else:
+        myax = ax
+
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
 
@@ -234,10 +250,8 @@ def plot_plate_speeds():
     changepoints.insert( 0, max(age_list) )
     changepoints.append( min(age_list) )
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.set_xlabel('Plate speed (cm/yr)')
-    ax.set_ylabel('Probability density')
+    myax.set_xlabel('Plate speed (cm/yr)')
+    myax.set_ylabel('Probability density')
 
     xmin = 1000.
     xmax = 0.
@@ -254,29 +268,36 @@ def plot_plate_speeds():
         c = next(colorcycle)
 
         #plot histogram
-        ax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
 
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)
         median = np.median(speed_samples)
-        ax.axvline( median, lw=2, color=c )
-        ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
-        ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+        print("Rotation %i: median %f, credible interval "%(i, median), credible_interval)
+        myax.axvline( median, lw=2, color=c )
+        myax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+        myax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
 
         xmin = max(0., min( xmin, median - 2.*(median-credible_interval[0])))
         xmax = max( xmax, median + 2.*(credible_interval[1]-median))
 
     if n_euler_rotations > 1:
-        ax.legend(loc='upper right')
-    ax.set_xlim(xmin, xmax)
+        myax.legend(loc='upper right')
+    myax.set_xlim(xmin, xmax)
 
-    #plt.show()
-    plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
 
 
-def latitude_time_plot():
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
+def latitude_time_plot( ax = None, title=''):
+    if ax is None:
+        fig = plt.figure()
+        myax = fig.add_subplot(111)
+    else:
+        myax = ax
 
     ages = [p.age for p in poles]
     #100 is the n_segments returned by synthetic pole computation
@@ -284,22 +305,25 @@ def latitude_time_plot():
     pathlons, pathlats = path.compute_synthetic_paths(n=100)
 
     for pathlat in pathlats:
-        ax.plot(times, -pathlat, 'b', alpha=0.03)
+        myax.plot(times, -pathlat, 'b', alpha=0.03)
 
     #compute apw path from hotspot data
     seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
-    ax.plot(seton_apw[:,0], seton_apw[:,2], 'r', lw=3)
+    myax.plot(seton_apw[:,0], seton_apw[:,2], 'r', lw=3)
 
     colorcycle = itertools.cycle(colors)
     for p in poles[:-1]:
-        ax.errorbar( p.age, -p.latitude, yerr= [p.angular_error,], \
-                     xerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
-                     color = colorcycle.next(), fmt='-')
-    ax.set_xlabel("Age (Ma)")
-    ax.set_ylabel("Latitude")
+        myax.errorbar( p.age, -p.latitude, yerr= [p.angular_error,], \
+                       xerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
+                       color = colorcycle.next(), fmt='-')
+    myax.set_xlabel("Age (Ma)")
+    myax.set_ylabel("Latitude")
 
-    #plt.show()
-    plt.savefig("australia_latitude_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("australia_latitude_" + str(n_euler_rotations)+".pdf")
 
 
 if __name__ == "__main__":
@@ -313,7 +337,16 @@ if __name__ == "__main__":
         path.sample_mcmc(1000000)
         #print("MAP logp: ", path.logp_at_max)
     plot_synthetic_paths()
-    plot_age_samples()
     plot_synthetic_poles()
-    plot_plate_speeds()
-    latitude_time_plot()
+
+    plt.clf()
+    fig = plt.figure( figsize = (8,8) )
+    ax1 = plt.subplot2grid( (4,4), (0,0), colspan=2, rowspan=2 )
+    ax2 = plt.subplot2grid( (4,4), (0,2), colspan=2, rowspan=2 )
+    ax3 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
+    ax4 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
+    plot_plate_speeds(ax1, title='(a)')
+    latitude_time_plot(ax2, title='(b)')
+    plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
+    plt.tight_layout()
+    plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
