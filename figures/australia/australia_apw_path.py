@@ -77,45 +77,50 @@ path = mcplates.APWPath(
 path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0, rate_scale=2.5)
 
 
-def plot_synthetic_paths():
+def plot_synthetic_paths( ax=None, title=''):
+    if ax is None:
+        if proj_type == 'M':
+            myax = plt.axes(projection=ccrs.Mollweide(200.-lon_shift))
+        elif proj_type == 'O':
+            myax = plt.axes(projection = ccrs.Orthographic(200.-lon_shift,30.))
+    else:
+        myax=ax
 
-    if proj_type == 'M':
-        ax = plt.axes(projection=ccrs.Mollweide(proj_lon))
-    elif proj_type == 'O':
-        ax = plt.axes(projection = ccrs.Orthographic(proj_lon,proj_lat))
+    myax.gridlines()
+    myax.set_global()
 
-    ax.gridlines()
-    ax.set_global()
-
-    mcplates.plot.plot_continent(ax, 'australia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
-    mcplates.plot.plot_continent(ax, 'antarctica', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    mcplates.plot.plot_continent(myax, 'australia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    mcplates.plot.plot_continent(myax, 'antarctica', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
     direction_samples = path.euler_directions()
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
+        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
 
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon, pathlat in zip(pathlons, pathlats):
-        ax.plot(pathlon-180., -pathlat, transform=ccrs.PlateCarree(),
+        myax.plot(pathlon-180., -pathlat, transform=ccrs.PlateCarree(),
                 color='b', alpha=0.05)
 
     colorcycle = itertools.cycle(colors)
     for p in poles[:-1]:
-        p.plot(ax, south_pole=True, color=colorcycle.next())
+        p.plot(myax, south_pole=True, color=colorcycle.next())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
+    myax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
 
     #Plot average rotation pole from Seton et al data
-    ax.scatter([210.9,], [-15.2,], color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
+    myax.scatter([210.9,], [-15.2,], color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
 
     seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
-    ax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
+    myax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
 
-    #plt.show()
-    plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
 
 
 def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
@@ -154,43 +159,35 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
         plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
 
 
-def plot_synthetic_poles():
-    if proj_type == 'M':
-        ax = plt.axes(projection=ccrs.Mollweide(proj_lon))
-    elif proj_type == 'O':
-        ax = plt.axes(projection = ccrs.Orthographic(proj_lon,proj_lat))
+def plot_synthetic_poles( ax=None, title=''):
+    if ax is None:
+        if proj_type == 'M':
+            myax = plt.axes(projection=ccrs.Mollweide(131.-lon_shift))
+        elif proj_type == 'O':
+            myax = plt.axes(projection = ccrs.Orthographic(131.-lon_shift,-70.))
+    else:
+        myax=ax
 
-    ax.gridlines()
-    ax.set_global()
+    myax.gridlines()
 
-    direction_samples = path.euler_directions()
-
-    mcplates.plot.plot_continent(ax, 'australia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
-    mcplates.plot.plot_continent(ax, 'antarctica', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
-
-    dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
-    for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
-
+    mcplates.plot.plot_continent(myax, 'antarctica', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
     colorcycle = itertools.cycle(colors)
     lons, lats, ages = path.compute_synthetic_poles(n=100)
-    for i in range(len(poles)-1):
+    for i in range(len(poles[:-1])):
         c = colorcycle.next()
-        poles[i].plot(ax, south_pole=True, color=c)
-        ax.scatter(lons[:, i]-180., -lats[:, i], color=c,
-                   transform=ccrs.PlateCarree())
-
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
-
-    #Plot average rotation pole from Seton et al data
-    ax.scatter([210.9,], [-15.2,], color='r', transform=ccrs.PlateCarree(), marker="*", s=100)
+        poles[i].plot(myax, south_pole=True, color=c)
+        myax.scatter(lons[:, i]-180., -lats[:, i], color=c,
+                     transform=ccrs.PlateCarree())
 
     seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
-    ax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
+    myax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
 
-    #plt.show()
-    plt.savefig("australia_poles_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("australia_poles_" + str(n_euler_rotations)+".pdf")
 
 
 def plot_plate_speeds( ax = None, title = ''):
@@ -298,8 +295,14 @@ if __name__ == "__main__":
     else:
         path.sample_mcmc(1000000)
         #print("MAP logp: ", path.logp_at_max)
-    plot_synthetic_paths()
-    plot_synthetic_poles()
+
+    fig = plt.figure( figsize=(8,4))
+    ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
+    ax2 = fig.add_subplot(1,2,2, projection = ccrs.Orthographic(130.-lon_shift,-30.))
+    plot_synthetic_paths(ax1, title='(a)')
+    plot_synthetic_poles(ax2, title='(b)')
+    plt.tight_layout()
+    plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
 
     plt.clf()
     fig = plt.figure( figsize = (8,8) )
