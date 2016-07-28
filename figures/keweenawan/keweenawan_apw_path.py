@@ -209,6 +209,7 @@ def plot_plate_speeds():
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)
         median = np.median(speed_samples)
+        print("Rotation %i: median %f, credible interval "%(i, median), credible_interval)
         ax.axvline( median, lw=2, color=c )
         ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
         ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')

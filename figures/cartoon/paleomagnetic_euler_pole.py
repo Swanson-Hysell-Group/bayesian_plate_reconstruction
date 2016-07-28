@@ -106,3 +106,4 @@ ax.scatter( hidden_euler_pole[0], hidden_euler_pole[1], c='b', marker='o', s=30,
 
 #plt.show()
 plt.savefig("paleomagnetic_euler_pole.png", dpi=600)
+plt.savefig("paleomagnetic_euler_pole.pdf")
