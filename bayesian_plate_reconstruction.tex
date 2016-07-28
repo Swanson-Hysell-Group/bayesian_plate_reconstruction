@@ -212,6 +212,8 @@ of naturally incorporating uncertainties in the paleomagnetic pole positions,
 as well as widely disparate age uncertainties that commonly occur in APW paths.
 The resulting stage poles for which we invert are not a single answer, but are instead
 a distribution of possible answers, furnishing uncertainties as part of the solution process.
+\citet{iaffaldano2012reconstructing} employed a similar approach for recent 
+plate motions in trying to reconstruct India's Cenozoic convergence with Asia.
 
 The paper is organized as follows: in Section~\ref{sec:apwp} we review different
 approaches for interpreting APW paths. In Section~\ref{sec:bayesian_inversion} we
@@ -710,6 +712,10 @@ in Python, and used the package PyMC \citep{patil2010pymc} to perform the Monte 
 We use a Metropolis-Hastings sampler, starting from a fit to the maximum a posteriori (MAP) probability.
 In most cases shown here we generate $10^6$ samples, discarding the first 20\% to avoid
 potential bias in the posterior due to a poor starting point.
+
+In all of the inversions we show here, we choose $\kappa_W=0$ for the Watson concentration parameter
+in the Euler pole direction prior distribution (that is, equivalent to a uniform distribution on a sphere),
+and $\lambda=2.5$ for the scale parameter in the Euler pole magnitude prior distribution.
 
 \subsection{One stage pole}
 \label{sec:one_stage_pole}
