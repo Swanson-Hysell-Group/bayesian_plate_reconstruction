@@ -79,7 +79,7 @@ duluth = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
     'keweenawan_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0)
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5)
 
 
 def plot_synthetic_paths():

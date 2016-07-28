@@ -31,8 +31,8 @@ for a in ages:
                                      hidden_euler_rates[0], hidden_euler_rates[1], hidden_changepoint)
     pole_list.append( mcplates.PaleomagneticPole( lon_lat[0], lon_lat[1], angular_error = 10., age=a, sigma_age = 0.01))
 
-path = mcplates.APWPath( dbname, pole_list, n_euler_poles )
-path.create_model()
+path = mcplates.APWPath( dbname, pole_list, n_euler_poles)
+path.create_model(watson_concentration=0.0, rate_scale=2.5)
 
 
 def plot_result():

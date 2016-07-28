@@ -74,7 +74,7 @@ uluru = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
     'australia_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0)
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0, rate_scale=2.5)
 
 
 def plot_synthetic_paths():
@@ -230,7 +230,7 @@ def plot_plate_speeds( ax = None, title = ''):
         c = next(colorcycle)
 
         #plot histogram
-        myax.hist(speed_samples, bins=20, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
 
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)

@@ -261,7 +261,7 @@ nor does it naturally extend to APW paths with more than two poles,
 especially if two coeval poles are not in agreement.
 
 \subsection{Spherical splines}
-
+\label{sec:spherical_splines}
 When considering APW paths with many poles, it becomes more difficult to perform
 latitudinal comparisons between pairs of poles. It is not always clear which pairs of
 poles to compare in cases where there are many overlapping paleomagnetic poles,
@@ -293,7 +293,7 @@ Finally, by their very nature, splines cannot represent the sharp hairpin cusps
 that characterize the abrupt shifts in motion that plates undergo \citep{irving1972hairpins, gordon1984paleomagnetic}.
 
 \subsection{Running means}
-
+\label{sec:running_means}
 An alternative method for developing APW paths is to perform a running Fisher
 mean on the poles with a moving window \citep{van2001evidence, torsvik2008global}.
 Typically the paleomagnetic poles are averaged every 1-10 Myr with a 10-30 Myr
@@ -312,7 +312,6 @@ It is also unclear how to interpret the resulting uncertainties in the path.
 It, too, does not easily incorporate age uncertainties in the poles.
 
 \subsection{Paleomagnetic Euler poles}
-
 Paleomagnetic Euler poles (PEP, introduced in Section~\ref{sec:introduction}, 
 also known as the ``small circle'' method, were first described by \citet{gordon1984paleomagnetic}.
 The model rests in recognizing that plate motions are well described by finite
@@ -822,10 +821,10 @@ plotted on the globe, and Figure~\ref{fig:australia_speeds_1}b shows the single 
 plotted as latitude vs. age.
 Both the paleomagnetic data and the \citet{seton2012global} model show a speed-up in
 Australia's motion as it approaches the present day, though the paleomagnetic data
-has systematically higher recent latitudes. 
+has systematically higher recent latitudes, implying faster plate speeds.
 
 While the single Euler pole fit does a reasonable job of fitting the azimuth of the plate motion model 
-(Figure~\ref{fig:australia_paths_1}), has difficulty fitting that change in speed, 
+(Figure~\ref{fig:australia_paths_1}), it has difficulty fitting that change in speed, 
 and does not pass through all the paleomagnetic poles in Figure~\ref{fig:australia_speeds_1}b.
 
 \begin{figure*}
@@ -836,7 +835,7 @@ and does not pass through all the paleomagnetic poles in Figure~\ref{fig:austral
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_speeds_1.pdf}
 \caption[Results for Australian Cenozoic APW path with one Euler rotation.]{Results for Australian Cenozoic APW path with one Euler rotation. 
-(a) Posterior distribution for plate speed.
+(a) Posterior distribution for plate speed. The solid line shows the median plate speed (6.2 cm/yr) and the dashed lines show the 95\% credible interval (5.4-8.1 cm/yr).
 (b) Latitude vs. age. The paleomagnetic poles are shown as data points, with age and latitude uncertainty. The blue lines show a sampling of the posterior path distribution, and the red line shows the \citet{seton2012global} plate motion model. Note that the paleomagnetic poles are systematically above the \citet{seton2012global} model, and that the single Euler rotation paths are not able to pass through all the data points.
 (c) Prior distributions for the ages of paleomagnetic poles.
 (d) Posterior distributions for the ages of paleomagnetic poles.}
@@ -859,7 +858,7 @@ Cenozoic plate motion models remains.
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_speeds_2.pdf}
 \caption[Results for Australian Cenozoic APW path with two Euler rotations.]{Results for Australian Cenozoic APW path with two Euler rotations. 
-(a) Posterior distributions for plate speeds. The blue distribution shows the plate speeds for the first rotation, which occurs from approximately 60-23 Ma. The red distribution shows the plate speeds for the second rotation, which occurs from approximately 23-0 Ma. The changepoint is approximate, since it is also a random variable with its own posterior distribution. This inversion prefers a slow first rotation and a fast second rotation.
+(a) Posterior distributions for plate speeds. The blue distribution shows the plate speeds for the first rotation, which occurs from approximately 60-23 Ma. The red distribution shows the plate speeds for the second rotation, which occurs from approximately 23-0 Ma. The changepoint is approximate, since it is also a random variable with its own posterior distribution. This inversion prefers a slow first rotation (2.2 cm/yr with a 95\% credible interval of 0-7.3 cm/yr) and a fast second rotation (11.8 cm/yr with a 95\% credible interval of 7.1-19 cm/yr).
 (b) Latitude vs. age. The paleomagnetic poles are shown as data points, with age and latitude uncertainty. The blue lines show a sampling of the posterior path distribution, and the red line shows the \citet{seton2012global} plate motion model. Compared to the single Euler pole fits (Figure~\ref{fig:australia_speeds_1}b), the two Euler pole fit does a much better job of passing through the paleomagnetic poles. However, while the modeled APW paths are qualitatively similar to the \citet{seton2012global} path in shape, the 0-23 Ma segment rotates significantly faster
 (c) Prior distributions for the ages of paleomagnetic poles.
 (d) Posterior distributions for the ages of paleomagnetic poles.}
