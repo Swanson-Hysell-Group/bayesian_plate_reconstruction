@@ -304,7 +304,7 @@ if __name__ == "__main__":
     plot_synthetic_poles(ax2, title='(b)')
     plt.tight_layout()
     plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
-    """
+
     plt.clf()
     if n_euler_rotations != 1:
         fig = plt.figure( figsize = (8,8) )
@@ -322,7 +322,6 @@ if __name__ == "__main__":
         ax3 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
         plot_plate_speeds(ax1, title='(a)')
         plot_age_samples(ax2, ax3, title1='(b)', title2='(c)')
-    """
 
     plt.tight_layout()
     plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
