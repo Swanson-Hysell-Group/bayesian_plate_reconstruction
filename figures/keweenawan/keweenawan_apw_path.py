@@ -56,6 +56,7 @@ data = data[data.PoleName != 'Haliburton'] #Much younger, far away pole, difficu
 data.sort_values('AgeNominal', ascending=False, inplace=True)
 
 poles = []
+pole_names = []
 for i, row in data.iterrows():
     pole_lat = row['PLat']
     pole_lon = row['PLon'] - lon_shift
@@ -72,6 +73,7 @@ for i, row in data.iterrows():
     pole = mcplates.PaleomagneticPole(
         pole_lon, pole_lat, angular_error=a95, age=age, sigma_age=sigma_age)
     poles.append(pole)
+    pole_names.append(row['PoleName'])
 
 slat = 46.8  # Duluth lat
 slon = 360. - 92.1 - lon_shift  # Duluth lon
@@ -82,42 +84,53 @@ path = mcplates.APWPath(
 path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5)
 
 
-def plot_synthetic_paths():
+def plot_synthetic_paths( ax=None, title=''):
+    if ax is None:
+        if proj_type == 'M':
+            ax = plt.axes(projection=ccrs.Mollweide(proj_lon))
+        elif proj_type == 'O':
+            ax = plt.axes(projection = ccrs.Orthographic(proj_lon,proj_lat))
+    else:
+        myax=ax
 
-    if proj_type == 'M':
-        ax = plt.axes(projection=ccrs.Mollweide(proj_lon))
-    elif proj_type == 'O':
-        ax = plt.axes(projection = ccrs.Orthographic(proj_lon,proj_lat))
-
-    ax.gridlines()
-    ax.set_global()
+    myax.gridlines()
+    myax.set_global()
 
     direction_samples = path.euler_directions()
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
+        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
 
-    mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    mcplates.plot.plot_continent(myax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon, pathlat in zip(pathlons, pathlats):
-        ax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
-                color='b', alpha=0.05)
+        myax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
+                  color='b', alpha=0.05)
 
     colorcycle = itertools.cycle(colors)
     for p in poles:
-        p.plot(ax, color=colorcycle.next())
+        p.plot(myax, color=colorcycle.next())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
-    #plt.show()
-    plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
+    myax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
+
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
 
 
-def plot_age_samples():
-    fig = plt.figure()
-    ax1 = fig.add_subplot(211)
-    ax2 = fig.add_subplot(212)
+
+def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
+    if ax1 is None and ax2 is None:
+        fig = plt.figure()
+        myax1 = fig.add_subplot(211)
+        myax2 = fig.add_subplot(212)
+    elif ax1 is not None and ax2 is not None:
+        myax1 = ax1
+        myax2 = ax2
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles, path.ages()):
@@ -128,50 +141,101 @@ def plot_age_samples():
         else:
             dist = st.uniform.pdf(age, loc=p.sigma_age[
                                   0], scale=p.sigma_age[1] - p.sigma_age[0])
-        ax1.fill_between(age, 0, dist, color=c, alpha=0.6)
-        ax2.hist(age_samples, color=c, normed=True, alpha=0.6)
-    ax1.set_ylim(0., 1.)
-    ax2.set_ylim(0., 1.)
-    ax1.set_xlim(1070, 1115)
-    ax2.set_xlim(1070, 1115)
-    ax2.set_xlabel('Age (Ma)')
-    ax1.set_ylabel('Prior probability')
-    ax2.set_ylabel('Posterior probability')
-    plt.tight_layout()
-    plt.savefig("keweenawan_ages_" + str(n_euler_rotations)+".pdf")
+        myax1.fill_between(age, 0, dist, color=c, alpha=0.6)
+        myax2.hist(age_samples, color=c, normed=True, alpha=0.6)
+    myax1.set_ylim(0., 1.)
+    myax2.set_ylim(0., 1.)
+    myax1.set_xlim(1070, 1115)
+    myax2.set_xlim(1070, 1115)
+    myax2.set_xlabel('Age (Ma)')
+    myax1.set_ylabel('Prior probability')
+    myax2.set_ylabel('Posterior probability')
+
+    if title1 != '':
+        myax1.set_title(title1)
+    if title2 != '':
+        myax2.set_title(title2)
+
+    if ax1 is None and ax2 is None:
+        plt.tight_layout()
+        plt.savefig("keweenawan_ages_" + str(n_euler_rotations)+".pdf")
 
 
-def plot_synthetic_poles():
-    if proj_type == 'M':
-        ax = plt.axes(projection=ccrs.Mollweide(proj_lon))
-    elif proj_type == 'O':
-        ax = plt.axes(projection = ccrs.Orthographic(proj_lon,proj_lat))
+def plot_synthetic_poles( ax=None, title=''):
+    if ax is None:
+        if proj_type == 'M':
+            myax = plt.axes(projection=ccrs.Mollweide(200.-lon_shift))
+        elif proj_type == 'O':
+            myax = plt.axes(projection = ccrs.Orthographic(200.-lon_shift,30.))
+    else:
+        myax=ax
 
-    ax.gridlines()
-    ax.set_global()
-
-    direction_samples = path.euler_directions()
-
-    dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
-    for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
-
-    mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    myax.gridlines()
 
     colorcycle = itertools.cycle(colors)
     lons, lats, ages = path.compute_synthetic_poles(n=100)
     for i in range(len(poles)):
         c = colorcycle.next()
         poles[i].plot(ax, color=c)
-        ax.scatter(lons[:, i], lats[:, i], color=c,
-                   transform=ccrs.PlateCarree())
+        myax.scatter(lons[:, i], lats[:, i], color=c,
+                     transform=ccrs.PlateCarree())
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), marker="*", c='k', s=100)
-    #plt.show()
-    plt.savefig("keweenawan_poles_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
 
+    if ax is None:
+        plt.savefig("keweenawan_poles_" + str(n_euler_rotations)+".pdf")
 
-def plot_plate_speeds():
+def plot_changepoints( ax=None, title=''):
+    if ax is None:
+        fig = plt.figure()
+        myax = fig.add_subplot(111)
+    else:
+        myax = ax
+
+    changepoints = path.changepoints()
+
+    myax.set_xlabel('Changepoint (Ma)')
+    myax.set_ylabel('Probability density')
+
+    xmin= 1.e10
+    xmax=0.0
+    colorcycle = itertools.cycle( dist_colors_short )
+    for i, change in enumerate(changepoints):
+
+        c = next(colorcycle)
+
+        #plot histogram
+        myax.hist(change, bins=30, normed=True, alpha=0.5, color=c, label='Changepoint %i'%(i))
+
+        # plot median, credible interval
+        credible_interval = hpd(change, 0.05)
+        median = np.median(change)
+        print("Changepoint %i: median %f, credible interval "%(i, median), credible_interval)
+        myax.axvline( median, lw=2, color=c )
+        myax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+        myax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+
+        xmin = max(0., min( xmin, median - 2.*(median-credible_interval[0])))
+        xmax = max( xmax, median + 2.*(credible_interval[1]-median))
+
+    if n_euler_rotations > 2:
+        myax.legend(loc='upper right')
+    myax.set_xlim(xmin, xmax)
+
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("keweenawan_changepoints_" + str(n_euler_rotations)+".pdf")
+
+def plot_plate_speeds( ax = None, title = ''):
+    if ax is None:
+        fig = plt.figure()
+        myax = fig.add_subplot(111)
+    else:
+        myax = ax
+
     euler_directions = path.euler_directions()
     euler_rates = path.euler_rates()
 
@@ -184,10 +248,8 @@ def plot_plate_speeds():
     changepoints.insert( 0, max(age_list) )
     changepoints.append( min(age_list) )
 
-    fig = plt.figure()
-    ax = fig.add_subplot(111)
-    ax.set_xlabel('Plate speed (cm/yr)')
-    ax.set_ylabel('Probability density')
+    myax.set_xlabel('Plate speed (cm/yr)')
+    myax.set_ylabel('Probability density')
 
     xmin = 1000.
     xmax = 0.
@@ -204,25 +266,28 @@ def plot_plate_speeds():
         c = next(colorcycle)
 
         #plot histogram
-        ax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
 
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)
         median = np.median(speed_samples)
         print("Rotation %i: median %f, credible interval "%(i, median), credible_interval)
-        ax.axvline( median, lw=2, color=c )
-        ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
-        ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+        myax.axvline( median, lw=2, color=c )
+        myax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
+        myax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
 
         xmin = max(0., min( xmin, median - 2.*(median-credible_interval[0])))
         xmax = max( xmax, median + 2.*(credible_interval[1]-median))
 
     if n_euler_rotations > 1:
-        ax.legend(loc='upper right')
-    ax.set_xlim(xmin, xmax)
+        myax.legend(loc='upper right')
+    myax.set_xlim(xmin, xmax)
 
-    #plt.show()
-    plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
+    if title != '':
+        myax.set_title(title)
+
+    if ax is None:
+        plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
 
 
 if __name__ == "__main__":
@@ -231,7 +296,33 @@ if __name__ == "__main__":
         path.load_mcmc()
     else:
         path.sample_mcmc(1000000)
-    plot_synthetic_paths()
-    plot_age_samples()
-    plot_synthetic_poles()
-    plot_plate_speeds()
+
+    fig = plt.figure( figsize=(8,4))
+    ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
+    ax2 = fig.add_subplot(1,2,2, projection = ccrs.Orthographic(200.-lon_shift,30.))
+    plot_synthetic_paths(ax1, title='(a)')
+    plot_synthetic_poles(ax2, title='(b)')
+    plt.tight_layout()
+    plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
+    """
+    plt.clf()
+    if n_euler_rotations != 1:
+        fig = plt.figure( figsize = (8,8) )
+        ax1 = plt.subplot2grid( (4,4), (0,0), colspan=2, rowspan=2 )
+        ax2 = plt.subplot2grid( (4,4), (0,2), colspan=2, rowspan=2 )
+        ax3 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
+        ax4 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
+        plot_plate_speeds(ax1, title='(a)')
+        plot_changepoints(ax2, title='(b)')
+        plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
+    else:
+        fig = plt.figure( figsize = (8,8) )
+        ax1 = plt.subplot2grid( (4,4), (0,0), colspan=4, rowspan=2 )
+        ax2 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
+        ax3 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
+        plot_plate_speeds(ax1, title='(a)')
+        plot_age_samples(ax2, ax3, title1='(b)', title2='(c)')
+    """
+
+    plt.tight_layout()
+    plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
