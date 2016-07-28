@@ -94,7 +94,7 @@ def plot_synthetic_paths():
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=30)
+        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
 
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)

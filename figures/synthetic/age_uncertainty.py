@@ -62,6 +62,7 @@ def plot_result():
     # plot median, credible interval
     credible_interval = hpd(rate_samples[0], 0.05)
     median = np.median(rate_samples)
+    print("Median %f, credible interval "%(median), credible_interval)
     ax.axvline( median, lw=2, color=c )
     ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
     ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
