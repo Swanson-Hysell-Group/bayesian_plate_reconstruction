@@ -43,7 +43,7 @@
 \usepackage{url}
 \usepackage{booktabs}
 \usepackage{longtable}
-\usepackage{lscape}
+\usepackage{pdflscape}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
 
@@ -790,8 +790,18 @@ Australia's Cenozoic plate motions are relatively well constrained by oceanic fr
 and hotspot volcanism \citep{muller1993revised, seton2012global}.
 This gives us the opportunity to compare the results of our model to those known motions.
 
-The most reliable Cenozoic Australian paleomagnetic data comes from \citet{idnurm1985lateI},
-\citet{idnurm1985lateII}, and \citet{idnurm1994new}.
+\begin{table}
+\scriptsize
+\input{tables/australia_poles}
+\caption{Paleomagnetic poles used for the Australia inversion, as well as references. 
+$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and A95 gives the 95\% angular confidence interval for that position.
+The paleomagnetic poles come primarily from sedimentary successions with biostratigraphic age control 
+(with the exception of the Newer Volcanics, which erupted from $\sim2-4$ Ma).
+Upper and lower age bounds come from estimates from \citet{idnurm1985lateI} and version 4.6 of the Global paleomagnetic databad (GPMDB). }
+\label{tab:australia_poles}
+\end{table}
+
+The most reliable Cenozoic Australian paleomagnetic data comes from \citet{idnurm1985lateI} and \citet{idnurm1994new}.
 Earlier paleomagnetic poles exist, but they show considerably more scatter,
 and there are concerns that they do not adequately average secular variations
 \citep{idnurm1985lateI, klootwijk2009sedimentary}.
@@ -905,7 +915,10 @@ The paleomagnetic poles we use, along with uncertainties and age constraints are
 \begin{table}
 \scriptsize
 \input{tables/keweenawan_poles}
-\caption{}
+\caption{Paleomagnetic poles used for the Keweenawan inversion, as well as references for their positions and ages. 
+$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and A95 gives the 95\% angular confidence interval for that position.
+For poles with a radiometric date we give the age with 2$\sigma$ error bars.
+For poles with stratigraphic age control we give upper and lower bounds on the age.}
 \label{tab:keweenawan_poles}
 \end{table}
 \end{landscape}

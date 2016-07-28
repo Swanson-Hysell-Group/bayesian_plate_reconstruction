@@ -77,44 +77,6 @@ path = mcplates.APWPath(
 path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0)
 
 
-## Create a function that reproduces the APW path
-## of Mueller et al 1993, for Australia relative
-## to a hotspot reference frame.
-class muller_etal_1993_apw_path_function(object):
-    def __init__(self):
-        # enumerate euler poles, rotation angles, and changepoints for the Cenozoic
-        self.angles = np.array([7.27, 13.23-7.27, 22.47-13.23, 26.0-22.47, 27.67-26.0, 27.86-27.67, 28.72-27.86])
-        self.changepoints = np.array([10.4, 20.5, 35.5, 42.7, 50.3, 58.6, 68.5])
-        
-        self.e1 = mcplates.EulerPole( 40.6+180., -23.7, self.angles[0]/self.changepoints[0]) 
-        self.e2 = mcplates.EulerPole( 31.4+180., -27.1, self.angles[1]/(self.changepoints[1]-self.changepoints[0])) 
-        self.e3 = mcplates.EulerPole( 30.1+180., -22.7, self.angles[2]/(self.changepoints[2]-self.changepoints[1])) 
-        self.e4 = mcplates.EulerPole( 27.8+180., -24.0, self.angles[3]/(self.changepoints[3]-self.changepoints[2])) 
-        self.e5 = mcplates.EulerPole( 25.9+180., -23.3, self.angles[4]/(self.changepoints[4]-self.changepoints[3])) 
-        self.e6 = mcplates.EulerPole( 26.2+180., -23.0, self.angles[5]/(self.changepoints[5]-self.changepoints[4])) 
-        self.e7 = mcplates.EulerPole( 26.8+180., -18.3, self.angles[6]/(self.changepoints[6]-self.changepoints[5])) 
-        self.euler_poles = [self.e1,self.e2,self.e3,self.e4,self.e5,self.e6,self.e7]
-
-    def __call__(self,age):
-        pole = mcplates.Pole( 0., -90., 1.)
-        current_age=0
-        for euler, angle, change in zip(self.euler_poles, self.angles, self.changepoints):
-            if age > change:
-                pole.rotate( euler, -angle )
-                current_age = change
-            else:
-                pole.rotate( euler, -euler.rate*(age-current_age))
-                break
-        return pole.longitude, pole.latitude
-
-    def speed(self, age):
-        assert(age < self.changepoints[-1] and age >= 0)
-        for i,c in enumerate(self.changepoints):
-            if c > age:
-                return self.euler_poles[i].speed_at_point(uluru)
-
-muller_apw = muller_etal_1993_apw_path_function()
-
 def plot_synthetic_paths():
 
     if proj_type == 'M':
@@ -132,7 +94,7 @@ def plot_synthetic_paths():
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
+        mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=30)
 
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
@@ -268,7 +230,7 @@ def plot_plate_speeds( ax = None, title = ''):
         c = next(colorcycle)
 
         #plot histogram
-        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+        myax.hist(speed_samples, bins=20, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
 
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)
