@@ -55,7 +55,7 @@ poles = []
 for i, row in data.iterrows():
     pole_lat = row['PLAT']
     pole_lon = row['PLONG'] - lon_shift
-    a95 = row['ED95']
+    a95 = np.sqrt(row['DP']*row['DM'])
     age = (row['HIGHAGE']+row['LOWAGE'])/2.
 
     sigma_age = (row['LOWAGE'], row['HIGHAGE'])
