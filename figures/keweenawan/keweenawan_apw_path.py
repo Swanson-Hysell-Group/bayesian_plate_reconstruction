@@ -4,6 +4,7 @@ import numpy as np
 import scipy.stats as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import cartopy.crs as ccrs
 import sys
 
@@ -22,6 +23,25 @@ colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c',
           '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
 #colors = ['#348ABD', '#A60628', '#7A68A6', '#467821', '#D55E00', '#CC79A7', '#56B4E9', '#009E73', '#F0E442', '#0072B2']
 dist_colors_short = ['darkblue', 'darkred', 'darkgreen']
+
+# Used for making a custom legend for the plots
+class LegendHandler(object):
+    def legend_artist(self, legend, orig_handle, fontsize, handlebox):
+        c = orig_handle
+        x0, y0 = handlebox.xdescent, handlebox.ydescent
+        x1, y1 = handlebox.width, handlebox.height
+        x = (x0+x1)/2.
+        y = (y0+y1)/2.
+        r = min((x1-x0)/2., (y1-y0)/2.)
+        patch = mpatches.Circle((x, y), 2.*r, facecolor=c,
+                                alpha=0.5, lw=0,
+                                transform=handlebox.get_transform())
+        point = mpatches.Circle((x, y), r/2., facecolor=c,
+                                alpha=1.0, lw=0,
+                                transform=handlebox.get_transform())
+        handlebox.add_artist(patch)
+        handlebox.add_artist(point)
+        return patch,point
 
 # Parse input
 #Get number of euler rotations
@@ -290,10 +310,27 @@ def plot_plate_speeds( ax = None, title = ''):
         plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
 
 
+def make_legend(ax, title):
+    # Make a custom legend
+    import textwrap
+    colorcycle = itertools.cycle(colors)
+    color_list = [ next(colorcycle) for p in pole_names]
+    legend_names = [ '\n'.join(textwrap.wrap(name, 35)) for name in pole_names]
+    legend = ax.legend(color_list, legend_names, fontsize=11, loc='center',
+                frameon=False, framealpha=1.0, handler_map={str: LegendHandler()})
+    legend.get_frame().set_facecolor('white')
+
+    ax.axis('off')
+    if title != '':
+        ax.set_title(title)
+
+
 if __name__ == "__main__":
     import os
     if os.path.isfile(path.dbname):
+        print("Loading MCMC results from disk...")
         path.load_mcmc()
+        print("Done")
     else:
         path.sample_mcmc(1000000)
 
@@ -306,22 +343,17 @@ if __name__ == "__main__":
     plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
 
     plt.clf()
-    if n_euler_rotations != 1:
-        fig = plt.figure( figsize = (8,8) )
-        ax1 = plt.subplot2grid( (4,4), (0,0), colspan=2, rowspan=2 )
-        ax2 = plt.subplot2grid( (4,4), (0,2), colspan=2, rowspan=2 )
-        ax3 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
-        ax4 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
-        plot_plate_speeds(ax1, title='(a)')
-        plot_changepoints(ax2, title='(b)')
-        plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
+    fig = plt.figure( figsize = (8,8) )
+    ax1 = plt.subplot2grid( (4,4), (0,0), colspan=2, rowspan=2 )
+    ax2 = plt.subplot2grid( (4,4), (0,2), colspan=2, rowspan=2 )
+    ax3 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
+    ax4 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
+    plot_plate_speeds(ax1, title='(a)')
+    if n_euler_rotations == 1:
+        make_legend(ax2, title='(b)')
     else:
-        fig = plt.figure( figsize = (8,8) )
-        ax1 = plt.subplot2grid( (4,4), (0,0), colspan=4, rowspan=2 )
-        ax2 = plt.subplot2grid( (4,4), (2,0), colspan=4, rowspan=1 )
-        ax3 = plt.subplot2grid( (4,4), (3,0), colspan=4, rowspan=1)
-        plot_plate_speeds(ax1, title='(a)')
-        plot_age_samples(ax2, ax3, title1='(b)', title2='(c)')
+        plot_changepoints(ax2, title='(b)')
+    plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
 
     plt.tight_layout()
     plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
