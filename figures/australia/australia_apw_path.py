@@ -4,6 +4,7 @@ import numpy as np
 import scipy.stats as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import cartopy.crs as ccrs
 import sys
 
@@ -22,6 +23,25 @@ lon_shift = 0.
 #          '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
 colors = ['#348ABD', '#A60628', '#7A68A6', '#467821', '#D55E00', '#CC79A7', '#56B4E9', '#009E73', '#F0E442', '#0072B2']
 dist_colors_short = ['darkblue', 'darkred', 'darkgreen']
+
+# Used for making a custom legend for the plots
+class LegendHandler(object):
+    def legend_artist(self, legend, orig_handle, fontsize, handlebox):
+        c = orig_handle
+        x0, y0 = handlebox.xdescent, handlebox.ydescent
+        x1, y1 = handlebox.width, handlebox.height
+        x = (x0+x1)/2.
+        y = (y0+y1)/2.
+        r = min((x1-x0)/2., (y1-y0)/2.)
+        patch = mpatches.Circle((x, y), 2.*r, facecolor=c,
+                                alpha=0.5, lw=0,
+                                transform=handlebox.get_transform())
+        point = mpatches.Circle((x, y), r/2., facecolor=c,
+                                alpha=1.0, lw=0,
+                                transform=handlebox.get_transform())
+        handlebox.add_artist(patch)
+        handlebox.add_artist(point)
+        return patch,point
 
 
 # Parse input
@@ -52,6 +72,7 @@ data.sort_values('HIGHAGE', ascending=False, inplace=True)
 
 # Add poles from Australia pole list
 poles = []
+pole_names = []
 for i, row in data.iterrows():
     pole_lat = row['PLAT']
     pole_lon = row['PLONG'] - lon_shift
@@ -63,6 +84,7 @@ for i, row in data.iterrows():
     pole = mcplates.PaleomagneticPole(
         pole_lon, pole_lat, angular_error=a95, age=age, sigma_age=sigma_age)
     poles.append(pole)
+    pole_names.append(row['ROCKNAME'])
 
 # Add pole with low error for present day pole
 poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
@@ -115,6 +137,14 @@ def plot_synthetic_paths( ax=None, title=''):
 
     seton_apw = np.loadtxt('australia_apw_seton_2012.txt')
     myax.plot(seton_apw[:,1], seton_apw[:,2], 'r', lw=3, transform=ccrs.PlateCarree())
+
+    # Make a custom legend
+    colorcycle = itertools.cycle(colors)
+    color_list = [ next(colorcycle) for p in pole_names]
+    legend_names = [ name.replace(',', ',\n') for name in pole_names]
+    legend = myax.legend(color_list, legend_names, fontsize='small', loc='upper left',
+                frameon=True, framealpha=0.9, handler_map={str: LegendHandler()})
+    legend.get_frame().set_facecolor('white')
 
     if title != '':
         myax.set_title(title)
