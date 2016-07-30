@@ -361,7 +361,7 @@ If each of the observed data $d_i$ are described by Gaussian random variables
 with standard deviations $\sigma_i$, the likelihood function is given by the product
 of the individual likelihoods of the observations:
 \begin{equation}
-\mathcal{L}(\mathbf{d} | \mathbf{m} ) = \displaystyle\prod_i \exp\left({-\frac{(d_i - d_{p,i})^2}{2 \sigma_i^2}}\right)
+\mathcal{L}(\mathbf{d} | \mathbf{m} ) = \displaystyle\prod_i \exp\left({-\frac{(d_i - d_{pi})^2}{2 \sigma_i^2}}\right).
 \label{eq:example_likelihood}
 \end{equation}
 The likelihood function $\mathcal{L}$ is maximized by searching over the model parameter space.
@@ -384,17 +384,18 @@ as a set of random variables with individual probability distributions.
 The probability distribution of the model $P(\mathbf{m} \vert \mathbf{d})$ given the data 
 is then found by an application of Bayes theorem \citep[cf.][]{sivia2006data}:
 \begin{equation}
-P\left(\mathbf{m} \vert \mathbf{d} \right) = \frac{ P \left(\mathbf{d}\vert \mathbf{m} \right) P \left( \mathbf{m} \right) }{P \left( \mathbf{d}\right)}
+P\left(\mathbf{m} \vert \mathbf{d} \right) = \frac{ P \left(\mathbf{d}\vert \mathbf{m} \right) P \left( \mathbf{m} \right) }{P \left( \mathbf{d}\right).}
 \label{eq:bayes}
 \end{equation}
-It is often unnecessary to calculate the denominator of Equation~\eqref{eq:bayes}, leaving
+It is often unnecessary to calculate the denominator of Equation~\eqref{eq:bayes}, which is
+just a normalization constant, leaving us with
 \begin{equation}
-P\left(\mathbf{m} \vert \mathbf{d} \right) \propto P \left( \mathbf{d} \vert \mathbf{m} \right) P \left( \mathbf{m} \right) 
+P\left(\mathbf{m} \vert \mathbf{d} \right) \propto P \left( \mathbf{d} \vert \mathbf{m} \right) P \left( \mathbf{m} \right).
 \label{eq:propbayes}
 \end{equation}
 The quantity $P(\mathbf{m} \vert \mathbf{d})$ is known as the posterior probability,
 and it represents our desired knowledge about the distributions of the parameters $\mathbf{m}$.
-The first factor on the left-hand-side of Equation~\eqref{eq:propbayes} is identical to the likelihood
+The first factor on the right-hand-side of Equation~\eqref{eq:propbayes} is identical to the likelihood
 function described in Section~\ref{sec:intro_inverse_problems}, and the second factor
 is known as the prior probability of the model.
 
@@ -410,9 +411,9 @@ regions with less realistic values \citep{minson2013bayesian, sambridge2013trans
 
 It is usually impossible to calculate the posterior
 probability distribution in Equation~\eqref{eq:bayes} directly \citep{davidson2015bayesian}. 
-It is much more tractable to generate a Markov chain which, in the long run,
+It is much more tractable to generate a Markov chain which, upon convergence,
 generates samples from the desired posterior \citep{gelman2014bayesian}.
-This approach defines a class of methods known as Markov chain Monte Carlo (MCMC) methods.
+This approach defines a class of methods known as Markov chain Monte Carlo methods.
 
 The literature on MCMC methods is extensive and we do not cover it here, but
 the interested reader can refer to \citet{gelman1996markov}, \citet{sambridge2013transdimensional},
@@ -484,7 +485,7 @@ in a belt orthogonal to the pole. It is useful for characterizing planar data, a
   \begin{aligned}
   \rho_W(\phi, \psi; \kappa_W, \hat{\mitbf{\mu}}) 
   &= \frac{1}{C_W} \exp \left( \kappa_W (\hat{\mathbf{x}}^T \hat{\mitbf{\mu}})^2 \right) \\
-  &= \frac{1}{C_W} \exp \left( \kappa_W \cos^2 \theta \right)
+  &= \frac{1}{C_W} \exp \left( \kappa_W \cos^2 \theta \right),
   \end{aligned}
 \label{eq:watson}
 \end{equation}
@@ -494,7 +495,7 @@ The Watson distribution is girdle-shaped only when $\kappa_W$ is a negative numb
 which is the only case we consider here.
 The normalization factor is given by
 \begin{equation}
-  C_W = \left[ {}_1 F_1 \left( \frac{1}{2}, \frac{3}{2}, \kappa_W \right) \right]^{-1}
+  C_W = \left[ {}_1 F_1 \left( \frac{1}{2}, \frac{3}{2}, \kappa_W \right) \right]^{-1},
 \end{equation}
 where ${}_1 F_1()$ is Kummer's confluent hypergeometric function, which is available
 in most software libraries of special mathematical functions.
@@ -524,7 +525,7 @@ The number parameters for which we are inverting is then given by
 \begin{equation}
 \begin{aligned}
 N &= 3 n_e + (n_e -1) + 2 \\
- &= 4 n_e + 1
+ &= 4 n_e + 1.
 \end{aligned}
 \label{eq:n_parameters}
 \end{equation}
@@ -559,7 +560,7 @@ The first parameter we consider is the position of the Euler poles, which should
 from a spherical probability distribution.
 The least informative prior distribution for the i'th Euler pole is the uniform spherical distribution:
 \begin{equation}
-\hat{\mitbf{\omega}}_i \sim \rho_U
+\hat{\mitbf{\omega}}_i \sim \rho_U.
 \end{equation}
 essentially allowing the Euler pole to be anywhere on the globe with equal probability.
 
@@ -596,7 +597,7 @@ There are several possibilities for the prior distribution for the rates.
 In order to not bias the inversion towards a particular
 rate we can choose a uniform prior distribution with large support:
 \begin{equation}
-\vert \mitbf{\omega}_i \vert \sim U(0, 4)
+\vert \mitbf{\omega}_i \vert \sim U(0, 4),
 \end{equation}
 where $U(\cdot, \cdot)$ is a uniform distribution between two values, and is specified 
 in degrees per Myr. Typical rotation rates for present day plate motions
@@ -640,7 +641,7 @@ We could choose another uniform distribution, but a more reasonable choice
 is to start from near the oldest paleomagnetic pole in the dataset.
 We therefore choose the Fisher distribution of the oldest paleomagnetic pole as a reasonable prior distribution for a start point:
 \begin{equation}
-\hat{\mathbf{x}}_\mathrm{start} \sim \rho_F(\kappa_{F0}, \hat{\mitbf{\mu_0}})
+\hat{\mathbf{x}}_\mathrm{start} \sim \rho_F(\kappa_{F0}, \hat{\mitbf{\mu_0}}),
 \end{equation}
 where $\kappa_{F0}$ and $\hat{\mitbf{\mu}}_0$ are the concentration parameter and mean direction
 of the oldest paleomagnetic pole in the dataset.
@@ -661,7 +662,7 @@ date or are interpreted to be bracketed stratigraphically between two dates
 If a geologic unit has been radiometrically dated, we can model the age of
 the j'th paleomagnetic pole $a_j$ as a normal distribution with mean $\mu_j$ and standard deviation $\sigma_j$:
 \begin{equation}
-a_j \sim N(\mu_j, \sigma_j)
+a_j \sim N(\mu_j, \sigma_j),
 \end{equation}
 where $N(.,.)$ denotes a normal distribution.
 
@@ -671,7 +672,7 @@ of well-dated units stratigraphically above and below it. In this case,
 we argue that a uniform distribution between those ages is a reasonable choice
 of prior distribution:
 \begin{equation}
-a_j \sim U(a_\mathrm{young}, a_\mathrm{old})
+a_j \sim U(a_\mathrm{young}, a_\mathrm{old}),
 \end{equation}
 where $a_\mathrm{young}$ and $a_\mathrm{old}$ are the ages of the lower and upper
 age constraints, respectively.
