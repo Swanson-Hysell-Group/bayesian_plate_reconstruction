@@ -2,6 +2,7 @@ all: keweenawan_poles.tex australia_poles.tex
 
 keweenawan_poles.tex: pole_means.csv keweenawan_table.py
 	python keweenawan_table.py
+	sed -i -e 's/tabular/scriptsizetabular/g' keweenawan_poles.tex
 
 australia_poles.tex: GPMDB_Australia_50Ma.csv australia_table.py
 	python australia_table.py
