@@ -119,20 +119,22 @@
 \begin{abstract}
 Apparent polar wander (APW) paths from paleomagnetic poles provide the most direct data
 for reconstructing past paleogeography and plate motions for times earlier than $\sim$200 Ma. 
-However, it has proven difficult to interpret APW paths in the presence of large errors,
+However, it can be difficult to interpret APW paths in the presence of large errors,
 age uncertainties, and the lack of paleolongitude control in traditional paleomagnetic analysis.
-Approaches for dealing with the uncertainties in APW paths include spline fits and running means.
+Approaches for dealing with the uncertainties and compiling paleomagnetic poles 
+into a single APW path include spline fits and running means.
 Here we propose a new approach for interpretation of APW paths.
 It extends the paleomagnetic Euler pole analysis of \citet{gordon1984paleomagnetic}
 by placing it within the framework of a Bayesian inverse problem.
-This allows the natural incorporation of uncertainties in both pole position and age.
+This approach allows the natural incorporation of uncertainties in both pole position and age.
 The resulting paleomagnetic Euler poles provide estimates for the total
 plate motions (not just the latitudinal components) as well as their uncertainties.
 
-We show several example inversions on synthetic data to demonstrate the capabilities of the method.
-We also show examples using real paleomagnetic data from Australia and 
-from the Laurentian Keweenawan province. The latter inversion gives a plate
-speed for Mesoproterozoic Laurentia of between 22.9 and 39.1 cm/yr for a 95\% credible interval.
+We show several example inversions on simple synthetic data to demonstrate the capabilities of the method.
+We apply this method to the Cenozoic APW path of Australia and to the
+Mesozoic Keweenawan Track of cratonic North America (Laurentia).
+The inversion for the Keweenawan track gives a plate speed for Laurentia
+that exceeds 22.9 cm/yr at a 95\% credible level.
 \end{abstract}
 
 \begin{keyword}
@@ -163,18 +165,18 @@ rigid rotation are described by small circle paths.
 Euler poles are ubiquitous in describing current plate motions 
 \citep[e.g.][]{demets1990current, argus2011geologically} due to their simplicity and compactness.
 Furthermore, there are good reasons to think that plate motions remain constant, or approximately
-so, over millions to tens of millions of years. This is most dramatically seen in the shape
+so, over millions to tens of millions of years. This consistency of motion is most dramatically seen in the shape
 of oceanic fracture zones and in hotspot tracks across the lithosphere. These features
 form gently curving arcs over large portions of Earth's surface which are well described by small
 circles, consistent with finite Euler rotations of the plate for an extended period of time.
-As such, the combination of an Euler pole plus a time interval through which it rotates 
+As such, the combination of an Euler pole plus a time interval for which it is active 
 (often called a ``stage pole'') is a convenient description of plate motions through Earth history.
 
 The stage pole description of plate motions is therefore a convenient way of reconstructing
 plate tectonic history, and is widely used in both continental reconstruction 
 \citep[e.g.][]{boyden2011next} and in geodynamical
 modeling \citep[e.g.][]{mcnamara2005thermochemical, bull2014effect, rudolph2014history}.
-Most reconstructions of plate motions rely heavily on fitting Euler pole rotations
+Most reconstructions of plate motions over the past 200 million years rely heavily on fitting Euler pole rotations
 to oceanic fracture zones, hotspot tracks, seafloor magnetic isochrons,
 and, to a lesser extent, paleomagnetic data \citep{muller1993revised, seton2012global}.
 However, as we look further back in Earth history, many of the records on which these
@@ -185,8 +187,8 @@ and the paleomagnetic record from continental rocks is the dominant remaining ev
 It is more challenging to reconstruct past plate motions from the paleomagnetic
 record for a number of reasons, including 
 (1) the data are often sparser,
-(2) traditional paleomagnetic analysis constraints paleolatitude and orientation
-of the lithosphere but has no way of constraining paleolongitude, and
+(2) traditional paleomagnetic analysis constraints paleolatitude and the orientation
+of the continental block but has no way of constraining paleolongitude, and
 (3) some paleomagnetic poles have poor age control.
 
 \citet{gordon1984paleomagnetic} noted that apparent polar wander paths (APW paths) have 
@@ -220,7 +222,7 @@ describe the formalism of Bayesian inversions and Markov Chain Monte Carlo metho
 In Section~\ref{sec:model} we describe the statistical model which we will be inverting.
 In Section~\ref{sec:example_inversion} we demonstrate the inversion on several
 synthetic data sets. In Sections~\ref{sec:australia} and~\ref{sec:keweenawan}
-we show examples using real paleomagnetic data from Australia and Laurentia,
+we show examples using paleomagnetic data from Australia and Laurentia,
 including interpretations of plate speeds.
 
 \section{Interpretation of APW paths}
@@ -233,15 +235,15 @@ including interpretations of plate speeds.
 A sequence of paleomagnetic poles from the same continental block form an APW path,
 which can then be used to develop plate tectonic reconstructions and models
 of plate speeds through time. Interpretation of these paths becomes difficult in the
-case of limited or highly uncertain data, and when the age of paleomagnetic poles are poorly
+case of limited, highly uncertain, or conflicting data, and when the age of paleomagnetic poles are poorly
 known. A number of approaches to dealing with uncertainty in APW paths have been developed,
-which we briefly review here.
+which we briefly review here by.
 
 \subsection{Latitudinal drift}
 \label{sec:latitudinal_drift}
 Due to the rotational symmetry of Earth's magnetic field, paleomagnetic poles do not
 directly constrain the paleolongitude of the continental block in question \citep{butler1992paleomagnetism}.
-The simplest analysis of an APW path is thus to compare the paleolatitudes implied successive poles.
+The simplest analysis of an APW path is thus to compare the paleolatitudes implied by successive poles.
 The difference in paleolatitudes gives a mininimum angular distance over which the block has traveled. 
 If the two poles are well-dated, this also furnishes a rate of latitudinal motion.
 
@@ -255,7 +257,7 @@ With pseudosamples of pole position and ages, they were able to estimate the 95\
 confidence estimates on the rate of latitudinal drift.
 
 Whether using point estimates of the latitudinal drift rate or using Monte Carlo estimates, 
-the latitudinal drift interpretation of APW paths remains limited.
+the latitudinal drift interpretation of APW paths remains limited as it represents a minimum estimate.
 It has no control over longitudinal drift rate, 
 nor does it naturally extend to APW paths with more than two poles, 
 especially if two coeval poles are not in agreement.
@@ -274,7 +276,7 @@ algorithm developed by \citet{jupp1987fitting}.
 This approach has the advantage of allowing the weighting of the data by their
 uncertainties. The uncertainty assigned to a paleomagnetic pole can
 be the 95\% confidence interval on the pole, but it can also be augmented
-by various quality screening factors, such as the ``Q'' factor of \citet{van1990reliability} \citep{torsvik1992baltica}. 
+by various quality screening factors, such as the quality (``Q'') factor of \citet{van1990reliability} \citep{torsvik1992baltica}. 
 Even with the weighting of the paleomagnetic poles by uncertainty there
 can be unrealistic loops in the APW path generated by the spline fit.
 To combat this, the spline can also be computed under tension, penalizing
@@ -290,15 +292,15 @@ Furthermore, the resulting fit does not have an uncertainty with a physically
 interpretable meaning \citep{torsvik1996continental}.
 It also does not have a simple way of incorporating age uncertainties of the paleomagnetic poles.
 Finally, by their very nature, splines cannot represent the sharp hairpin cusps
-that characterize the abrupt shifts in motion that plates undergo \citep{irving1972hairpins, gordon1984paleomagnetic}.
+that characterize the abrupt shifts in motion that plates sometimes undergo \citep{irving1972hairpins, gordon1984paleomagnetic}.
 
 \subsection{Running means}
 \label{sec:running_means}
 An alternative method for developing APW paths is to perform a running Fisher
 mean on the poles with a moving window \citep{van2001evidence, torsvik2008global}.
-Typically the paleomagnetic poles are averaged every 1-10 Myr with a 10-30 Myr
+Typically paleomagnetic poles in a compilation are averaged every 1-10 Myr with a 10-30 Myr
 window size. Like spherical splines, the running mean approach has the ability
-to effectively damp outlier poles that could lead to spurious loops in the APW path, with the width
+to effectively damp the effect of outlier poles that could lead to spurious loops in the APW path, with the width
 of the moving window controlling the amount of smoothing.
 Furthermore, it enforces an age progression in the averaged poles.
 \citet{torsvik2008global} also investigated the effects of combining running means
@@ -316,7 +318,7 @@ Paleomagnetic Euler poles (PEP, introduced in Section~\ref{sec:introduction},
 also known as the ``small circle'' method, were first described by \citet{gordon1984paleomagnetic}.
 The model rests in recognizing that plate motions are well described by finite
 rotations around Euler poles which are approximately steady for millions or 
-tens of millions of years. As a result, the apparent polar wander path of the plate
+tens of millions of years. As a result, the APW path of the plate
 can also be described by Euler rotations, which
 produce small circles on Earth's surface.
 
@@ -330,7 +332,7 @@ as well as the total plate speed (instead of just the latitudinal component of t
 On the other hand, PEP analysis has many of the same
 deficiencies that spline fits and running means have: it is not easy to compute
 uncertainties, especially in the presence of unknown ages of poles.
-Furthermore, one has the additional challenge of deciding how many PEPs to invert.
+Furthermore, one has the additional challenge and related uncertainty of deciding how many PEPs to invert.
 In the following sections we develop a Bayesian statistical approach to
 PEP analysis which attempts to address some these deficiencies.
 
@@ -353,15 +355,15 @@ To compute $\mathcal{L}(\mathbf{m}, \mathbf{d})$ we need to have two things: a s
 uncertainties in the observations $\mathbf{d}$ and forward model that allows us to compute
 predictions. We denote the forward model by $\mathbf{g}$:
 \begin{equation}
-\mathbf{d}_p = \mathbf{g}(\mathbf{m}),
+\mathbf{d}^p = \mathbf{g}(\mathbf{m}),
 \label{eq:forward}
 \end{equation}
-where the subscript ``$p$'' denotes a predicted value.
+where the superscript ``$p$'' denotes a predicted value.
 If each of the observed data $d_i$ are described by Gaussian random variables
 with standard deviations $\sigma_i$, the likelihood function is given by the product
 of the individual likelihoods of the observations:
 \begin{equation}
-\mathcal{L}(\mathbf{d} | \mathbf{m} ) = \displaystyle\prod_i \exp\left({-\frac{(d_i - d_{pi})^2}{2 \sigma_i^2}}\right).
+\mathcal{L}(\mathbf{d} | \mathbf{m} ) = \displaystyle\prod_i \exp\left({-\frac{(d_i - d_{i}^p)^2}{2 \sigma_i^2}}\right).
 \label{eq:example_likelihood}
 \end{equation}
 The likelihood function $\mathcal{L}$ is maximized by searching over the model parameter space.
@@ -475,7 +477,7 @@ The normalization factor is given by
 When $\kappa_F$ goes to zero, the Fisher distribution is equivalent to the spherical uniform distribution.
 
 The position and uncertainty of most paleomagnetic poles are represented by Fisher distributions,
-and so we will use it to calculate the likelihood function for pole directions in the model.
+and so we will use that to calculate the likelihood function for pole directions in the model.
 
 \subsubsection{Watson girdle distribution}
 Whereas the Fisher distribution concentrates probability density near around a pole on
@@ -506,11 +508,12 @@ the Watson distribution is equivalent to the spherical uniform distribution.
 \label{sec:model}
 \subsection{Forward model}
 \label{sec:forward_model}
+A forward model describes how we generate predicted observations, given a set of model parameters (Equation~\eqref{eq:forward}).
 The forward model for PEP analysis in this study is essentially unchanged from that of \citet{gordon1984paleomagnetic}.
 We describe plate motions (and hence paleomagnetic pole motions) with a series of Euler poles.
-Each Euler pole has three parameters for which we are inverting (a latitude, a longitude, and a rotation rate).
+Each Euler pole has three parameters: a latitude, a longitude, and a rotation rate.
 
-We furthermore need to specify the ages where we transition from 
+We also must specify the ages where we switch from 
 one Euler pole to the next (the cusps, or ``hairpins'' of \citet{irving1972hairpins}).
 In the context of parameter inversion these are often known as ``changepoints.''
 
@@ -518,7 +521,7 @@ Finally, we need a starting position on the globe, which, in practice, can be sa
 from the Fisher distribution of the oldest paleomagnetic pole in the dataset.
 The starting point contributes two parameters (a latitude and a longitude).
 
-All together, this means that an inversion for $n_e$ Euler poles will
+All together, this means that a model with $n_e$ Euler rotations will
 have $3 n_e$ parameters for the poles, $(n_e-1)$ parameters for the changepoints,
 and 2 parameters for the starting location.
 The number parameters for which we are inverting is then given by
@@ -574,8 +577,8 @@ surface expression of Earth's convection.
 We can then ask the question of whether the Euler pole for a given plate is more likely
 to be on top of the plate (corresponding to a spinning motion for that plate) or far away
 from that plate (corresponding to motion across the surface of Earth).
-Given the convective interpretation of plates, we can hypothesize that the second possibility
-is more likely because a spinning plate has no divergence 
+Given that tectonic plates are the surface expression of convection, 
+we can hypothesize that the second possibility is more likely because a spinning plate has no divergence 
 (i.e., spreading centers and subduction zones, \citep{forte1987plate, gable1991convection}). 
 Without spreading centers or subduction zones the plate motion does not contribute to convection.
 
@@ -585,9 +588,11 @@ We used the NNR-MORVEL56 model for current plate motions \cite{argus2011geologic
 and restricted our analysis to the fourteen largest plates.
 We then fit those angular distance samples to a Watson girdle distribution (Equation~\eqref{eq:watson}), 
 inverting for the concentration parameter $\kappa_W$.
+If the an Euler pole position has no preference for being a particular angular distance from
+a point on a plate, then $\kappa_W$ should be close to zero, corresponding to a uniform distribution.
 We find that the distribution is best fit with $\kappa_W \approx -0.8$, which corresponds
 to the Euler pole probability density being roughly twice as large $90^\circ$
-away from a given point than on top of the point (see Figure~\ref{fig:euler_pole_prior}.
+away from a given point than on top of the point (see Figure~\ref{fig:euler_pole_prior}).
 
 \textbf{Euler pole magnitudes:} 
 The magnitude of each Euler pole is a strictly positive number, specifying the
@@ -622,7 +627,13 @@ of regularization on plate speeds.
 
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/euler_pole_prior/euler_pole_prior.pdf}
-\caption[Informative prior distributions for Euler poles]{Informative prior distributions for Euler poles. (a) Prior probabilities for rotation rates. The histogram is the angular rotation rate from one thousand samples from the surface of Earth, using the NNR-MORVEL56 model. A fit to this sample set with an exponential distribution yields a scale parameter of $\lambda \approx 2.5$. We also show the distribution for $\lambda = 1.0$, which imposes less regularization on the rate. (b) Prior probability density for the position of the Euler poles. We again sampled one thousand points on Earth's surface, calculating the angular distance between that point and the Euler pole for its plate. Fitting the resulting angular distribution to a Watson girdle distribution finds $\kappa_W \approx -0.8$. This results in a probability density roughly twice as large at the equator as at the pole.}
+\caption[Informative prior distributions for Euler poles]{Informative prior distributions for Euler poles. (a) Prior probabilities for rotation rates. The histogram is the angular rotation rate from one thousand samples from the surface of Earth, using the NNR-MORVEL56 model. A fit to this sample set with an exponential distribution yields a scale parameter of $\lambda \approx 2.5$. We also show the distribution for $\lambda = 1.0$, which imposes less regularization on the rate. 
+(b) Prior probability density for the position of the Euler poles, with the north pole is the site latitude and longitude. 
+We again sampled one thousand points on Earth's surface, calculating the angular distance between that point and the Euler pole for its plate. 
+If we model the probability distribution as being drawn from a Watson distriubtion, then these angular distances correspond to colatitudes, where the pole is the sampled point. 
+Fitting the resulting angular distribution to a Watson girdle distribution finds $\kappa_W \approx -0.8$. 
+Since the Watson distribution is rotationally symmetric, longitudes do not contribute to the fit. 
+For $\kappa_W \approx -0.8$ the probability density is roughly twice as large at the equator as at the pole.}
 \label{fig:euler_pole_prior}
 \end{figure*}
 
@@ -694,13 +705,13 @@ allows us to evaluate Bayes' theorem (Equation~\eqref{eq:propbayes}).
 
 In the case of APW paths, our observations are paleomagnetic poles.
 The most common statistical distribution for describing paleomagnetic poles is the Fisher distribution
-(though others are possible, such as the Kent or Bingham distribitions, c.f. \citet{tauxe2009essentials}).
+(though others are possible, such as the Kent or Bingham distribitions, c.f. \citet{tauxe2010essentials}).
 Given the set of model parameters $\mathbf{m}$ and the forward model $\mathbf{g}(\mathbf{m})$, described
-in Section~\ref{sec:forward_model}, we can calculate the predicted paleomagnetic pole unit vectors $\hat{\mathbf{x}}_{p,i}$.
+in Section~\ref{sec:forward_model}, we can calculate the predicted paleomagnetic pole unit vectors $\hat{\mathbf{x}}_i^p$.
 For a set of $n$ paleomagnetic poles, the likelihood is then given by the product of the probabilities
 of each observation:
 \begin{equation}
-P(\mathbf{d} \vert \mathbf{m}) = \displaystyle\prod_{i=1}^n \frac{1}{C_{F,i}} \exp \left( \kappa_{F,i} \hat{\mathbf{x}}_{p,i}^T \hat{\mitbf{\mu}}_i \right).
+P(\mathbf{d} \vert \mathbf{m}) = \displaystyle\prod_{i=1}^n \frac{1}{C_{F,i}} \exp \left( \kappa_{F,i} \hat{\mathbf{x}}_{i}^{pT} \hat{\mitbf{\mu}}_i \right).
 \label{eq:model_likelihood}
 \end{equation}
 
@@ -714,23 +725,24 @@ in Python, and used the package PyMC \citep{patil2010pymc} to perform the Monte 
 We use a Metropolis-Hastings sampler, starting from a fit to the maximum a posteriori (MAP) probability.
 In most cases shown here we generate $10^6$ samples, discarding the first 20\% to avoid
 potential bias in the posterior due to a poor starting point.
+Our code for the inversions has an open-source GPL license and may be found at \url{https://github.com/ian-r-rose/mcplates}.
 
 In all of the inversions we show here, we choose $\kappa_W=0$ for the Watson concentration parameter
 in the Euler pole direction prior distribution (that is, equivalent to a uniform distribution on a sphere),
 and $\lambda=2.5$ for the scale parameter in the Euler pole magnitude prior distribution.
 
-\subsection{One stage pole}
+\subsection{One Euler rotation}
 \label{sec:one_stage_pole}
 We begin by trying to recover the Euler pole for a single rotation.
-We generate a synthetic APW track of four poles by starting from a pole at $0^\circ$ N, $30^\circ$ E,
+We generate an idealized synthetic APW track of four poles by starting from a pole at $0^\circ$ N, $30^\circ$ E,
 and rotating around an Euler pole at $0^\circ$ N, $0^\circ$ E for 180 Myr at a rate of $1^\circ$/Myr.
-We produce paleomagnetics pole at 190 Ma, 130 Ma, 70 Ma, and 10 Ma, and prescribe A95
-of $10^\circ$ to each pole (where A95 indicates the 95\% angular confidence interval for the pole position).
+We produce paleomagnetic poles at 190 Ma, 130 Ma, 70 Ma, and 10 Ma, and prescribe $A_{95}$
+of $10^\circ$ to each pole (where $A_{95}$ indicates the 95\% angular confidence interval for the pole position).
 
 The results of the inversion are shown in Figure~\ref{fig:one_euler_pole}.
 The Bayesian approach successfully recovers a posterior probability distribution for the position
 of the Euler pole that includes the start pole, as well as a rate that is centered
-near the true value of $1^\circ$/Myr. The posterior distribution for the rate
+near the true value of $1^\circ$/Myr (Figure~\ref{fig:one_euler_pole}). The posterior distribution for the rate
 has a highest posterior density (HPD) credible interval at 95\% 
 (which we abbreviate from here as a 95\% credible interval)
 between $0.8^\circ$/Myr and $1.2^\circ$/Myr, reflecting the resolving power of the inversion.
@@ -741,7 +753,7 @@ between $0.8^\circ$/Myr and $1.2^\circ$/Myr, reflecting the resolving power of t
 \label{fig:one_euler_pole}
 \end{figure*}
 
-\subsection{Two stage poles}
+\subsection{Two Euler rotations}
 \label{sec:two_stage_poles}
 We next consider an inversion for an APW path with two stage poles.
 Unlike the example in Section~\ref{sec:one_stage_pole}, this inversion also requires a changepoint.
@@ -752,7 +764,7 @@ The ``observations'' produced by the two stage model are shown in Figure~\ref{fi
 The inversion successfully recovers the Euler pole positions and rates, and the changepoint is centered near 130 Ma.
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/two_euler_poles.pdf}
-\caption[Inversion for two successive paleomagnetic Euler poles.]{Inversion for two successive paleomagnetic Euler poles. (a) Five paleomagnetic poles are generated, beginning with a pole at $0^\circ$N, $60^\circ$W. The first Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at $1^\circ$/Myr for 130 Myr. The second Euler pole is located at $41^\circ$N, $60^\circ$E, and rotates at the same speed and for the same duration. The red and green distributions show the location of the first and second Euler poles (respectively) recovered by the MCMC inversion. The the red and green lines are a sampling of 200 synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rates of the Euler poles recovered by the inversion. The solid lines show the median values of the distributions ($\sim 0.97^\circ$/Myr, and the dashed lines show the 95\% credible intervals ($\sim 0.61^\circ-1.3^\circ$/Myr). The two distributions are nearly identical, and centered on the true value of the rate.}
+\caption[Inversion for two successive paleomagnetic Euler poles.]{Inversion for two successive paleomagnetic Euler poles. (a) Five paleomagnetic poles are generated, beginning with a pole at $0^\circ$N, $60^\circ$W. The first Euler pole is located at $41^\circ$N, $60^\circ$W, and rotates at $1^\circ$/Myr for 130 Myr. The second Euler pole is located at $41^\circ$N, $60^\circ$E, and rotates at the same speed and for the same duration. The red and green distributions show the location of the first and second Euler poles (respectively) recovered by the MCMC inversion. The red and green lines are a sampling of 200 synthetic APW paths generated by the inversion. (b) Posterior probability density for the rotation rates of the Euler poles recovered by the inversion. The solid lines show the median values of the distributions ($\sim 0.97^\circ$/Myr, and the dashed lines show the 95\% credible intervals ($\sim 0.61^\circ-1.3^\circ$/Myr). The two distributions are nearly identical, and centered on the true value of the rate.}
 \label{fig:two_euler_poles}
 \end{figure*}
 
@@ -784,7 +796,7 @@ which we recover from this inversion are visually identical to those in Figure~\
 
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/synthetic/age_uncertainty_samples.pdf}
-\caption[Probability distributions for ages of the paleomagnetic poles in the one-Euler pole inversion test.]{Probability distributions for the ages of the paleomagentic poles in the one-Euler pole inversion test. Top: prior distributions. We presume the first and last poles to be radiometrically dated with one-sigma uncertainties of 2 Myr, and are assigned Gaussian prior distributions. The middle two poles are undated, and are only stratigraphically constrained to be between the first and last poles. Bottom: posterior distributions after $10^5$ MCMC samples. The distributons of the first and last samples are largely unchanged, but the distributions for the middle two poles are centered on their true values of 70 Ma and 130 Ma. Importantly, the middle poles help to constrain the location of the Euler pole, but the wide prior distributions on their ages do little to constrain the rotation rates.}
+\caption[Probability distributions for ages of the paleomagnetic poles in the one-Euler pole inversion test.]{Probability distributions for the ages of the paleomagentic poles in the one-Euler pole inversion test. Top: prior distributions. We presume the first and last poles to be radiometrically dated with one-sigma uncertainties of 2 Myr, and are assigned Gaussian prior distributions. The middle two poles are undated, and are only stratigraphically constrained to be between the first and last poles. Bottom: posterior distributions after $10^5$ MCMC samples. The distributions of the first and last samples are largely unchanged, but the distributions for the middle two poles are centered on their true values of 70 Ma and 130 Ma. Importantly, the middle poles help to constrain the location of the Euler pole, but the wide prior distributions on their ages do little to constrain the rotation rates.}
 \label{fig:age_uncertainty_samples}
 \end{figure*}
 
@@ -794,13 +806,13 @@ which we recover from this inversion are visually identical to those in Figure~\
 A first application of our model for PEP inversion is with the case of Cenozoic Australia.
 Australia's Cenozoic plate motions are relatively well constrained by oceanic fracture zones
 and hotspot volcanism \citep{muller1993revised, seton2012global}.
-This gives us the opportunity to compare the results of our model to those known motions.
+This gives us the opportunity to compare the results of our model to a one derived from an independent dataset.
 
 \begin{table}
 \scriptsize
 \input{tables/australia_poles}
 \caption[Paleomagnetic poles used for the Australia inversion.]{Paleomagnetic poles used for the Australia inversion, as well as references. 
-$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and A95 gives the 95\% angular confidence interval for that position.
+$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and $A_{95}$ gives the 95\% angular confidence interval for that position.
 The paleomagnetic poles come primarily from sedimentary successions with biostratigraphic age control 
 (with the exception of the Newer Volcanics, which erupted from $\sim2-4$ Ma).
 Upper and lower age bounds come from estimates from \citet{idnurm1985lateI} and version 4.6 of the Global paleomagnetic databad (GPMDB). }
@@ -817,7 +829,7 @@ He proposed that the best explanation for this discrepancy was a long-lived
 departure of Earth's magnetic field from a geocentric axial dipole (GAD).
 
 Here we reanalyze the available paleomagnetic data with our statistical model,
-which allows us to incorporate more recnet models for Australia's plate motions
+which allows us to incorporate more recent models for Australia's plate motions
 and perform an accounting of the uncertainties within our Bayesian framework.
 The pole list we use is given in Table~\ref{tab:australia_poles}.
 We fit the paleomagnetic pole list to one and two PEPs, and compared them
@@ -853,6 +865,8 @@ and does not pass through all the paleomagnetic poles in Figure~\ref{fig:austral
 
 The two-Euler pole inversion, shown in Figures~\ref{fig:australia_paths_2}-\ref{fig:australia_speeds_2} does a better job of
 fitting the paleomagnetic poles, preferring a change in speed at $\sim 23$ Ma.
+It shares some features with the \citet{seton2012global} model, including the overall azimuth and an
+increase in plate speed midway through the track.
 However, the $\sim23-0$ Ma speeds are significantly faster than those from the global plate motion model,
 consistent with the conclusions of \citet{idnurm1985lateII}.
 We conclude that the discrepancy between the Australian paleomagnetic data and
@@ -861,7 +875,7 @@ Cenozoic plate motion models remains.
 \begin{figure*}
 \includegraphics[width=0.9\textwidth]{figures/australia/australia_paths_2.pdf}
 \caption[Australian Cenozoic APW path fit to two Euler rotations.]{Australian Cenozoic APW path fit to two Euler rotations. 
-(a) Euler pole locations and sample tracks. The blue distribution shows the posterior of positions for the first Euler pole, and the red distribution shows the posterior for the second Euler pole. The distribution of the first Euler pole is quite broad, reflecting the short length of the portion of the path that it is trying to fit (shorter paths provide less of a constraint on the position). The the blue paths show a sampling of paths drawn from the posterior. As in Figure~\ref{fig:australia_paths_1}, the red line shows the polar wander path derived from the global plate motion model of \citet{seton2012global}, and the red star shows the average Euler pole from 0-60 Ma defined by the \citet{seton2012global} path.
+(a) Euler pole locations and sample tracks. The blue distribution shows the posterior of positions for the first Euler pole, and the red distribution shows the posterior for the second Euler pole. The distribution of the first Euler pole is quite broad, reflecting the short length of the portion of the path that it is trying to fit (shorter paths provide less of a constraint on the position). The blue paths show a sampling of paths drawn from the posterior. As in Figure~\ref{fig:australia_paths_1}, the red line shows the polar wander path derived from the global plate motion model of \citet{seton2012global}, and the red star shows the average Euler pole from 0-60 Ma defined by the \citet{seton2012global} path.
 (b) Paleomagnetic pole positions for draws from the posterior distribtion of the inversion superimposed on observed pole positions and their uncertainty.}
 \label{fig:australia_paths_2}
 \end{figure*}
@@ -877,28 +891,28 @@ Cenozoic plate motion models remains.
 \end{figure*}
 
 
-\section{Application to the Keweenawan province}
+\section{Application to the Keweenawan track}
 \label{sec:keweenawan}
 \subsection{Geologic context}
 The Keweenawan province is a Mesoproterozoic succession of volcanic and sedimentary rocks
 which outcrops in the region around Lake Superior in northern Michigan, including on the Keweenaw peninsula \citep{henry1977paleomagnetism}.
 The province represents the products of a failed rift zone in the middle of Laurentia which was active
-from about 1110 to 1070 Ma \citep{swanson2014magmatic}.
+from about 1110 to 1080 Ma \citep{swanson2014magmatic}.
 Geochronology and paleomagnetism from the Keweenawan province has been central to reconstructions
 of paleogeography and dynamics of the Mesoproterozoic Earth \citep[e.g.][]{li2008assembly, evans2009palaeomagnetically}.
 
-Paleomagnetic studies of the Keweenawan province had long shown asymmetry between normal and
-reverse polarities of the magnetization, which was often interpreted to mean there was significant 
+Paleomagnetic studies of the Keweenawan province have long shown asymmetry between normal and
+reverse polarities of the magnetization, which has been interpreted to be a result of significant 
 non-dipole behavior of Earth's magnetic field during the Mesoproterozoic \citep{pesonen1981late, nevanlinna1983late, pesonen1983geomagnetic}.
 
 More recent high-resolution paleomagnetism has shown that the apparent reversal asymmetry
-is an artifact of low sampling resolution \citep{swanson2009no, kulakov2013paleomagnetism}. 
-Instead the paleomangetic poles are symmetric with respect to polarity,
-but their directions rapidly shallow over the course of the rifting period,
-corresponding to apparent equatorward motion of Laurentia.
+is an artifact of temporal gaps in sampling \citep{swanson2009no, kulakov2013paleomagnetism}. 
+Instead the paleomangnetic poles are symmetric with respect to polarity,
+but the paleomagnetic directions rapidly shallow over the course of the rifting period,
+corresponding to equatorward motion of Laurentia.
 
 A consequence of this reinterpretation of the paleomagnetic data is that Laurentia's apparent
-polar wander rate, and thus its implied plate motion is quite fast.
+polar wander rate, and thus its implied plate motion, is quite fast.
 A Monte Carlo approach (described in Section~\ref{sec:latitudinal_drift}) by \citet{swanson2014confirmation}
 found an implied latitudinal drift rate of $\sim$24 cm/yr, with a 95\% confidence interval of 15.2-44.4 cm/yr.
 These rates are significantly faster than the fastest Cenozoic plate speeds \citep{zahirovic2015tectonic}.
@@ -910,7 +924,7 @@ the APW rate during the Keweenawan rifting slowed down.
 \citet{davis1997geochronology} inferred a change in minimum plate speed from $\sim$22 cm/yr
 to $\sim$8 cm/yr at around 1095 Ma. Similar conclusions were reached by \citet{swanson2009no}.
 However, more recent geochonology and paleomagnetism from the late stage volcanics
-of the rift zone \citep{fairchild2016end} have suggested that such a
+of the Midcontinent Rift. \citet{fairchild2016end} have suggested that such a
 slowdown is not required, and that Laurentia's APW path had high rates throughout rifting.
 
 \subsection{Inversion for paleomagnetic Euler poles}
@@ -927,7 +941,7 @@ The paleomagnetic poles we use, along with uncertainties and age constraints are
 \scriptsize
 \input{tables/keweenawan_poles}
 \caption[Paleomagnetic poles used for the Keweenawan inversion.]{Paleomagnetic poles used for the Keweenawan inversion, as well as references for their positions and ages. 
-$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and A95 gives the 95\% angular confidence interval for that position.
+$\psi_p$ and $\phi_p$ give the latitude and longitude of the mean pole position, and $A_{95}$ gives the 95\% angular confidence interval for that position.
 For poles with a radiometric date we give the age with 2$\sigma$ error bars.
 For poles with stratigraphic age control we give upper and lower bounds on the age.}
 \label{tab:keweenawan_poles}
@@ -1012,7 +1026,8 @@ In both cases implied plate speeds from the early rift magmatism into the main s
 These speeds are much higher than any plate speeds for the Cenozoic \citep{zahirovic2015tectonic},
 which could be explained by faster average plate motions in the Proterozoic.
 Alternatively, it could be due to a true polar wander (TPW) event \citep{evans2003true, swanson2009no},
-which can move the solid earth at faster rates than maximum plate speeds \citep{cambiotti2011new}.
+which can move the solid earth at faster rates than those taken be be the maximum
+for differential plate motions \citep{cambiotti2011new}.
 Rose and Buffett (2016) performed a scaling analysis for rates of true polar wander and 
 found that in a younger, more vigorously convecting planet, TPW becomes more likely.
 If we regard such high plate velocities as unlikely, then TPW becomes a good alternative explanation.
@@ -1045,8 +1060,7 @@ but is instead accomplished by choice of prior probability distributions for the
 which have clear physical interpretations.
 
 We have implemented the Bayesian inverse problem using Markov-chain
-Monte Carlo methods. Our code for this implementation is freely available online at
-\url{https://github.com/ian-r-rose/mcplates}.
+Monte Carlo methods. Our code for this implementation is freely available online under an open source license.
 
 We applied our method to two data sets. First, we considered the case of Cenozoic Australia,
 for which we have detailed plate motion models based on hotspot tracks and fracture zones.

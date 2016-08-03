@@ -7,6 +7,7 @@ df.fillna('', inplace=True)
 df.rename(columns={'PoleName': 'Pole',
                    'PLat': '$\\psi_p$', 
                    'PLon':'$\\phi_p$', 
+                   'A95': '$A_{95}$',
                    'PmagRef': 'Pole reference',
                    'AgeNominal': 'Age',
                    'AgeLower': 'Lower age',
@@ -17,7 +18,7 @@ df = df[df.Pole != 'Abitibi'] # Standstill at the beginning, not realistic to fi
 df = df[df.Pole != 'Haliburton'] #Much younger, far away pole, difficutlt to fit
 
 with open("keweenawan_poles.tex", 'w') as f:
-    df[['Pole', '$\\psi_p$', '$\\phi_p$', 'A95', 'Pole reference',\
+    df[['Pole', '$\\psi_p$', '$\\phi_p$', '$A_{95}$', 'Pole reference',\
         'Age', 'Lower age', 'Upper age', 'Age reference']].to_latex(f, 
          escape=False, longtable=False, index=False,
-         column_format='p{3cm} p{1.0cm} p{1.0cm} p{1.0cm} p{4cm} p{2.0cm} p{1.5cm} p{1.5cm} p{4cm}')
+         column_format='p{3cm} p{0.8cm} p{0.8cm} p{0.8cm} p{4cm} p{2.0cm} p{1.2cm} p{1.2cm} p{4.0cm}')
