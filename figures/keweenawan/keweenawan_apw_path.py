@@ -100,7 +100,7 @@ slon = 360. - 92.1 - lon_shift  # Duluth lon
 duluth = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
-    'keweenawan_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
+    'keweenawan_apw_lame_' + str(n_euler_rotations), poles, n_euler_rotations)
 path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5)
 
 
@@ -120,9 +120,9 @@ def plot_synthetic_paths( ax=None, title=''):
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
+        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
 
-    mcplates.plot.plot_continent(myax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    #mcplates.plot.plot_continent(myax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon, pathlat in zip(pathlons, pathlats):
@@ -131,7 +131,7 @@ def plot_synthetic_paths( ax=None, title=''):
 
     colorcycle = itertools.cycle(colors)
     for p in poles:
-        p.plot(myax, color=colorcycle.next())
+        p.plot(myax, color=next(colorcycle))
 
     myax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
 
@@ -154,7 +154,7 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles, path.ages()):
-        c = colorcycle.next()
+        c = next(colorcycle)
         age = np.linspace(1070, 1115, 1000)
         if p.age_type == 'gaussian':
             dist = st.norm.pdf(age, loc=p.age, scale=p.sigma_age)
@@ -195,7 +195,7 @@ def plot_synthetic_poles( ax=None, title=''):
     colorcycle = itertools.cycle(colors)
     lons, lats, ages = path.compute_synthetic_poles(n=100)
     for i in range(len(poles)):
-        c = colorcycle.next()
+        c = next(colorcycle)
         poles[i].plot(ax, color=c)
         myax.scatter(lons[:, i], lats[:, i], color=c,
                      transform=ccrs.PlateCarree())
@@ -332,7 +332,7 @@ if __name__ == "__main__":
         path.load_mcmc()
         print("Done")
     else:
-        path.sample_mcmc(1000000)
+        path.sample_mcmc(1000)
 
     fig = plt.figure( figsize=(8,4))
     ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
