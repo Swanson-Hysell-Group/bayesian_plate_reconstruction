@@ -79,10 +79,7 @@ ax.plot(pb5_lon, pb5_lat, lw=2, c='k', transform=ccrs.PlateCarree())
 # Make volcanoes
 for a in ages[1:-1]:
     lon_lat = dummy_pole_position_fn([35,45], a, hidden_euler_pole, hidden_euler_rate)
-    if a==ages[-2]:
-        ax.imshow(imv,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
-    else:
-        ax.imshow(imm,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
+    ax.imshow(imm,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
 
 # Make plate motion arrow
 times = np.linspace(ages[1], ages[-2])
@@ -102,7 +99,7 @@ stride = int(len(pb4_lon)/n_arrows)
 for i in range(1,n_arrows):
     ax.arrow(pb4_lon[i*stride], pb4_lat[i*stride], (pb4_lat[i*stride] - pb4_lat[i*stride+1])*1.e-10, (pb4_lon[i*stride+1]-pb4_lon[i*stride])*1.e-10, transform=ccrs.PlateCarree(), head_width=2.0, head_length=2.0, fc='w', ec='k', lw=2)
 
-ax.scatter( hidden_euler_pole[0], hidden_euler_pole[1], c='b', marker='o', s=30, transform=ccrs.PlateCarree())
+ax.scatter( hidden_euler_pole[0], hidden_euler_pole[1], c='darkred', marker='o', s=70, transform=ccrs.PlateCarree())
 
 #plt.show()
 plt.savefig("paleomagnetic_euler_pole.png", dpi=600)
