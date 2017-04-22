@@ -803,6 +803,19 @@ which we recover from this inversion are visually identical to those in Figure~\
 \label{fig:age_uncertainty_samples}
 \end{figure*}
 
+\subsection{Reporting the apparent polar wander path}
+\label{sec:age_uncertainty}
+A difficulty with the Bayesian approach is that the credible interval of Euler pole solutions are not easily reported as they do not neatly correspond to a parametric statistical distribution. 
+We visualize the solutions with spatial histograms for the Euler pole positions and by showing example inverted paths.
+A typical product that one is seeking with such an inversion is an apparent polar wander path reported as interpreted pole position at given intervals.
+An approach that can be taken is to calculate the predicted pole position implied by inverted Euler pole positions at a given time and then to calculate the Fisher mean of these inverted pole positions. 
+This approach provides the mean pole position on the apparent polar wander path. 
+We also wish to report the uncertainty on that estimated position.
+The spread in the position of these inverted pole positions has real meaning related to the certainty of the position within the inversion that corresponds both to the best-fit in space through the poles and that in time which affects the rate of the rotation about the Euler pole. 
+The spread in pole positions can be approximated as a Fisher distribution from which the angle from the mean that contains 95$\%$ of the solutions can be calculated. 
+This angle is equivalent to a 2$\sigma$ uncertainty in Gaussian statistics. 
+Implied pole positions from these inversions are more tightly clustered than the inverted Euler pole positions themselves and typically are consistent with being drawn from a Fisher distribution such that reporting the 95$\%$ confidence of angular deviation is appropriate.
+
 \section{Application to Cenozoic Australian APW path}
 \label{sec:australia}
 A first application of our model for PEP inversion is with the case of Cenozoic Australia.
@@ -927,17 +940,16 @@ the APW rate during the Keweenawan rifting slowed down in the later stages of ri
 \citet{davis1997geochronology} inferred a change in minimum plate speed from $\sim$22 cm/yr
 to $\sim$8 cm/yr at around 1095 Ma. Similar conclusions were reached by \citet{swanson2009no}.
 However, more recent geochronology and paleomagnetism from the late stage volcanics
-of the Midcontinent Rift. \citet{fairchild2016end} have suggested that such a
-slowdown is not required, and that Laurentia's APW path had high rates throughout rifting.
+of the Midcontinent Rift. \citet{fairchild2016end} have suggested Laurentia's APW path had high rates throughout rifting.
 
 \subsection{Inversion for paleomagnetic Euler poles}
 
 We apply our Bayesian PEP analysis to the $\sim$1110-1080 Keweenawan paleomagnetic track.
 We would like to determine allowable plate speeds (not just the latitudinal components), while
-incorporating the highly variable uncertainties in the ages of the paleomagnetic poles.
+incorporating the variable uncertainties in the ages of the paleomagnetic poles. While some poles are tightly constrained with high-precision U-Pb dates, others are more loosely constrained in time.
 Furthermore, we want to test whether an abrupt slowdown in the APW path is required by the data,
 and if so, when it might have happened.
-The paleomagnetic poles we use, along with uncertainties and age constraints are given in Table~\ref{tab:keweenawan_poles}.
+The paleomagnetic poles and age constraints we use, along with uncertainties, are given in Table~\ref{tab:keweenawan_poles}.
 
 \begin{landscape}
 \begin{table}
