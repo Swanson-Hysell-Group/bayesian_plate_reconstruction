@@ -84,7 +84,7 @@ for i, row in data.iterrows():
     age = row['AgeNominal']
 
     if row['GaussianOrUniform'] == 'gaussian':
-        sigma_age = row['gaussian_2sigma'] / 2.
+        sigma_age = row['Gaussian_2sigma'] / 2.
     elif row['GaussianOrUniform'] == 'uniform':
         sigma_age = (row['AgeLower'], row['AgeUpper'])
     else:
@@ -332,7 +332,7 @@ if __name__ == "__main__":
         path.load_mcmc()
         print("Done")
     else:
-        path.sample_mcmc(1000)
+        path.sample_mcmc(1000000)
 
     fig = plt.figure( figsize=(8,4))
     ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
