@@ -45,24 +45,34 @@ class LegendHandler(object):
 
 # Parse input
 #Get number of euler rotations
-if len(sys.argv) < 2:
-    raise Exception("Please enter the number of Euler rotations to fit.")
+if len(sys.argv) < 3:
+    raise Exception("Please enter the number of Euler rotations to fit, and 'true' or 'false' for whether to include TPW")
 n_euler_rotations = int(sys.argv[1])
-if n_euler_rotations < 1:
-    raise Exception("Number of Euler rotations must be greater than zero")
+use_tpw = False if sys.argv[2] == 'false' else True;
+
+if n_euler_rotations < 0:
+    raise Exception("Number of plate Euler rotations must be greater than or equal to zero")
+if sys.argv[2] != 'false' and sys.argv[2] != 'true':
+    raise Exception("Must enter 'true' or 'false' for whether to use TPW")
+if n_euler_rotations == 0 and use_tpw == False:
+    raise Exception("Must use either TPW or plate Euler rotations, or both")
+
 # Read in optional map projection info
-if len(sys.argv) > 2:
-    proj_type = sys.argv[2].split(',')[0]
+if len(sys.argv) > 3:
+    proj_type = sys.argv[3].split(',')[0]
     assert proj_type == 'M' or proj_type == 'O'
-    proj_lon = float(sys.argv[2].split(',')[1]) - lon_shift
+    proj_lon = float(sys.argv[3].split(',')[1]) - lon_shift
     if proj_type == 'O':
-        proj_lat = float(sys.argv[2].split(',')[2])
+        proj_lat = float(sys.argv[3].split(',')[2])
 else:
     proj_type = 'M'
     proj_lon = -lon_shift
     proj_lat = 0.
 
-print("Fitting Keweenawan APW track with "+str(n_euler_rotations)+" Euler rotation" + ("" if n_euler_rotations == 1 else "s") )
+print("Fitting Keweenawan APW track with"\
+        +("out TPW and " if use_tpw == False else " TPW and ")\
+        +str(n_euler_rotations)+" Euler rotation"\
+        + ("" if n_euler_rotations == 1 else "s") )
 
 
 data = pd.read_csv("pole_means.csv")
@@ -98,10 +108,12 @@ for i, row in data.iterrows():
 slat = 46.8  # Duluth lat
 slon = 360. - 92.1 - lon_shift  # Duluth lon
 duluth = mcplates.PlateCentroid(slon, slat)
+prefix = 'keweenawan_'+str(n_euler_rotations)+'_'+sys.argv[2]
 
-path = mcplates.APWPath(
-    'keweenawan_apw_lame_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5)
+path = mcplates.APWPath(prefix, poles, n_euler_rotations)
+tpw_rate_scale = 0.5 if use_tpw else None
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0,\
+        rate_scale=2.5, tpw_rate_scale=tpw_rate_scale)
 
 
 def plot_synthetic_paths( ax=None, title=''):
@@ -116,7 +128,11 @@ def plot_synthetic_paths( ax=None, title=''):
     myax.gridlines()
     myax.set_global()
 
-    direction_samples = path.euler_directions()
+    direction_samples = []
+    if n_euler_rotations > 0:
+        direction_samples = path.euler_directions()
+    if use_tpw:
+        direction_samples.insert(0, path.tpw_poles())
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
@@ -139,7 +155,7 @@ def plot_synthetic_paths( ax=None, title=''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix+'_paths.pdf')
 
 
 
@@ -178,7 +194,7 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
 
     if ax1 is None and ax2 is None:
         plt.tight_layout()
-        plt.savefig("keweenawan_ages_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix+'_ages.pdf')
 
 
 def plot_synthetic_poles( ax=None, title=''):
@@ -204,7 +220,7 @@ def plot_synthetic_poles( ax=None, title=''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("keweenawan_poles_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix+'_poles.pdf')
 
 def plot_changepoints( ax=None, title=''):
     if ax is None:
@@ -247,7 +263,7 @@ def plot_changepoints( ax=None, title=''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("keweenawan_changepoints_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix+'_changepoints.pdf')
 
 def plot_plate_speeds( ax = None, title = ''):
     if ax is None:
@@ -256,8 +272,14 @@ def plot_plate_speeds( ax = None, title = ''):
     else:
         myax = ax
 
-    euler_directions = path.euler_directions()
-    euler_rates = path.euler_rates()
+    direction_samples = []
+    rate_samples = []
+    if n_euler_rotations > 0:
+        direction_samples = path.euler_directions()
+        rate_samples = path.euler_rates()
+    if use_tpw:
+        direction_samples.insert(0, path.tpw_poles())
+        rate_samples.insert(0, path.tpw_rates())
 
     # Get a list of intervals for the rotations
     if n_euler_rotations > 1:
@@ -274,7 +296,7 @@ def plot_plate_speeds( ax = None, title = ''):
     xmin = 1000.
     xmax = 0.
     colorcycle = itertools.cycle( dist_colors_short )
-    for i, (directions, rates) in enumerate(zip(euler_directions, euler_rates)):
+    for i, (directions, rates) in enumerate(zip(direction_samples, rate_samples)):
 
         #comptute plate speeds
         speed_samples = np.empty_like(rates)
@@ -286,7 +308,13 @@ def plot_plate_speeds( ax = None, title = ''):
         c = next(colorcycle)
 
         #plot histogram
-        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label='%i - %i Ma'%(changepoints[i], changepoints[i+1]))
+        if use_tpw and i == 0:
+            hist_label = 'TPW'
+        elif use_tpw and i != 0:
+            hist_label = '%i - %i Ma'%(changepoints[i-1], changepoints[i])
+        else:
+            hist_label = '%i - %i Ma'%(changepoints[i], changepoints[i+1])
+        myax.hist(speed_samples, bins=30, normed=True, alpha=0.5, color=c, label=hist_label)
 
         # plot median, credible interval
         credible_interval = hpd(speed_samples, 0.05)
@@ -307,7 +335,7 @@ def plot_plate_speeds( ax = None, title = ''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix+'_speeds.pdf')
 
 
 def make_legend(ax, title):
@@ -332,7 +360,7 @@ if __name__ == "__main__":
         path.load_mcmc()
         print("Done")
     else:
-        path.sample_mcmc(1000000)
+        path.sample_mcmc(1000)
 
     fig = plt.figure( figsize=(8,4))
     ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
@@ -340,7 +368,7 @@ if __name__ == "__main__":
     plot_synthetic_paths(ax1, title='(a)')
     plot_synthetic_poles(ax2, title='(b)')
     plt.tight_layout()
-    plt.savefig("keweenawan_paths_" + str(n_euler_rotations)+".pdf")
+    plt.savefig(prefix + '_paths.pdf')
 
     plt.clf()
     fig = plt.figure( figsize = (8,8) )
@@ -356,4 +384,4 @@ if __name__ == "__main__":
     plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
 
     plt.tight_layout()
-    plt.savefig("keweenawan_speeds_" + str(n_euler_rotations)+".pdf")
+    plt.savefig(prefix+'_speeds.pdf')
