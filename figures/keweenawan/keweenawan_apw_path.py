@@ -360,7 +360,7 @@ if __name__ == "__main__":
         path.load_mcmc()
         print("Done")
     else:
-        path.sample_mcmc(1000)
+        path.sample_mcmc(1000000)
 
     fig = plt.figure( figsize=(8,4))
     ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
