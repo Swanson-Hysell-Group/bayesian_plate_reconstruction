@@ -19,9 +19,6 @@ from mcplates.plot import cmap_red, cmap_green, cmap_blue
 lon_shift = 180.
 
 # List of colors to use
-colors = ['#a6cee3', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c',
-          '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928']
-#colors = ['#348ABD', '#A60628', '#7A68A6', '#467821', '#D55E00', '#CC79A7', '#56B4E9', '#009E73', '#F0E442', '#0072B2']
 dist_colors_short = ['darkblue', 'darkred', 'darkgreen']
 
 # Used for making a custom legend for the plots
@@ -87,6 +84,7 @@ data.sort_values('AgeNominal', ascending=False, inplace=True)
 
 poles = []
 pole_names = []
+pole_colors = []
 for i, row in data.iterrows():
     pole_lat = row['PLat']
     pole_lon = row['PLon'] - lon_shift
@@ -104,6 +102,7 @@ for i, row in data.iterrows():
         pole_lon, pole_lat, angular_error=a95, age=age, sigma_age=sigma_age)
     poles.append(pole)
     pole_names.append(row['PoleName'])
+    pole_colors.append(row['color'])
 
 slat = 46.8  # Duluth lat
 slon = 360. - 92.1 - lon_shift  # Duluth lon
@@ -138,14 +137,14 @@ def plot_synthetic_paths( ax=None, title=''):
     for directions in direction_samples:
         mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
 
-    #mcplates.plot.plot_continent(myax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    mcplates.plot.plot_continent(myax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
 
-    pathlons, pathlats = path.compute_synthetic_paths(n=200)
+    pathlons, pathlats = path.compute_synthetic_paths(n=20)
     for pathlon, pathlat in zip(pathlons, pathlats):
         myax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
                   color='b', alpha=0.05)
 
-    colorcycle = itertools.cycle(colors)
+    colorcycle = itertools.cycle(pole_colors)
     for p in poles:
         p.plot(myax, color=next(colorcycle))
 
@@ -168,7 +167,7 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
         myax1 = ax1
         myax2 = ax2
 
-    colorcycle = itertools.cycle(colors)
+    colorcycle = itertools.cycle(pole_colors)
     for p, age_samples in zip(poles, path.ages()):
         c = next(colorcycle)
         age = np.linspace(1070, 1115, 1000)
@@ -208,8 +207,8 @@ def plot_synthetic_poles( ax=None, title=''):
 
     myax.gridlines()
 
-    colorcycle = itertools.cycle(colors)
-    lons, lats, ages = path.compute_synthetic_poles(n=100)
+    colorcycle = itertools.cycle(pole_colors)
+    lons, lats, ages = path.compute_synthetic_poles(n=20)
     for i in range(len(poles)):
         c = next(colorcycle)
         poles[i].plot(ax, color=c)
@@ -341,7 +340,7 @@ def plot_plate_speeds( ax = None, title = ''):
 def make_legend(ax, title):
     # Make a custom legend
     import textwrap
-    colorcycle = itertools.cycle(colors)
+    colorcycle = itertools.cycle(pole_colors)
     color_list = [ next(colorcycle) for p in pole_names]
     legend_names = [ '\n'.join(textwrap.wrap(name, 35)) for name in pole_names]
     legend = ax.legend(color_list, legend_names, fontsize=11, loc='center',
@@ -360,7 +359,7 @@ if __name__ == "__main__":
         path.load_mcmc()
         print("Done")
     else:
-        path.sample_mcmc(1000000)
+        path.sample_mcmc(2000000)
 
     fig = plt.figure( figsize=(8,4))
     ax1 = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(proj_lon,proj_lat))
