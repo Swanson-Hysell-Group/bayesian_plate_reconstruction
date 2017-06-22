@@ -71,8 +71,6 @@ def create_model(n_euler_rotations, use_tpw):
     return path, poles, pole_names, pole_colors
 
 def load_or_sample_model(path):
-    print(path.dbname)
-    print(os.path.isfile(path.dbname))
     if os.path.isfile(path.dbname):
         print("Loading MCMC results from disk...")
         path.load_mcmc()

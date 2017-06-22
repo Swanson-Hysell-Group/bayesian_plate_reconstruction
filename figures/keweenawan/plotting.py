@@ -51,14 +51,15 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
     if path.n_euler_rotations > 0:
         direction_samples = path.euler_directions()
     if path.include_tpw:
-        direction_samples.insert(0, path.tpw_poles())
+        tpw_samples = path.tpw_poles()
 
-    dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
-    if path.include_tpw == False:
-        next(dist_colors)
+    dist_colors = itertools.cycle([cmap_red, cmap_green])
 
     for directions in direction_samples:
         mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
+
+    if path.include_tpw:
+        mcplates.plot.plot_distribution(ax, tpw_samples[:, 0], tpw_samples[:, 1], cmap=cmap_blue, resolution=60)
 
     mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0),
                                  angle=-lon_shift, color='k', lw=1)
