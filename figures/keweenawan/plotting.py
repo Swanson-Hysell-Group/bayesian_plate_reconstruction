@@ -54,21 +54,25 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
         direction_samples.insert(0, path.tpw_poles())
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
+    if path.include_tpw == False:
+        next(dist_colors)
+
     for directions in direction_samples:
         mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
 
-    mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0), angle=-lon_shift, color='k')
+    mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0),
+                                 angle=-lon_shift, color='k', lw=1)
 
     pathlons, pathlats = path.compute_synthetic_paths(n=20)
     for pathlon, pathlat in zip(pathlons, pathlats):
         ax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
-                  color='b', alpha=0.05)
+                  color='b', alpha=0.05, lw=1)
 
     colorcycle = itertools.cycle(pole_colors)
     for p in poles:
         p.plot(ax, color=next(colorcycle))
 
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
+    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='b', marker="*", s=100)
 
     if title != '':
         ax.set_title(title)
@@ -110,7 +114,7 @@ def plot_synthetic_poles(path, poles, pole_colors, ax, title=''):
         c = next(colorcycle)
         poles[i].plot(ax, color=c)
         ax.scatter(lons[:, i], lats[:, i], color=c,
-                     transform=ccrs.PlateCarree())
+                     transform=ccrs.PlateCarree(), s=2)
 
     if title != '':
         ax.set_title(title)
@@ -176,6 +180,9 @@ def plot_plate_speeds(path, poles, ax, title = ''):
     xmin = 1000.
     xmax = 0.
     colorcycle = itertools.cycle( dist_colors_short )
+    if path.include_tpw == False:
+        next(colorcycle)
+
     for i, (directions, rates) in enumerate(zip(direction_samples, rate_samples)):
 
         #comptute plate speeds
@@ -207,7 +214,7 @@ def plot_plate_speeds(path, poles, ax, title = ''):
         xmin = max(0., min( xmin, median - 2.*(median-credible_interval[0])))
         xmax = max( xmax, median + 2.*(credible_interval[1]-median))
 
-    if path.n_euler_rotations > 1:
+    if len(rate_samples) > 1:
         ax.legend(loc='upper right')
     ax.set_xlim(xmin, xmax)
 
