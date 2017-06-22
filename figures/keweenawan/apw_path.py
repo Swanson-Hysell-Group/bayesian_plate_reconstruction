@@ -1,10 +1,10 @@
 from __future__ import print_function
-import itertools
+import os, sys
 import numpy as np
 import scipy.stats as st
 import pandas as pd
-import sys
 
+sys.path.append(os.path.abspath('../../mcplates'))
 import mcplates
 
 # Shift all longitudes by 180 degrees to get around some plotting
@@ -71,7 +71,6 @@ def create_model(n_euler_rotations, use_tpw):
     return path, poles, pole_names, pole_colors
 
 def load_or_sample_model(path):
-    import os
     print(path.dbname)
     print(os.path.isfile(path.dbname))
     if os.path.isfile(path.dbname):

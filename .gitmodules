@@ -1,0 +1,3 @@
+[submodule "mcplates"]
+	path = mcplates
+	url = git@github.com:ian-r-rose/mcplates.git
