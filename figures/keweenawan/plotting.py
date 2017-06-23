@@ -4,6 +4,8 @@ import numpy as np
 import scipy.stats as st
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from matplotlib.ticker import FormatStrFormatter
+
 import cartopy.crs as ccrs
 
 import mcplates
@@ -79,7 +81,7 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
         ax.set_title(title)
 
 
-def plot_age_samples(path, poles, ax1, ax2, title1='', title2=''):
+def plot_age_samples(path, poles, pole_colors, ax1, ax2, title1='', title2=''):
 
     colorcycle = itertools.cycle(pole_colors)
     for p, age_samples in zip(poles, path.ages()):
@@ -99,6 +101,9 @@ def plot_age_samples(path, poles, ax1, ax2, title1='', title2=''):
     ax2.set_xlabel('Age (Ma)')
     ax1.set_ylabel('Prior probability')
     ax2.set_ylabel('Posterior probability')
+    ax1.xaxis.set_major_formatter(FormatStrFormatter('%i'))
+    ax2.xaxis.set_major_formatter(FormatStrFormatter('%i'))
+
 
     if title1 != '':
         ax1.set_title(title1)
@@ -218,6 +223,8 @@ def plot_plate_speeds(path, poles, ax, title = ''):
     if len(rate_samples) > 1:
         ax.legend(loc='upper right')
     ax.set_xlim(xmin, xmax)
+    ax.xaxis.set_major_formatter(FormatStrFormatter('%i'))
+
 
     if title != '':
         ax.set_title(title)
@@ -228,7 +235,7 @@ def make_legend(pole_names, pole_colors, ax, title):
     colorcycle = itertools.cycle(pole_colors)
     color_list = [ next(colorcycle) for p in pole_names]
     legend_names = [ '\n'.join(textwrap.wrap(name, 35)) for name in pole_names]
-    legend = ax.legend(color_list, legend_names, fontsize=11, loc='center',
+    legend = ax.legend(color_list, legend_names, fontsize=8, loc='center', ncol=1,
                 frameon=False, framealpha=1.0, handler_map={str: LegendHandler()})
     legend.get_frame().set_facecolor('white')
 
