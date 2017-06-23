@@ -4,7 +4,7 @@ import numpy as np
 import scipy.stats as st
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from matplotlib.ticker import FormatStrFormatter
+import matplotlib.ticker as ticker
 
 import cartopy.crs as ccrs
 
@@ -223,8 +223,9 @@ def plot_plate_speeds(path, poles, ax, title = ''):
     if len(rate_samples) > 1:
         ax.legend(loc='upper right')
     ax.set_xlim(xmin, xmax)
-    ax.xaxis.set_major_formatter(FormatStrFormatter('%i'))
-
+    ax.xaxis.set_major_formatter(ticker.FormatStrFormatter('%i'))
+    tick_interval = 5 if xmin - xmax > 10 else 2
+    ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 
     if title != '':
         ax.set_title(title)
