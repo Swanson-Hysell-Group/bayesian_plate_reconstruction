@@ -101,8 +101,8 @@ def plot_age_samples(path, poles, pole_colors, ax1, ax2, title1='', title2=''):
     ax2.set_xlabel('Age (Ma)')
     ax1.set_ylabel('Prior probability')
     ax2.set_ylabel('Posterior probability')
-    ax1.xaxis.set_major_formatter(FormatStrFormatter('%i'))
-    ax2.xaxis.set_major_formatter(FormatStrFormatter('%i'))
+    ax1.xaxis.set_major_formatter(ticker.FormatStrFormatter('%i'))
+    ax2.xaxis.set_major_formatter(ticker.FormatStrFormatter('%i'))
 
 
     if title1 != '':
