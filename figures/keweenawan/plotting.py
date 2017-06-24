@@ -19,10 +19,6 @@ from mcplates.plot import cmap_red, cmap_green, cmap_blue
 # issues. This is error prone, so it should be fixed eventually
 lon_shift = 180.
 
-slat = 46.8  # Duluth lat
-slon = 360. - 92.1 - lon_shift  # Duluth lon
-duluth = mcplates.PlateCentroid(slon, slat)
-
 # List of colors to use
 dist_colors_short = ['darkblue', 'darkred', 'darkgreen']
 
@@ -66,9 +62,6 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
     if path.include_tpw:
         mcplates.plot.plot_distribution(ax, tpw_samples[:, 0], tpw_samples[:, 1], cmap=cmap_blue, resolution=60)
 
-    mcplates.plot.plot_continent(ax, 'laurentia', rotation_pole=mcplates.Pole(0., 90., 1.0),
-                                 angle=-lon_shift, color='k', lw=1)
-
     pathlons, pathlats = path.compute_synthetic_paths(n=20)
     for pathlon, pathlat in zip(pathlons, pathlats):
         ax.plot(pathlon, pathlat, transform=ccrs.PlateCarree(),
@@ -77,8 +70,6 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
     colorcycle = itertools.cycle(pole_colors)
     for p in poles:
         p.plot(ax, color=next(colorcycle))
-
-    ax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='b', marker="*", s=100)
 
     if title != '':
         ax.set_title(title)
@@ -165,6 +156,11 @@ def plot_changepoints(path, ax, title=''):
 
 def plot_plate_speeds(path, poles, ax, title = ''):
 
+    # Load a series of points for Laurentia
+    laurentia_data = np.loadtxt('Laurentia_lon_lat.csv', skiprows=1, delimiter=',')
+    laurentia_lon = laurentia_data[:,2] - lon_shift
+    laurentia_lat = laurentia_data[:,1]
+
     direction_samples = []
     rate_samples = []
     if path.n_euler_rotations > 0:
@@ -199,7 +195,13 @@ def plot_plate_speeds(path, poles, ax, title = ''):
         for j in range(len(rates)):
             euler = mcplates.EulerPole(
                 directions[j, 0], directions[j, 1], rates[j])
-            speed_samples[j] = euler.speed_at_point(duluth)
+            speed_sample = 0.
+            for slon, slat in zip(laurentia_lon, laurentia_lat):
+                loc = mcplates.PlateCentroid(slon, slat)
+                speed = euler.speed_at_point(loc)
+                speed_sample += speed*speed/len(laurentia_lon)
+
+            speed_samples[j] = np.sqrt(speed_sample)
 
         c = next(colorcycle)
 
