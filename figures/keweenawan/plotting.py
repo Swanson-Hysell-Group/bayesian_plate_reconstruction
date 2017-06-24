@@ -55,9 +55,12 @@ def plot_synthetic_paths(path, poles, pole_colors, ax, title=''):
     if path.include_tpw:
         tpw_samples = path.tpw_poles()
 
-    dist_colors = itertools.cycle([cmap_red, cmap_green])
+    if path.n_euler_rotations == 1:
+        dist_colors = itertools.cycle([cmap_red])
+    elif path.n_euler_rotations == 2:
+        dist_colors = itertools.cycle([cmap_green, cmap_red])
 
-    for directions in direction_samples:
+    for directions in direction_samples[::-1]:
         mcplates.plot.plot_distribution(ax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
 
     if path.include_tpw:
@@ -115,7 +118,7 @@ def plot_synthetic_poles(path, poles, pole_colors, ax, title=''):
     ax.gridlines()
 
     colorcycle = itertools.cycle(pole_colors)
-    lons, lats, ages = path.compute_synthetic_poles(n=20)
+    lons, lats, ages = path.compute_synthetic_poles(n=50)
     for i in range(len(poles)):
         c = next(colorcycle)
         poles[i].plot(ax, color=c)
@@ -224,7 +227,7 @@ def plot_plate_speeds(path, poles, ax, title = ''):
         ax.legend(loc='upper right')
     ax.set_xlim(xmin, xmax)
     ax.xaxis.set_major_formatter(ticker.FormatStrFormatter('%i'))
-    tick_interval = 5 if xmin - xmax > 10 else 2
+    tick_interval = 5 if xmax-xmin > 10 else 2
     ax.xaxis.set_major_locator(ticker.MultipleLocator(tick_interval))
 
     if title != '':
