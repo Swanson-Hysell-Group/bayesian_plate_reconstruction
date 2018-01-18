@@ -574,7 +574,7 @@ essentially allowing the Euler pole to be anywhere on the globe with equal proba
 An interesting alternative choice is to inform our prior distribution for Euler pole position based
 on current plate motions. It has long been observed that, to first order, plate motions
 are well explained by slab-pull torques acting along subduction zones, and to a lesser
-extent, ridge push and continental keel effects \citep{forsyth1975relative, gordon1978absolute, richardson1992ridge}.
+extent, ridge push and mantle traction effects \citep{forsyth1975relative, gordon1978absolute, richardson1992ridge}.
 This observation is explained by the fact that plate tectonics is the 
 surface expression of Earth's convection.
 
@@ -634,7 +634,7 @@ of regularization on plate speeds.
 \caption[Informative prior distributions for Euler poles]{Informative prior distributions for Euler poles. (a) Prior probabilities for rotation rates. The histogram is the angular rotation rate from one thousand samples from the surface of Earth, using the NNR-MORVEL56 model. A fit to this sample set with an exponential distribution yields a scale parameter of $\lambda \approx 2.5$. We also show the distribution for $\lambda = 1.0$, which imposes less regularization on the rate, and a uniform $U(0,4)$ distribution, which has no preference for slower speeds.
 (b) Prior probability density for the position of the Euler poles, with the north pole as the site latitude and longitude. 
 We again sampled one thousand points on Earth's surface, calculating the angular distance between that point and the Euler pole for its plate. 
-If we model the probability distribution as being drawn from a Watson distribution, then these angular distances correspond to colatitudes, where the pole is the sampled point. 
+If we model the probability distribution as being drawn from a Watson distribution, these angular distances correspond to colatitudes, where the pole is the sampled point. 
 Fitting the resulting angular distribution to a Watson girdle distribution finds $\kappa_W \approx -0.8$. 
 Since the Watson distribution is rotationally symmetric, longitudes do not contribute to the fit. 
 For $\kappa_W \approx -0.8$ the probability density is roughly twice as large at the equator as at the pole.}
@@ -670,7 +670,7 @@ by including the age of the poles and associated uncertainty as parameters in ou
 
 There are many different ways to constrain the ages of the geologic units from
 which we obtain paleomagnetic poles, including radiometric dating, biostratigraphy,
-magnetostratigraphy, cross-cutting relationships, and stratigraphic relations.
+magnetostratigraphy, cross-cutting relationships, and stratigraphic relationships.
 Here we concentrate on poles that are either interpreted to be the age of a single radiometric
 date or are interpreted to be bracketed stratigraphically between two dates
 (derived radiometrically or by using other age control such as biostratigraphy).
@@ -709,7 +709,7 @@ allows us to evaluate Bayes' theorem (Equation~\eqref{eq:propbayes}).
 
 In the case of APW paths, our observations are paleomagnetic poles.
 The most common statistical distribution for describing paleomagnetic poles is the Fisher distribution
-(though others are possible, such as the Kent or Bingham distributions, c.f. \citet{tauxe2010essentials}).
+(although other distributions are sometimes used, such as the Kent or Bingham distributions, c.f. \citet{tauxe2010essentials}).
 Given the set of model parameters $\mathbf{m}$ and the forward model $\mathbf{g}(\mathbf{m})$, described
 in Section~\ref{sec:forward_model}, we can calculate the predicted paleomagnetic pole unit vectors $\hat{\mathbf{x}}_i^p$.
 For a set of $n$ paleomagnetic poles, the likelihood is then given by the product of the probabilities
@@ -776,7 +776,7 @@ The inversion successfully recovers the Euler pole positions and rates, and the 
 
 \subsection{Incorporating age uncertainty}
 \label{sec:age_uncertainty}
-A major benefit of the Bayesian approach to inverse problems is its great generality.
+A major benefit of the Bayesian approach to inverse problems is its generality.
 As long as some effect can be described statistically and incorporated into our
 forward model, we can include it in the inverse problem.
 
@@ -794,8 +794,8 @@ help to constrain the location of the APW path without providing an unwanted con
 on the timing of the path.
 Figure~\ref{fig:age_uncertainty_samples} shows the prior and posterior distributions for the
 ages of the poles. We can see from the posterior distribution that the inversion
-successfully places the ages of the middle two poles at $\sim70$ Ma and $\sim130$ Ma,
-though with relatively wide 95\% credible intervals.
+successfully places the ages of the middle two poles at $\sim70$ Ma and $\sim130$ Ma.
+However, the 95\% credible intervals on these age estimates are relatively wide.
 The posterior distributions for the Euler pole position and magnitude 
 which we recover from this inversion are visually identical to those in Figure~\ref{fig:one_euler_pole}.
 
@@ -814,7 +814,11 @@ An approach that can be taken is to calculate the predicted pole position implie
 This approach provides the mean pole position on the apparent polar wander path. 
 We also wish to report the uncertainty on that estimated position.
 The spread in the position of these inverted pole positions has real meaning related to the certainty of the position within the inversion that corresponds both to the best-fit in space through the poles and that in time which affects the rate of the rotation about the Euler pole. 
-The spread in pole positions can be approximated as a Fisher distribution from which the angle from the mean that contains 95$\%$ of the solutions can be calculated. 
+The spread in pole positions can be approximated as a Fisher distribution from which the angle from the mean that contains 95$\%$ of the solutions ($\theta_{95}$) can be calculated:
+\begin{equation}
+\theta_{95}=\frac{140º}{\sqrt{\kappa}}
+\label{eq:angular_deviation}
+\end{equation}
 This angle is equivalent to a 2$\sigma$ uncertainty in Gaussian statistics. 
 Implied pole positions from these inversions are more tightly clustered than the inverted Euler pole positions themselves and typically are consistent with being drawn from a Fisher distribution such that reporting the 95$\%$ confidence of angular deviation is appropriate.
 
