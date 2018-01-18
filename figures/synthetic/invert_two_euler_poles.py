@@ -50,7 +50,7 @@ def plot_result():
     colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
 
     n_paths=100
     interval = max(1, int(len(path.mcmc.db.trace('rate_0')[:]) / n_paths))
@@ -96,7 +96,7 @@ def plot_result():
     #plt.show()
 
 if __name__ == "__main__":
-    import os 
+    import os
     if os.path.isfile(dbname+'.pickle'):
         path.load_mcmc()
     else:

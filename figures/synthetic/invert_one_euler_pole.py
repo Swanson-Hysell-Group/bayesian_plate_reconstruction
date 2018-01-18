@@ -32,7 +32,7 @@ for a in ages:
     lon_lat = dummy_pole_position_fn(hidden_start_pole, a, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     pole_list.append( mcplates.PaleomagneticPole( lon_lat[0], lon_lat[1], angular_error = 10., age=a, sigma_age = 0.01))
 
-path = mcplates.APWPath( dbname, pole_list, n_euler_poles) 
+path = mcplates.APWPath( dbname, pole_list, n_euler_poles)
 path.create_model(watson_concentration=0.0, rate_scale = 2.5)
 
 
@@ -46,7 +46,7 @@ def plot_result():
     colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon,pathlat in zip(pathlons,pathlats):
@@ -76,7 +76,7 @@ def plot_result():
     #plt.show()
 
 if __name__ == "__main__":
-    import os 
+    import os
     if os.path.isfile(dbname+'.pickle'):
         path.load_mcmc()
     else:
