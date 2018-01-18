@@ -105,7 +105,6 @@ def generate_data_samples_unweighted():
 
     morvel = pd.read_table("NNR-MORVEL56.txt", delim_whitespace=True).set_index('Abbreviation')
     vals = [morvel['AngularRate'][p] for p in plate_id_to_code]
-    print vals
     return np.empty_like(vals), np.empty_like(vals), vals
 
 

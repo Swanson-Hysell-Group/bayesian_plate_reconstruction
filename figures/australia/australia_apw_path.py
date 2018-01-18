@@ -119,7 +119,7 @@ def plot_synthetic_paths( ax=None, title=''):
 
     dist_colors = itertools.cycle([cmap_blue, cmap_red, cmap_green])
     for directions in direction_samples:
-        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=dist_colors.next(), resolution=60)
+        mcplates.plot.plot_distribution(myax, directions[:, 0], directions[:, 1], cmap=next(dist_colors), resolution=60)
 
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
@@ -129,7 +129,7 @@ def plot_synthetic_paths( ax=None, title=''):
 
     colorcycle = itertools.cycle(colors)
     for p in poles[:-1]:
-        p.plot(myax, south_pole=True, color=colorcycle.next())
+        p.plot(myax, south_pole=True, color=next(colorcycle))
 
     myax.scatter(slon, slat, transform=ccrs.PlateCarree(), c='k', marker="*", s=100)
 
@@ -165,7 +165,7 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
 
     colorcycle = itertools.cycle(colors)
     for p, age_samples in zip(poles[:-1], path.ages()[:-1]):
-        c = colorcycle.next()
+        c = next(colorcycle)
         age = np.linspace(0., 65, 1000)
         if p.age_type == 'gaussian':
             dist = st.norm.pdf(age, loc=p.age, scale=p.sigma_age)
@@ -206,7 +206,7 @@ def plot_synthetic_poles( ax=None, title=''):
     colorcycle = itertools.cycle(colors)
     lons, lats, ages = path.compute_synthetic_poles(n=100)
     for i in range(len(poles[:-1])):
-        c = colorcycle.next()
+        c = next(colorcycle)
         poles[i].plot(myax, south_pole=True, color=c)
         myax.scatter(lons[:, i]-180., -lats[:, i], color=c,
                      transform=ccrs.PlateCarree())
@@ -305,7 +305,7 @@ def latitude_time_plot( ax = None, title=''):
     for p in poles[:-1]:
         myax.errorbar( p.age, -p.latitude, yerr= [p.angular_error,], \
                        xerr = [(p.sigma_age[1]-p.sigma_age[0])/2.,], \
-                       color = colorcycle.next(), fmt='-')
+                       color = next(colorcycle), fmt='-')
     myax.set_xlabel("Age (Ma)")
     myax.set_ylabel("Latitude")
 

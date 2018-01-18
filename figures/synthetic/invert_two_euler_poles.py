@@ -9,11 +9,11 @@ import cartopy.crs as ccrs
 
 import pymc
 from pymc.utils import hpd
-import mcplates
 
 plt.style.use('../bpr.mplstyle')
 
 sys.path.insert(1, os.path.abspath('../../mcplates'))
+import mcplates
 from mcplates.plot import cmap_red, cmap_green
 
 dbname = 'two_euler_poles'

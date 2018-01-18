@@ -47,7 +47,7 @@ def plot_result():
     colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
 
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon,pathlat in zip(pathlons,pathlats):
