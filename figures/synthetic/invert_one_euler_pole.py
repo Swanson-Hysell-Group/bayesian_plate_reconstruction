@@ -1,3 +1,5 @@
+import sys, os
+
 import itertools
 import numpy as np
 import scipy.optimize
@@ -5,6 +7,7 @@ import matplotlib.pyplot as plt
 
 import cartopy.crs as ccrs
 
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import pymc
 from pymc.utils import hpd
 import mcplates
@@ -26,7 +29,7 @@ hidden_euler_rate = 1.
 dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn( n_euler_poles, start_age)
 pole_list = []
 for a in ages:
-    lon_lat = dummy_pole_position_fn(hidden_start_pole, a, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn(hidden_start_pole, a, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     pole_list.append( mcplates.PaleomagneticPole( lon_lat[0], lon_lat[1], angular_error = 10., age=a, sigma_age = 0.01))
 
 path = mcplates.APWPath( dbname, pole_list, n_euler_poles) 

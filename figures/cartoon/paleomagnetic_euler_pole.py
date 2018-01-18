@@ -1,7 +1,11 @@
+import sys, os
+
 import matplotlib.pyplot as plt
 import matplotlib.image as image
 import cartopy.crs as ccrs
 import numpy as np
+
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
 
 imm = image.imread('mountain_small.png')
@@ -20,10 +24,10 @@ hidden_euler_pole = [40., -20.]
 hidden_euler_rate = 1.5
 
 #Make a dummy APW path to create the synthetic data
-dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn( n_euler_poles, start_age)
+dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn(n_euler_poles, start_age)
 pole_list = []
 for a in ages:
-    lon_lat = dummy_pole_position_fn(hidden_start_pole, a, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn(hidden_start_pole, a, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     pole_list.append( mcplates.PaleomagneticPole( lon_lat[0], lon_lat[1], angular_error = 5., age=a, sigma_age = 0.01))
 for p in pole_list[1:-1]:
     p.plot(ax, color='b')
@@ -37,10 +41,10 @@ pb2_lat = np.empty_like(times)
 for i,t in enumerate(times):
     start1 = ( 30., 60.)
     start2 = ( 40., 15.)
-    lon_lat = dummy_pole_position_fn(start1, t, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn(start1, t, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     pb1_lon[i] = lon_lat[0]
     pb1_lat[i] = lon_lat[1]
-    lon_lat = dummy_pole_position_fn(start2, t, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn(start2, t, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     pb2_lon[i] = lon_lat[0]
     pb2_lat[i] = lon_lat[1]
 
@@ -78,7 +82,7 @@ ax.plot(pb5_lon, pb5_lat, lw=2, c='k', transform=ccrs.PlateCarree())
 
 # Make volcanoes
 for a in ages[1:-1]:
-    lon_lat = dummy_pole_position_fn([35,45], a, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn([35,45], a, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     ax.imshow(imm,extent = [lon_lat[0], lon_lat[0]+10, lon_lat[1], lon_lat[1]+10], origin="upper", transform=ccrs.PlateCarree())
 
 # Make plate motion arrow
@@ -86,7 +90,7 @@ times = np.linspace(ages[1], ages[-2])
 arrow_lon = np.empty_like(times)
 arrow_lat = np.empty_like(times)
 for i,t in enumerate(times):
-    lon_lat = dummy_pole_position_fn([40,25], t, hidden_euler_pole, hidden_euler_rate)
+    lon_lat = dummy_pole_position_fn([40,25], t, 0.0, 0.0, hidden_euler_pole, hidden_euler_rate)
     arrow_lon[i] = lon_lat[0]
     arrow_lat[i] = lon_lat[1]
 ax.plot(arrow_lon, arrow_lat, lw=4, c='k', transform=ccrs.PlateCarree())
