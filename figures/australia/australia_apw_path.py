@@ -89,6 +89,9 @@ for i, row in data.iterrows():
 
 # Add pole with low error for present day pole
 poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
+# Add the present day pole AGAIN as a hackish workaround
+# for a bug in pymc (fixed by pymc#89, but not released)
+poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
 
 # Reference position on the Australian continent
 slat = -25.3  # Uluru lat
@@ -97,7 +100,7 @@ uluru = mcplates.PlateCentroid(slon, slat)
 
 path = mcplates.APWPath(
     'australia_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=-0.0, rate_scale=2.5)
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5, tpw_rate_scale=None)
 
 
 def plot_synthetic_paths( ax=None, title=''):
