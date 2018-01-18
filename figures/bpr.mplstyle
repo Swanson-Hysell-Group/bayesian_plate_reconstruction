@@ -28,5 +28,4 @@ image.cmap : hot
 
 savefig.bbox : tight
 savefig.pad_inches : 0.1
-savefig.directory : 
 savefig.transparent : False
