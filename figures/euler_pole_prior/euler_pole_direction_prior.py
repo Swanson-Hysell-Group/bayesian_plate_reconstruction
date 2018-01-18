@@ -1,4 +1,4 @@
-import os
+import os, sys
 import numpy as np
 import numpy.random as random
 import pandas as pd
@@ -8,6 +8,7 @@ import scipy.special as sp
 
 import pymc
 
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
 
 #plt.style.use('ian')

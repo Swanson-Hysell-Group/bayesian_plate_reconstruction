@@ -1,3 +1,5 @@
+import sys, os
+
 import itertools
 import numpy as np
 import scipy.optimize
@@ -10,6 +12,8 @@ from pymc.utils import hpd
 import mcplates
 
 plt.style.use('../bpr.mplstyle')
+
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 from mcplates.plot import cmap_red, cmap_green
 
 dbname = 'two_euler_poles'
@@ -26,7 +30,7 @@ hidden_changepoint = 130.
 dummy_pole_position_fn = mcplates.APWPath.generate_pole_position_fn( n_euler_poles, start_age)
 pole_list = []
 for a in ages:
-    lon_lat = dummy_pole_position_fn(hidden_start_pole, a,
+    lon_lat = dummy_pole_position_fn(hidden_start_pole, a, 0.0, 0.0,
                                      hidden_euler_poles[0], hidden_euler_poles[1],
                                      hidden_euler_rates[0], hidden_euler_rates[1], hidden_changepoint)
     pole_list.append( mcplates.PaleomagneticPole( lon_lat[0], lon_lat[1], angular_error = 10., age=a, sigma_age = 0.01))
@@ -46,7 +50,7 @@ def plot_result():
     colors = itertools.cycle([cmap_red, cmap_green])
     direction_samples = path.euler_directions()
     for directions in direction_samples:
-        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=colors.next())
+        mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
 
     n_paths=100
     interval = max(1, int(len(path.mcmc.db.trace('rate_0')[:]) / n_paths))
@@ -92,7 +96,7 @@ def plot_result():
     #plt.show()
 
 if __name__ == "__main__":
-    import os 
+    import os
     if os.path.isfile(dbname+'.pickle'):
         path.load_mcmc()
     else:

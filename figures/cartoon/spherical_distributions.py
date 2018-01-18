@@ -1,10 +1,14 @@
+import sys, os
+
 import numpy as np
 import numpy.polynomial.legendre as legendre
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import cartopy.crs as ccrs
 
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
+
 
 cmap_green = LinearSegmentedColormap.from_list('vphi', [(0, '#ffffff'), (0.2, '#edf8e9'), (
     0.4, '#bae4b3'), (0.6, '#74c476'), (0.8, '#31a354'), (1.0, '#006d2c')], gamma=0.5)

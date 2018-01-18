@@ -1,4 +1,5 @@
 from __future__ import print_function
+import sys, os
 import itertools
 import numpy as np
 import scipy.stats as st
@@ -6,8 +7,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import cartopy.crs as ccrs
-import sys
 
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
 from pymc.utils import hpd
 

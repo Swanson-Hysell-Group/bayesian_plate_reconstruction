@@ -1,7 +1,11 @@
+import os, sys
+
 import numpy as np
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import pygplates
+
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
 
 input_rotation_filename = 'Seton_etal_ESR2012_2012.1.rot'

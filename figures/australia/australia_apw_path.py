@@ -6,8 +6,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import cartopy.crs as ccrs
-import sys
+import sys, os
 
+sys.path.insert(1, os.path.abspath('../../mcplates'))
 import mcplates
 from pymc.utils import hpd
 
