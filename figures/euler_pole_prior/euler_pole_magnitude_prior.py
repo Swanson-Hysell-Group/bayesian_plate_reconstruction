@@ -45,8 +45,8 @@ def generate_data_samples():
         plate_data = np.loadtxt("WhichPlate.dat")
         vals = plate_data[:,2]
 
-        nlons = 256.
-        nlats = 128.
+        nlons = 256
+        nlats = 128
         dlon = 360./nlons
         dlat = 180./nlats
 
@@ -66,8 +66,8 @@ def generate_data_samples():
             lon = sample[0]
             lat = sample[1]
             try:
-                lon_index = np.floor(lon/dlon)
-                lat_index = np.floor((90.-lat)/dlat)
+                lon_index = int(np.floor(lon/dlon))
+                lat_index = int(np.floor((90.-lat)/dlat))
                 plate_id = vals[lat_index, lon_index]
                 plate_code = plate_id_to_code[plate_id]
 
@@ -81,7 +81,7 @@ def generate_data_samples():
                 i += 1
             except KeyError:
                 continue
-        np.savetxt('euler_pole_magnitude_samples.txt', zip(lon_samples,lat_samples,val_samples))
+        np.savetxt('euler_pole_magnitude_samples.txt', list(zip(lon_samples,lat_samples,val_samples)))
 
     return lon_samples,lat_samples,val_samples
 
