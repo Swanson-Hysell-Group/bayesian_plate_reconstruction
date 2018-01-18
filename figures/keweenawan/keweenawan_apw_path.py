@@ -112,7 +112,7 @@ duluth = mcplates.PlateCentroid(slon, slat)
 prefix = 'keweenawan_'+str(n_euler_rotations)+'_'+sys.argv[2]
 
 path = mcplates.APWPath(prefix, poles, n_euler_rotations)
-tpw_rate_scale = 0.5 if use_tpw else None
+tpw_rate_scale = 2.5 if use_tpw else None
 path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0,\
         rate_scale=2.5, tpw_rate_scale=tpw_rate_scale)
 
