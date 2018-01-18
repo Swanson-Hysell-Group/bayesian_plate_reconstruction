@@ -129,12 +129,14 @@ by placing it within the framework of a Bayesian inverse problem.
 This approach allows the incorporation of uncertainties in both pole position and age.
 The paleomagnetic Euler poles resulting from the inversion provide estimates for the total
 plate motions (not just the latitudinal components) as well as their uncertainties.
+In addition to estimating a single Euler pole, the method allows for changepoints
+from one Euler pole to another to be solved for as part of the inversion.
+The inversion path be restricted to be a great circle therefore allowing inversion for true 
+polar wander or true polar wander in combination with small circle paths.
 
 We show several example inversions on simple synthetic data to demonstrate the capabilities of the method.
 We apply this method to the Cenozoic APW path of Australia and to the
 Mesoproterozoic Keweenawan Track of cratonic North America (Laurentia).
-The inversion for the Keweenawan track gives a plate speed for Laurentia
-that exceeds 22.9 cm/yr at a 95\% credible level.
 \end{abstract}
 
 \begin{keyword}
@@ -189,7 +191,7 @@ It is more challenging to reconstruct past plate motions from the paleomagnetic
 record than from data derived from oceanic lithosphere for a number of reasons, including 
 (1) the data are often sparser,
 (2) traditional paleomagnetic analysis constraints paleolatitude and the orientation
-of the continental block but has no way of constraining paleolongitude without additional assumptions, and
+of the continental block but does not constrain paleolongitude without additional assumptions, and
 (3) some paleomagnetic poles have poor age control.
 
 \citet{gordon1984paleomagnetic} noted that apparent polar wander paths (APW paths) have 
@@ -216,7 +218,7 @@ The resulting stage poles for which we invert are not a single answer, but are i
 a distribution of possible answers, furnishing uncertainties as part of the solution process.
 \citet{iaffaldano2012reconstructing} employed a similar Bayesian approach to inversions for finite plate rotations.
 They used seafloor data to reconstruct India's Cenozoic convergence with Asia, incorporating
-uncertainty sources into the inversion.
+uncertainties into the inversion.
 
 The paper is organized as follows: in Section~\ref{sec:apwp} we review different
 approaches for interpreting APW paths. In Section~\ref{sec:bayesian_inversion} we
@@ -243,7 +245,7 @@ which we briefly review here by.
 
 \subsection{Latitudinal drift}
 \label{sec:latitudinal_drift}
-Due to the rotational symmetry of Earth's dominantly dipolar magnetic field, paleomagnetic poles do not
+Due to the rotational symmetry of Earth's dominantly dipolar time-averaged magnetic field, paleomagnetic poles do not
 directly constrain the paleolongitude of the continental block in question \citep{butler1992paleomagnetism}.
 The simplest analysis of an APW path is thus to compare the paleolatitudes implied by successive poles for a point on the respective block.
 The difference in paleolatitudes gives a minimum angular distance over which the block has traveled. 
@@ -259,7 +261,7 @@ confidence estimates on the rate of latitudinal drift.
 
 Whether using point estimates of the latitudinal drift rate or using Monte Carlo estimates, 
 the latitudinal drift interpretation of APW paths remains limited as it represents a minimum estimate.
-It has no control over longitudinal drift rate, 
+It does not resolve longitudinal drift rate, 
 nor does it naturally extend to APW paths with more than two poles, 
 especially if two coeval poles are not in agreement.
 
@@ -268,7 +270,7 @@ especially if two coeval poles are not in agreement.
 When considering APW paths with many poles, it becomes more difficult to perform
 latitudinal comparisons between pairs of poles. It is not always clear which pairs of
 poles to compare in cases where there are many overlapping paleomagnetic poles,
-often of unclear age progression and variable reliabilities.
+that can have unclear age progression and variable reliabilities.
 
 One approach to deal with these uncertainties is to fit a spline through the
 set of paleomagnetic poles, constraining the path to lie on the surface of a sphere.
@@ -300,7 +302,7 @@ that characterize the abrupt shifts in motion that plates sometimes undergo \cit
 An alternative method for developing APW paths is to perform a running Fisher
 mean on the poles with a moving window \citep{Irving1977a, van2001evidence, torsvik2008global}.
 In such an analysis, paleomagnetic poles in a compilation are averaged in defined steps (typically 1-10 Myr) with a defined window duration (typically 10-30 Myr). Like spherical splines, the running mean approach has the ability
-to effectively damp the effect of outlier poles that could lead to spurious loops in the APW path if there are sufficient data. The width
+to effectively damp the effect of outlier poles that could lead to spurious loops in the APW path if there are sufficient data. The duration
 of the moving window controls the amount of smoothing.
 Furthermore, this moving window method enforces an age progression in the averaged poles.
 \citet{torsvik2008global} also investigated the effects of combining running means
@@ -309,11 +311,11 @@ fitting a spline through those means.
 The simplicity of using the running mean approach to develop an APW, as well as its ability to suppress potentially spurious poles, has led to it being widely adopted.
 
 The running mean approach shares many of the drawbacks of the spline approach. 
-It is not obvious how to best choose the window size, and different window sizes are
+It is not obvious how to best choose the window duration, and different window durations are
 likely appropriate for different data sets. 
 It is also unclear how to interpret the resulting uncertainties in the path
 that are reported as the Fisher $A_{95}$ ellipse of the mean of the poles.
-It, too, does not easily incorporate age uncertainties in the poles, nor the uncertainty in pole positions.
+This approach, along with the spherical spline method, does not easily incorporate age uncertainties in the poles, nor the uncertainty in pole positions.
 
 \subsection{Paleomagnetic Euler poles}
 Paleomagnetic Euler poles (PEP, introduced in Section~\ref{sec:introduction}, 
@@ -479,7 +481,7 @@ The normalization factor is given by
 When $\kappa_F$ goes to zero, the Fisher distribution is equivalent to the spherical uniform distribution.
 
 The uncertainty ellipses for most paleomagnetic poles are calculated assuming a Fisher distribution,
-and we will use this distribution to calculate the likelihood function for pole directions in the model.
+and we will use this distribution to calculate the likelihood function for pole positions in the model.
 
 \subsubsection{Watson girdle distribution}
 Whereas the Fisher distribution concentrates probability density near around a pole on
