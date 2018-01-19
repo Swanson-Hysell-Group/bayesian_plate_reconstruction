@@ -15,13 +15,13 @@ import mcplates
 plt.style.use('../bpr.mplstyle')
 from mcplates.plot import cmap_red, cmap_green
 
-dbname = 'one_euler_pole'
+dbname = 'one_euler_pole_b'
 n_euler_poles=1
 
 # Generate a synthetic data set
-ages = [10., 70., 130., 190.]
-start_age = 190.
-hidden_start_pole = [30., 0.]
+ages = [60., 80., 100., 120.]
+start_age = 120.
+hidden_start_pole = [30., 90.]
 hidden_euler_pole = [0., 0.]
 hidden_euler_rate = 1.
 
@@ -39,7 +39,7 @@ path.create_model(watson_concentration=0.0, rate_scale = 2.5)
 def plot_result():
 
     fig = plt.figure( figsize=(8,4) )
-    ax = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(0.,15.))
+    ax = fig.add_subplot(1,2,1, projection = ccrs.Orthographic(-30.,15.))
     ax.gridlines()
     ax.set_global()
 
@@ -48,13 +48,13 @@ def plot_result():
     for directions in direction_samples:
         mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
 
-    euler_lon = hidden_euler_pole[0]
-    euler_lat = hidden_euler_pole[1]
-    ax.plot(euler_lon,euler_lat, 'k*', transform=ccrs.Geodetic(), markersize=10)
-
     pathlons, pathlats = path.compute_synthetic_paths(n=200)
     for pathlon,pathlat in zip(pathlons,pathlats):
         ax.plot(pathlon,pathlat, transform=ccrs.PlateCarree(), color='darkred', alpha=0.05 )
+
+    euler_lon = hidden_euler_pole[0]
+    euler_lat = hidden_euler_pole[1]
+    ax.plot(euler_lon,euler_lat, 'k*', transform=ccrs.Geodetic(), markersize=10)
 
     for p in pole_list:
         p.plot(ax)
@@ -77,7 +77,7 @@ def plot_result():
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
     ax.set_ylabel(r'Posterior probability density')
     plt.tight_layout()
-    plt.savefig("one_euler_pole.pdf")
+    plt.savefig("one_euler_pole_scenario_b.pdf")
     #plt.show()
 
 if __name__ == "__main__":

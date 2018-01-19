@@ -51,6 +51,10 @@ def plot_result():
     direction_samples = path.euler_directions()
     for directions in direction_samples:
         mcplates.plot.plot_distribution( ax, directions[:,0], directions[:,1], resolution=60, cmap=next(colors))
+    for hidden_euler_pole in hidden_euler_poles:
+        euler_lon = hidden_euler_pole[0]
+        euler_lat = hidden_euler_pole[1]
+        ax.plot(euler_lon,euler_lat, 'k*', transform=ccrs.Geodetic(), markersize=10)
 
     n_paths=100
     interval = max(1, int(len(path.mcmc.db.trace('rate_0')[:]) / n_paths))
@@ -77,6 +81,7 @@ def plot_result():
     ax.axvline( median, lw=2, color=c )
     ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
     ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+    ax.axvline( hidden_euler_rates[0], lw=2, color='black', linestyle='dotted')
 
     c = 'darkgreen'
     ax.hist(rate_samples[1], bins=15, normed=True, edgecolor='none', color=c, alpha=0.5)
@@ -87,6 +92,7 @@ def plot_result():
     ax.axvline( median, lw=2, color=c )
     ax.axvline( credible_interval[0], lw=2, color=c, linestyle='dashed')
     ax.axvline( credible_interval[1], lw=2, color=c, linestyle='dashed')
+    ax.axvline( hidden_euler_rates[1], lw=2, color='black', linestyle='dotted')
 
     ax.set_title('(b)')
     ax.set_xlabel(r'Rotation rate $\,^\circ / \mathrm{Myr}$')
