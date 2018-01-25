@@ -47,24 +47,34 @@ class LegendHandler(object):
 
 # Parse input
 #Get number of euler rotations
-if len(sys.argv) < 2:
-    raise Exception("Please enter the number of Euler rotations to fit.")
+if len(sys.argv) < 3:
+    raise Exception("Please enter the number of Euler rotations to fit, and 'true' or 'false' for whether to include TPW")
 n_euler_rotations = int(sys.argv[1])
-if n_euler_rotations < 1:
-    raise Exception("Number of Euler rotations must be greater than zero")
+use_tpw = False if sys.argv[2] == 'false' else True;
+
+if n_euler_rotations < 0:
+    raise Exception("Number of plate Euler rotations must be greater than or equal to zero")
+if sys.argv[2] != 'false' and sys.argv[2] != 'true':
+    raise Exception("Must enter 'true' or 'false' for whether to use TPW")
+if n_euler_rotations == 0 and use_tpw == False:
+    raise Exception("Must use either TPW or plate Euler rotations, or both")
+
 # Read in optional map projection info
-if len(sys.argv) > 2:
-    proj_type = sys.argv[2].split(',')[0]
+if len(sys.argv) > 3:
+    proj_type = sys.argv[3].split(',')[0]
     assert proj_type == 'M' or proj_type == 'O'
-    proj_lon = float(sys.argv[2].split(',')[1]) - lon_shift
+    proj_lon = float(sys.argv[3].split(',')[1]) - lon_shift
     if proj_type == 'O':
-        proj_lat = float(sys.argv[2].split(',')[2])
+        proj_lat = float(sys.argv[3].split(',')[2])
 else:
     proj_type = 'M'
     proj_lon = -lon_shift
     proj_lat = 0.
 
-print("Fitting Australia APW track with "+str(n_euler_rotations)+" Euler rotation" + ("" if n_euler_rotations == 1 else "s") )
+print("Fitting Australian APW track with"\
+        +("out TPW and " if use_tpw == False else " TPW and ")\
+        +str(n_euler_rotations)+" Euler rotation"\
+        + ("" if n_euler_rotations == 1 else "s") )
 
 
 data = pd.read_csv("GPMDB_Australia_50Ma.csv")
@@ -89,18 +99,17 @@ for i, row in data.iterrows():
 
 # Add pole with low error for present day pole
 poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
-# Add the present day pole AGAIN as a hackish workaround
-# for a bug in pymc (fixed by pymc#89, but not released)
-poles.append( mcplates.PaleomagneticPole( 0., 90., angular_error=1., age=0., sigma_age=0.01) )
 
 # Reference position on the Australian continent
 slat = -25.3  # Uluru lat
 slon = 131.0 - lon_shift  # Uluru lon
 uluru = mcplates.PlateCentroid(slon, slat)
+prefix = 'australia_'+str(n_euler_rotations)+'_'+sys.argv[2]
 
-path = mcplates.APWPath(
-    'australia_apw_' + str(n_euler_rotations), poles, n_euler_rotations)
-path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0, rate_scale=2.5, tpw_rate_scale=None)
+path = mcplates.APWPath(prefix, poles, n_euler_rotations)
+tpw_rate_scale = 2.5 if use_tpw else None
+path.create_model(site_lon_lat=(slon, slat), watson_concentration=0.0,\
+        rate_scale=2.5, tpw_rate_scale=tpw_rate_scale)
 
 
 def plot_synthetic_paths( ax=None, title=''):
@@ -190,7 +199,7 @@ def plot_age_samples(ax1=None, ax2=None, title1='', title2=''):
 
     if ax1 is None and ax2 is None:
         plt.tight_layout()
-        plt.savefig("australia_ages_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix + "_ages.pdf")
 
 
 def plot_synthetic_poles( ax=None, title=''):
@@ -221,7 +230,7 @@ def plot_synthetic_poles( ax=None, title=''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("australia_poles_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix + "_poles.pdf")
 
 
 def plot_plate_speeds( ax = None, title = ''):
@@ -282,7 +291,7 @@ def plot_plate_speeds( ax = None, title = ''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix + "_speeds.pdf")
 
 
 def latitude_time_plot( ax = None, title=''):
@@ -316,7 +325,7 @@ def latitude_time_plot( ax = None, title=''):
         myax.set_title(title)
 
     if ax is None:
-        plt.savefig("australia_latitude_" + str(n_euler_rotations)+".pdf")
+        plt.savefig(prefix + "_latitude.pdf")
 
 
 if __name__ == "__main__":
@@ -336,7 +345,7 @@ if __name__ == "__main__":
     plot_synthetic_paths(ax1, title='(a)')
     plot_synthetic_poles(ax2, title='(b)')
     plt.tight_layout()
-    plt.savefig("australia_paths_" + str(n_euler_rotations)+".pdf")
+    plt.savefig(prefix + "_paths.pdf")
 
     plt.clf()
     fig = plt.figure( figsize = (8,8) )
@@ -348,4 +357,4 @@ if __name__ == "__main__":
     latitude_time_plot(ax2, title='(b)')
     plot_age_samples(ax3, ax4, title1='(c)', title2='(d)')
     plt.tight_layout()
-    plt.savefig("australia_speeds_" + str(n_euler_rotations)+".pdf")
+    plt.savefig(prefix + "_speeds.pdf")
