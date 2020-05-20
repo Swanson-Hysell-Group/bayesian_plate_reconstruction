@@ -1,0 +1,11 @@
+tab 	sites																								
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_high	age_low	age_unit	dir_dip	dip	note	citations
+87-8	Natal	314.4	-60.3	97	7	7	7	0	6.1	-27.8	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	145.8	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+87-9	Natal	303.1	-59.7	23	7	7	7	0	14.3	-27.8	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+87-13	Natal	273.8	-22.6	13	7	9	9	0	17.5	-27.8	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+87-14	Natal	198	-7.3	7	6	6	6	0	27.5	-27.8	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+87-16	Natal	108.3	50	241	6	6	6	0	4.3	-27.7	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	5	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+87-17	Natal	111.9	54.1	26	6	6	6	0	13.3	-27.7	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	5	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+88-4	Natal	282.5	-58.2	11	4	6	6	0	29.3	-27.7	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	5	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+88-5	Natal	119.9	-37.8	6	3	8	8	0	54.5	-27.7	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679
+88-5	Natal	150.2	46.5	16	2	8	8	0	67.6	-27.7	32.3	Intrusive:Igneous		Syenite	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	146	147.1	144.5	Ma	90	20	Bumbeni Complex	https://journals.co.za/content/journal/10520/EJC-929052679

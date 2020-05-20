@@ -1,0 +1,4 @@
+tab 	ages
+age_high	age_low	age_unit	citations	description	location	method_codes	timescale_citations	timescale_eon	timescale_epoch	timescale_era	timescale_period
+172	166	Ma	This study	Rb-Sr age 169+/-3 Ma.	Moat Volcanics	GM-RBSR	Gradstein et al. 2004	Phanerozoic	Middle Jurassic	Mesozoic	Jurassic
+177	161	Ma	This study	Rb-Sr and K-Ar ages average 169+/-8 Ma.	White Mountains Plutons	GM-RBSR:GM-KAR	Gradstein et al. 2004	Phanerozoic	Middle Jurassic	Mesozoic	Jurassic

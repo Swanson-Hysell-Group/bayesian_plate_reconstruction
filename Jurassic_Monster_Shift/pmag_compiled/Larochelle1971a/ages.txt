@@ -1,0 +1,3 @@
+tab 	ages
+age_high	age_low	age_unit	citations	description	location	method_codes	timescale_citations	timescale_eon	timescale_epoch	timescale_era	timescale_period
+195	172	Ma	This study	K-Ar ages (5) 172 to 195 Ma - see REFNO 706.	Diabase Dykes, Anticosti Island	GM-KAR	Gradstein et al. 2004	Phanerozoic	Early Jurassic	Mesozoic	Jurassic

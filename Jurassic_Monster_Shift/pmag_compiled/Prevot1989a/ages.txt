@@ -1,0 +1,5 @@
+tab 	ages
+age_high	age_low	age_unit	citations	location	method_codes	timescale_citations	timescale_eon	timescale_epoch	timescale_era	timescale_period	timescale_stage
+200	190	Ma	This study	Newark Supergroup Volcanics, Combined	GM-FOSSIL	Gradstein et al. 2004	Phanerozoic	Early Jurassic	Mesozoic	Jurassic	Hettangian to Sinemurian
+200	190	Ma	This study	Newark Supergroup Volcanics, Extrusives	GM-FOSSIL	Gradstein et al. 2004	Phanerozoic	Early Jurassic	Mesozoic	Jurassic	Hettangian to Sinemurian
+200	190	Ma	This study	Newark Supergroup Volcanics, Intrusives	GM-FOSSIL	Gradstein et al. 2004	Phanerozoic	Early Jurassic	Mesozoic	Jurassic	Hettangian to Sinemurian

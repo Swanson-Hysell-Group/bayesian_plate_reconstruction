@@ -1,0 +1,11 @@
+tab delimited	contribution
+id	version	timestamp	contributor	data_model_version	reference	description
+14910	2	2006-12-21T08:36:20.000Z	@magic	3.0	Larochelle (1971)	Upgraded to MagIC Data Model 3.0 by the MagIC Database Team
+>>>>>>>>>>
+tab delimited	locations
+location	location_type	result_name	result_type	method_codes	citations	geologic_classes	lithologies	lat_s	lat_n	lon_w	lon_e	continent_ocean	country	region	age_low	age_high	age_unit	dir_tilt_correction	dir_dec	dir_inc	dir_n_sites	dir_n_samples	fold_test	conglomerate_test	contact_test	reversal_test	pole_lat	pole_lon	pole_dp	pole_dm	pole_reversed_perc	description	rock_magnetic_test
+Diabase Dykes, Anticosti Island	Outcrop	3229	i	 DE-DI : LT-AF-Z:LP-DC2 	This study	Intrusive	diabasedykes	49.8	49.8	296.8	296.8	North America	Canada	Quebec	172	195	Ma	0	9.5	56.6	2	11	ND	ND	ND	ND	75.7	84.7	1.1	1.5	0	AF cleaning 25mT.	ND
+>>>>>>>>>>
+tab delimited	ages
+location	age_low	age_high	age_unit	timescale_eon	timescale_era	timescale_period	timescale_epoch	description	method_codes	timescale_citations	citations
+Diabase Dykes, Anticosti Island	172	195	Ma	Phanerozoic	Mesozoic	Jurassic	Early Jurassic	K-Ar ages (5) 172 to 195 Ma - see REFNO 706.	GM-KAR	Gradstein et al. 2004	This study

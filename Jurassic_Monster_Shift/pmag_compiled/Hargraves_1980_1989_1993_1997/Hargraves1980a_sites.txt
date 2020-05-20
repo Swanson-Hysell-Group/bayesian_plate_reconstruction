@@ -1,0 +1,5 @@
+tab 	sites																						
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_high	age_low	age_unit	note	citations
+1	Swartruggens	296	-49	56	6	6	6	0	9	-25.5	26.2	Intrusive:Igneous	Dike	kimberlite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	147	151	143	Ma	Main	10.1029/jb085ib07p03587
+2	Swartruggens	289	-62		1	1	1	0		-25.5	26.2	Intrusive:Igneous	Dike	kimberlite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	147	151	143	Ma	Changehouse	10.1029/jb085ib07p03587
+3	Swartruggens	113	28	1099	2	2	2	0	8	-25.5	26.2	Intrusive:Igneous	Dike	kimberlite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	147	151	143	Ma	Male	10.1029/jb085ib07p03587
