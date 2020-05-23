@@ -1,0 +1,13 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dip_trend	dip	citations
+W1-1	Somerville	Watchung flows	3	34	85	12	12	12	100	4.383570038	40.6	-74.6	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	322	12	10.1029/jz066i006p01941
+W1-2	Stoney Brook Road	Watchung flows	3	23	50	8	8	8	100	7	40.63	-74.45	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	318	12	10.1029/jz066i006p01941
+W2-1	Far Hills	Watchung flows	18	25	157	10	10	10	100	3.533281256	40.67	-74.63	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	108	12	10.1029/jz066i006p01941
+W2-2	Far Hills	Watchung flows	19	14	350	8	8	8	100	2.645751311	40.5	-74.5	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	325	10	10.1029/jz066i006p01941
+W3	Mountain View	Watchung flows	10	31	52	12	12	12	100	5.604485383	40.92	-74.25	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	284	12	10.1029/jz066i006p01941
+D6	Quakertown	Haycock sill	360	11	21	13	13	13	100	8.473185457	40.47	-74.47	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	290	15	10.1029/jz066i006p01941
+D7	Baldpate Mountain	small intrusions	4	36	85	12	12	12	100	4.383570038	40.3	-74.88	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	300	15	10.1029/jz066i006p01941
+D8	Bell Mountain	small intrusions	339	31	31	12	12	12	100	7.258661863	40.33	-74.92	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	305	16	10.1029/jz066i006p01941
+D9	Rocky Hill	Palisade sill	354	25	27	12	12	12	100	7.777777778	40.37	-74.63	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	336	18	10.1029/jz066i006p01941
+D10	Sourland Mountain	Sourland Mountain sill	358	31	88	8	8	8	100	5.27644853	40.35	-74.93	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	310	18	10.1029/jz066i006p01941
+D11	Washington Bridge	Palisade sill	4	30	73	12	12	12	100	4.730161649	40.85	-74.97	Intrusive:Igneous	Dike	Dolerite	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	201.52	Ma	294	12	10.1029/jz066i006p01941
