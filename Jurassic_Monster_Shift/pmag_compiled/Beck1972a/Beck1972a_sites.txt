@@ -1,0 +1,105 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dip_trend	dip	citations
+44	Gettysburg		13	32.5	28.4	4	4	4	100	17.5	39.95	-77.13	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	25	10.1029/jb077i029p05673
+45	Gettysburg		2	23	355	5	5	5	100	4.2	39.85	-77.17	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	20	10.1029/jb077i029p05673
+46	Gettysburg		1.5	31	1043.2	4	4	4	100	2.9	39.8	-77.21	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	295	20	10.1029/jb077i029p05673
+47	Gettysburg		358.5	16.5	61	5	5	5	100	9.9	39.74	-77.28	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	25	10.1029/jb077i029p05673
+48	Gettysburg	Too few samples				2	2	2	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+84	Gettysburg		6.5	23	610.8	4	4	4	100	3.7	39.85	-77.16	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	20	10.1029/jb077i029p05673
+85	Gettysburg		11	30	18.7	5	5	5	100	18.2	39.8	-77.34	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	325	15	10.1029/jb077i029p05673
+86	Gettysburg	Badly large scatter				5	5	5	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+87	Gettysburg	Too few samples				3	3	3	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+88	Gettysburg		8.5	29.5	1228.9	5	5	5	100	2.2	39.83	-77.19	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	295	20	10.1029/jb077i029p05673
+89	Gettysburg		347	51.5	37	5	5	5	100	12.7	40.11	-77.01	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+90	Gettysburg		14.5	14	11.9	5	5	5	100	23.1	40.1	-77.04	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+91	Gettysburg		353.5	11	164.3	5	5	5	100	6	40.12	-77.03	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	325	15	10.1029/jb077i029p05673
+1	Yorkhaven	Too few samples				2	2	2	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+2	Yorkhaven		353.5	9	154.2	4	4	4	100	7.4	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+3	Yorkhaven		1.5	16.5	106	4	4	4	100	9	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+4	Yorkhaven		2	30	92.7	4	4	4	100	9.6	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+5	Yorkhaven		3	25.5	59.9	4	4	4	100	12	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+6	Yorkhaven		3	31.5	87.1	4	4	4	100	9.9	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+7	Yorkhaven		357.5	21.5	51.4	4	4	4	100	12.9	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+8	Yorkhaven		1	16	61	5	5	5	100	9.9	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+9	Yorkhaven	Too few samples				2	2	2	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+10	Yorkhaven		352	10.5	59.9	5	5	5	100	10	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+11	Yorkhaven		1	12.5	114.6	5	5	5	100	7.2	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+12	Yorkhaven		2.5	19.5	34.2	5	5	5	100	13.3	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+13	Yorkhaven		5	14.5	177	5	5	5	100	5.8	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+14	Yorkhaven		356.5	21.5	52	5	5	5	100	10.7	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+15	Yorkhaven		3.5	19	20.1	4	4	4	100	21	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+16	Yorkhaven		0	18.5	38.1	5	5	5	100	12.6	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+17	Yorkhaven		8.5	7.5	577.7	4	4	4	100	3.8	40.2	-76.87	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	35	10.1029/jb077i029p05673
+18	Yorkhaven	Too few samples				2	2	2	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+19	Yorkhaven		6.5	27.5	27.6	5	5	5	100	14.8	40.12	-76.75	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+20	Yorkhaven		358	26.5	686.7	5	5	5	100	2.9	40.12	-76.75	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+21	Yorkhaven		359.5	26	283.6	5	5	5	100	4.6	40.12	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+22	Yorkhaven		358.5	27	101.3	5	5	5	100	7.6	40.12	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+23	Yorkhaven		351	24	9.4	5	5	5	100	26.3	40.12	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+24	Yorkhaven		351	35.5	20.8	5	5	5	100	17.2	40.12	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+25	Yorkhaven		359	28	169.6	5	5	5	100	5.9	40.13	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+26	Yorkhaven		357.5	16.5	189.1	4	4	4	100	6.7	40.21	-76.69	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	335	25	10.1029/jb077i029p05673
+27	Yorkhaven		359	16	67.5	4	4	4	100	11.3	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+28	Yorkhaven		358	17.5	128.6	5	5	5	100	6.8	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+29	Yorkhaven		0.5	16	1171.7	5	5	5	100	2.2	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+30	Yorkhaven		355.5	18	1042.4	5	5	5	100	2.4	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+31	Yorkhaven		356	17	779	4	4	4	100	3.3	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+32	Yorkhaven		354	19.5	99.4	5	5	5	100	7.7	40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+33	Yorkhaven	Untrustworthy orientations				4	4	4	100		40.21	-76.57	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+34	Yorkhaven		359	31.5	1157.4	5	5	5	100	2.3	40.16	-76.67	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	315	30	10.1029/jb077i029p05673
+35	Yorkhaven		2.5	24	26.1	5	5	5	100	15.3	40.16	-76.67	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	315	30	10.1029/jb077i029p05673
+36	Yorkhaven		5	33	42.7	4	4	4	100	14.2	40.16	-76.67	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	315	30	10.1029/jb077i029p05673
+37	Yorkhaven		2	25.5	306.1	5	5	5	100	4.4	40.16	-76.67	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	315	30	10.1029/jb077i029p05673
+38	Yorkhaven		357	28.5	114	5	5	5	100	7.2	40.16	-76.67	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	315	30	10.1029/jb077i029p05673
+39	Yorkhaven		354	19.5	387.5	4	4	4	100	3.9	40.15	-76.64	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	30	10.1029/jb077i029p05673
+40	Yorkhaven		352.5	20.5	767.3	5	5	5	100	2.8	40.15	-76.65	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	30	10.1029/jb077i029p05673
+41	Yorkhaven		0	20	830.6	5	5	5	100	2.7	40.15	-76.63	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	30	10.1029/jb077i029p05673
+42	Yorkhaven		354	16.5	244.4	5	5	5	100	4.9	40.23	-76.54	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	35	10.1029/jb077i029p05673
+43	Yorkhaven		358.5	21.5	610.4	5	5	5	100	3.1	40.15	-76.63	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	30	10.1029/jb077i029p05673
+92	Yorkhaven		358	24	1069.7	5	5	5	100	2.3	40.13	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+93	Yorkhaven		354.5	24	731.9	5	5	5	100	2.8	40.13	-76.72	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+50	Birdsboro		353.5	34	44.7	5	5	5	100	11.6	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+51	Birdsboro		4	34.5	67.4	5	5	5	100	9.4	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+52	Birdsboro		356.5	29	76.7	5	5	5	100	8.8	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+53	Birdsboro		11	27	34.2	5	5	5	100	13.3	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+54	Birdsboro		6.5	15.5	53.6	5	5	5	100	10.5	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+55	Birdsboro		357.5	12.5	29.8	5	5	5	100	14.2	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+56	Birdsboro		4.5	8.5	49.1	5	5	5	100	11	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+57	Birdsboro		358	27.5	182.8	5	5	5	100	5.7	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+58	Birdsboro		352.5	34.5	32.7	5	5	5	100	13.6	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+59	Birdsboro		358.5	34	49.6	5	5	5	100	11	40.25	-75.82	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	345	25	10.1029/jb077i029p05673
+60	Birdsboro		14.5	11	166	5	5	5	100	6	40.24	-75.78	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	25	10.1029/jb077i029p05673
+61	Birdsboro		10	19.5	71.5	5	5	5	100	9.1	40.24	-75.78	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	25	10.1029/jb077i029p05673
+62	Birdsboro		3.5	16.5	282.4	5	5	5	100	4.6	40.24	-75.78	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	350	25	10.1029/jb077i029p05673
+63	Birdsboro		349	40	174	4	4	4	100	7	40.28	-75.88	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	20	10.1029/jb077i029p05673
+64	Birdsboro		355	30	31.9	4	4	4	100	16.5	40.28	-75.88	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	20	10.1029/jb077i029p05673
+65	Birdsboro		356.5	43	363.4	4	4	4	100	4.8	40.28	-75.88	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	20	10.1029/jb077i029p05673
+66	Birdsboro		354	33	60.2	4	4	4	100	11.9	40.26	-75.85	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+67	Birdsboro		346	25	18.4	5	5	5	100	15.6	40.26	-75.85	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+68	Birdsboro		346.5	27.5	86.2	4	4	4	100	10	40.26	-75.85	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+69	Birdsboro		357.5	5.5	11.3	5	5	5	100	23.8	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+70	Birdsboro		359.5	17.5	100.3	4	4	4	100	9.2	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+71	Birdsboro		358	27	17.7	5	5	5	100	18.7	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+72	Birdsboro		36	27.5	2.2	5	5	5	100	68.7	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+73	Birdsboro		356	12	66	5	5	5	100	9.5	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+74	Birdsboro		359.5	18	71.3	4	4	4	100	11	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+75	Birdsboro		351.5	-7	19.4	5	5	5	100	17.8	40.3	-75.92	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	360	40	10.1029/jb077i029p05673
+76	Birdsboro		359	12.5	330.6	5	5	5	100	4.2	40.17	-75.91	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	30	10.1029/jb077i029p05673
+77	Birdsboro		325	30	9.1	5	5	5	100	26.8	40.26	-75.85	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+78	Birdsboro		351.5	33.5	14.8	5	5	5	100	20.6	40.26	-75.85	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	20	10.1029/jb077i029p05673
+79	Birdsboro		1	12	199.2	5	5	5	100	5.4	40.17	-75.91	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	30	10.1029/jb077i029p05673
+80	Birdsboro		358	19	25.3	5	5	5	100	15.5	40.17	-75.91	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	30	10.1029/jb077i029p05673
+81	Birdsboro		354.5	21	164.9	5	5	5	100	6	40.17	-75.91	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	30	10.1029/jb077i029p05673
+82	Birdsboro		1	9.5	76.5	5	5	5	100	8.8	40.17	-75.91	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	30	10.1029/jb077i029p05673
+94	Birdsboro	Streaked distribution				5	5	5	100				Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma			10.1029/jb077i029p05673
+95	Birdsboro		1	29	819.9	5	5	5	100	2.7	40.18	-75.73	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	325	15	10.1029/jb077i029p05673
+96	Quakerton		3.5	22	128.5	5	5	5	100	6.8	40.5	-75.38	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+97	Quakerton		9	30	79.6	5	5	5	100	8.6	40.5	-75.38	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+98	Quakerton		1	24.5	141.4	5	5	5	100	6.5	40.49	-75.37	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+99	Quakerton		358.5	28	131.3	5	5	5	100	6.7	40.49	-75.37	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+100	Quakerton		6	26	234.8	5	5	5	100	5	40.48	-75.36	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+101	Quakerton		7	25	1464.6	5	5	5	100	2	40.48	-75.36	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	305	15	10.1029/jb077i029p05673
+102	Quakerton		356.5	47	107.9	5	5	5	100	7.4	40.47	-75.35	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	0	0	10.1029/jb077i029p05673
+103	Quakerton		8	40	25.7	5	5	5	100	15.4	40.28	-75.47	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	340	10	10.1029/jb077i029p05673
+104	Quakerton		1	34	159	5	5	5	100	6.1	40.26	-75.32	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	320	15	10.1029/jb077i029p05673
+105	Quakerton		359	39	166.3	5	5	5	100	6	40.43	-75.28	Intrusive:Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	310	10	10.1029/jb077i029p05673
