@@ -1,0 +1,5 @@
+tab 	sites																				
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	Nova Scotia	"Site A, location needs to be georeferenced"	2.4	50.6	265.2	6	6	6	0	4.1	44	-65	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE_BLANKET	g	i	197	Ma	10.1029/jz071i020p04949
+2	Nova Scotia	"Site B, location needs to be georeferenced"	8.5	58.1	36.4	5	5	5	0	12.8	44	-65	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE_BLANKET	g	i	197	Ma	10.1029/jz071i020p04949
+sample	Nova Scotia	sample mean	4.9	54	63.8	11	11	11	0	5.7	44	-65	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE_BLANKET	g	i	197	Ma	10.1029/jz071i020p04949

@@ -1,0 +1,20 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dir_delta	dir_k	R	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	St. Bruno		150.6	-58.6	3.3	602.90	3.995	4	4	4	0	2.85	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130	Ma	10.1029/jb073i010p03239
+2	St. Bruno		144.2	-57.9	9.5	72.75	4.945	5	5	5	0	7.34	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+3	St. Bruno		165.2	-46.7	10.1	64.36	4.938	5	5	5	0	7.80	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+4	Shefford		14.8	66.8	5.8	195.17	1.995	2	2	2	0	7.09	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+5	Shefford		156.4	-62.9	4.9	273.45	5.982	6	6	6	0	3.46	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+6	Shefford		170.5	-50.3	10.6	58.43	5.914	6	6	6	0	7.48	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+7	Shefford		143.9	-62.1	6.2	170.80	5.971	6	6	6	0	4.37	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+8	Brome		144.4	-45.5	9.6	71.24	1.986	2	2	2	0	11.73	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+9	Brome	no result						0	0	0	0		45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+10	Brome		161.7	-50.7	10.4	60.70	2.967	3	3	3	0	10.37	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+11	Brome		145.9	-60.6	4.6	310.28	4.987	5	5	5	0	3.55	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+12	Brome		152.8	-51.5	7.2	126.65	3.976	4	4	4	0	6.22	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+13	Brome		155	-60.7	8.7	86.74	5.942	6	6	6	0	6.14	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+14	Brome		156.8	-57.2	2.5	1050.50	2.998	3	3	3	0	2.49	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+15	Brome		147.9	-65.4	5.8	195.17	4.980	5	5	5	0	4.48	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+16	Johnson		325.2	64.8	2.1	1488.80	5.997	6	6	6	0	1.48	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+17	Johnson		344.1	68.4	8.2	97.64	3.969	4	4	4	0	7.08	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239
+18	Johnson		328.9	54.3	17.2	22.19	3.865	4	4	4	0	14.86	45.5	-73	Intrusive:Igneous	Pluton	alkaline rocks	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	130		10.1029/jb073i010p03239

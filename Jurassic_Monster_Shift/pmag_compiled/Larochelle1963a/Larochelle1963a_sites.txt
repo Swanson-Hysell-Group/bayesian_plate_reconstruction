@@ -1,0 +1,12 @@
+tab 	sites																					
+site	location	note	dir_dec	dir_inc	dir_R	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	Ellef Ringnes Island		290	68.5	3.99	300	2	4	4	0	4.04	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+2	Ellef Ringnes Island		246.5	77.5	3.94	50	2	4	4	0	9.9	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+3	Ellef Ringnes Island		110.5	83	3.73	11.11	2	4	4	0	21	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+4	Ellef Ringnes Island		253	88	3.92	37.5	2	4	4	0	11.43	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+5	Ellef Ringnes Island		192.5	83	3.91	33.33	2	4	4	0	12.12	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+6	Ellef Ringnes Island		52	83	3.88	25	2	4	4	0	14	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+7	Ellef Ringnes Island		290	82	3.96	75	2	4	4	0	8.08	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+8	Ellef Ringnes Island		292	52	3.97	100	2	4	4	0	7	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+9	Ellef Ringnes Island		302.5	70	3.99	300	2	4	4	0	4.04	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
+10	Ellef Ringnes Island		265	72.5	3.8	15	2	4	4	0	18.07	78.75	-103.75	Intrusive_Igneous	Dike:Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	120	Ma	10.1038/1981260a0
