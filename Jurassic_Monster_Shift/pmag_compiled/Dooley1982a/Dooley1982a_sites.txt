@@ -1,0 +1,25 @@
+tab 	sites																					
+site	location	note	demag_level	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+3	Piedmont		15	9.5	0.5	101.5	7	7	7	0	6	34.3	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+4	Piedmont		25	8.9	34.6	25.1	6	6	6	0	13.3	34.5	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+5	Piedmont		30	6.3	27.6	17.3	5	8	8	0	19	34.2	-81.1	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+6	Piedmont		25	19.3	-54.1	5.1	6	6	6	0	32.8	34.2	-81.1	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+7	Piedmont		30	16.8	-12.4	8.8	6	7	7	0	24	34.2	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+8	Piedmont		15	12.1	12.4	39.5	5	6	6	0	12.3	34.2	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+9	Piedmont		20	40.8	35.8	71.6	6	6	6	0	8	34.2	-81.5	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+10	Piedmont		35	9.7	16.3	30.3	8	8	8	0	12.4	34.3	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+11	Piedmont		30	340.9	6	26.6	5	7	7	0	15.1	34.3	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+12	Piedmont		15	350.4	35.7	54	7	7	7	0	8.3	34.3	-81.4	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+13	Piedmont		15	14	28.7	12.1	8	8	8	0	16.6	34.3	-81.2	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+14	Piedmont		30	32.9	58	14	5	6	6	0	21.2	34	-81.5	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+15	Piedmont		20	358.1	25.7	84.8	5	7	7	0	8.4	34.6	-81.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+17	Piedmont		20	31.4	26.9	52.7	5	7	7	0	10.6	34.7	-81.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+18	Piedmont		10	0.2	32.9	73.8	7	10	10	0	7.1	34.6	-81.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+19	Piedmont		25	4.8	-6.9		5	6	6	0	91.6	34.7	-81.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+20	Piedmont		25	341.7	27.3	11.7	8	8	8	0	16.9	34.7	-81.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+21	Piedmont		25	358.4	31.5	54.8	7	8	8	0	8.2	34.7	-81.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+23	Piedmont		15	352.5	21.4	45.6	9	9	9	0	7.7	34.2	-81.3	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+24	Piedmont	previous work	30	3.9	23.6	144				0	2.9			Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+25	Piedmont	previous work	25	351	8.2					0	3.7			Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+26	Piedmont	previous work	25	356.3	-14.2	98				0	6.7			Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3
+27	Piedmont	previous work	20	350.3	-17.1	53				0	7.1			Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0040-1951(82)90191-3

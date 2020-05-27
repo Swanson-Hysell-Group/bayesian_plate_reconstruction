@@ -1,0 +1,16 @@
+tab 	sites																				
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	White Mountain		200	-52.5	93	12	12	12	0	4.5	43.58	-71.08	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+2	White Mountain		184	-55	47	12	12	12	0	6.5	43.58	-71.08	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+3	White Mountain		191	-57	26	11	11	11	0	9	43.58	-71.08	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+4	White Mountain		0	65	54	6	6	6	0	9	43.5	-71.33	Intrusive:Igneous	Pluton	Monzonite	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+5	White Mountain		2	59	65	11	11	11	0	5.5	43.5	-71.33	Intrusive:Igneous	Pluton	Monzonite	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+6	White Mountain		168	-57.5	34	12	12	12	0	7.5	43.97	-71.47	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+7	White Mountain		161	-59	162	12	12	12	0	3.5	43.97	-71.47	Intrusive:Igneous	Pluton	Basalt	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+8	White Mountain		165.5	-49.5	52	12	12	12	0	6	43.97	-71.47	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+9	White Mountain		352	58.5	62	12	12	12	0	5.5	43.12	-71.2	Intrusive:Igneous	Pluton	Monzonite	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+10	White Mountain		351	58	150	12	12	12	0	1	43.12	-71.2	Intrusive:Igneous	Pluton	Monzonite	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+11	White Mountain	Essexite is nepheline monzogabbro	1	65.5	135	8	8	8	0	5	43.92	-71.52	Intrusive:Igneous	Pluton	Essexite	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+12	White Mountain		5	63	581	10	10	10	0	2	43.92	-71.52	Intrusive:Igneous	Pluton	Lamprophyre	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+A	White Mountain		153	-52	384	12	12	12	0	2	43.45	-71.5	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
+B	White Mountain		146	-55	308	12	12	12	0	2.5	43.45	-71.5	Intrusive:Igneous	Pluton	Gabbro	LT-AF-Z:LP-AF-DIR-DE-BLANKET	g	i	180	Ma	10.1029/jz071i012p03045
