@@ -1,0 +1,14 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dir_delta2_radian	dir_R	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	Manicouagan		19.2	46.7	0.00722	4.98556	277.0083102	5	5	5	0	3.761808076	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+2	Manicouagan		11.6	41.1	0.03125	2.96875	64	3	3	3	0	10.10362971	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+3	Manicouagan		353.6	45.7	0.03509	5.912275	56.99629524	6	6	6	0	7.570579018	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+4	Manicouagan		359.7	33.2	0.0146	1.9927	136.9863014	2	2	2	0	8.458132182	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+5	Manicouagan		20	39.6	0.07407	3.888895	27.00148508	4	4	4	0	13.47113581	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+6	Manicouagan		11.3	39.7	0.01351	5.966225	148.03849	6	6	6	0	4.697481595	51.33	-68.75	Intrusive:Igneous	Sill	Diorite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+7	Manicouagan		15.6	40	0.00242	5.99395	826.446281	6	6	6	0	1.988131451	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+8	Manicouagan		24.3	39.8				1	1	1	0		51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+9	Manicouagan		16.6	34.3	0.01333	2.98667	150.0375094	3	3	3	0	6.598838282	51.33	-68.75	Intrusive:Igneous	Sill	Diorite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+10	Manicouagan		0.9	44.4	0.08696	1.95652	22.99908004	2	2	2	0	20.6422867	51.33	-68.75	Intrusive:Igneous	Sill	Andesite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+11	Manicouagan		90.5	50.7	0.01351	5.966225	148.03849	6	6	6	0	4.697481595	51.33	-68.75	Intrusive:Igneous	Sill	Diorite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163
+12	Manicouagan		18.8	44.3	0.00885	5.977875	225.9887006	6	6	6	0	3.801973172	51.33	-68.75	Intrusive:Igneous	Sill	Diorite	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1029/jz072i016p04163

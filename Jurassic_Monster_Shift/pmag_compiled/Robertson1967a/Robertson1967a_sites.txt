@@ -1,0 +1,8 @@
+tab 	sites																				
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+2	Manicouagan	location can be refined by georeferencing map	9	24	26	4	4	4	0	18	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041
+7	Manicouagan	location can be refined by georeferencing map	0	40	199	4	4	4	0	7	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041
+6	Manicouagan	location can be refined by georeferencing map	10	43	270	4	4	4	0	6	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041
+8	Manicouagan	location can be refined by georeferencing map	36	35	179	4	4	4	0	7	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041
+3	Manicouagan	location can be refined by georeferencing map	12	31	140	4	4	4	0	8	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041
+4	Manicouagan	location can be refined by georeferencing map	7	41	1574	4	4	4	0	2	51.33	-68.75	Extrusive:Igneous	Lava flow	Dacite	LT-T-Z:LP-T-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e67-041

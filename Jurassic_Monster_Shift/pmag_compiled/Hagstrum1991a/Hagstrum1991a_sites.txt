@@ -1,0 +1,11 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dec_tc	inc_tc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+HU1	Huachuca Mountains	upper quartz-rhyolite unit	350.4	2.1	344.9	29.4	120	10	10	10	100	4.4	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+HM1	Huachuca Mountains	middle rheomorphic unit	131.8	68.7	173.4	45.9	46	8	8	8	100	8.3	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+HL1	Huachuca Mountains	lower dacite unit	160.6	12.7	160.7	-12	84	10	10	10	100	5.3	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+CU1	Canelo Hills	upper quartz-rhyolite unit	10.5	18	11.9	32.8	246	8	8	8	100	3.5	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+CU2	Canelo Hills	upper quartz-rhyolite unit	360	23.7	360	38.7	189	6	6	6	100	4.9	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+CM1	Canelo Hills	middle rheomorphic unit	357.6	50.8	356.3	65.8	216	10	10	10	100	3.3	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+MU1	Mustang Mountains	"upper quartz-rhyolite unit, bingham distribution concentration parameter used"	337.8	32.5	319.1	39.6		6	6	6	100		31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+MM1	Mustang Mountains	middle rheomorphic unit	27.6	51	9.8	52.7	121	10	10	10	100	4.4	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
+ML1	Mustang Mountains	lower dacite unit	134.1	-19	132.4	-7	61	10	10	10	100	6.3	31	249	Extrusive:Igneous	Lava flow	tuff	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	150	Ma	10.1029/91gl01805
