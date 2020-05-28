@@ -1,0 +1,10 @@
+tab 	sites																				
+site	location	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+C1	Caraquet		347	54	47	5	5	5	0	7.1	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+C2	Caraquet		347	58	238	5	5	5	0	3.6	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+C3	Caraquet		347	60	89	5	5	5	0	5.5	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+C4	Caraquet		10	52	69	5	5	5	0	7.3	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+N1	North Lake		349	46	73	3	3	3	0	7.9	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+N2	North Lake		359	53	80	3	3	3	0	10.4	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+T1	Trans-Canada highway		17	38	57	5	5	5	0	6.5	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
+T2	Trans-Canada highway		12	35	32	5	5	5	0	10	46	-67	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LT-AF-Z:LP-T-DIR:LP-AF-DIR:DE-BLANKET	g	i	190	Ma	10.1139/e81-165
