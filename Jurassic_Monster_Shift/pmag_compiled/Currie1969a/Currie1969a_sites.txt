@@ -1,0 +1,12 @@
+tab 	sites																						
+site	location	demag_level	note	dir_dec	dir_inc	dir_R	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	Mistastin Lake	25		201	-68.9	6.938	96.8	7	7	7	0	5.4	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+2	Mistastin Lake	25		186.7	-67.4	7.871	54.3	8	8	8	0	6.7	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+3	Mistastin Lake	25		177.7	-67.7	4.966	117.6	5	5	5	0	5.8	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+4	Mistastin Lake	25	adjusted site mean by throwing out a steep direction	165.1	-68.2	5.97	166.7	6	6	6	0	4.4	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+5	Mistastin Lake	25	adjusted site mean by throwing out a steep direction	174.9	-68.6	6.946	111.1	7	7	7	0	5.0	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+6	Mistastin Lake	25		170.8	-66	7.963	189.2	8	8	8	0	3.6	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+7	Mistastin Lake	25	adjusted site mean by throwing out a steep direction	196.7	-68.9	8.937	127.0	9	9	9	0	4.1	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+8	Mistastin Lake	25		179.2	-68.6	6.977	260.9	7	7	7	0	3.3	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+9	Mistastin Lake	25		169.9	-68.1	7.803	35.5	8	8	8	0	8.3	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3
+10	Mistastin Lake	25		174.6	-66.3	7.98	350.0	8	8	8	0	2.6	55.87	-63.37	Extrusive:Igneous	Lava flow	Andesite	LT-AF-Z:LT-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1016/0012-821x(69)90173-3

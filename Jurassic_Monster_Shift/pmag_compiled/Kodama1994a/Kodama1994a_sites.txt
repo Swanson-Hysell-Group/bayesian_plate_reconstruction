@@ -1,0 +1,12 @@
+tab 	sites																								
+site	location	dir_dec	dir_inc	dec_tc	inc_tc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dip_trend	dip	note	citations
+1	Sassamansville	352.7	43.6			152.5	10	10	10		3.6														
+2	Sassamansville	341.3	44.3			354.1	9	9	9		2.5														
+3	Sassamansville	338.1	40.4			14	9	9	9		12.5														
+4	Sassamansville	359.5	49.6			318.6	9	9	9		2.5														
+5	Sassamansville	284.9	33.3			27.1	8	8	8		9.5														
+6	Sassamansville	353.4	36.3			801.5	9	9	9		1.7														
+7	Sassamansville	350.7	65.6			121.5	8	8	8		4.5														
+8	Sassamansville	6	48.1			82.8	8	8	8		5.4														
+9	Sassamansville	335.2	60.3			105.9	5	5	5		6.1														
+10	Sassamansville	23.6	16.6			2.5	8	8	8		31.6														

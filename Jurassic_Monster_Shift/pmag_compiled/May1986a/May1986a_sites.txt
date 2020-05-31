@@ -1,0 +1,18 @@
+tab 	sites																						
+site	location	dir_dec	dir_inc	dec_tc	inc_tc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	note	citations
+CH070	Corral Canyon	348.3	46.18	353.99	15.46	164.9	6	6	6	100	5.2	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH071	Corral Canyon	320.06	40.3	332.26	23.93	250.4	8	8	8	100	3.5	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH072	Corral Canyon	347.96	47.8	353.6	18.91	84	8	8	8	100	6.1	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH073	Corral Canyon	270.57	50.81	303.01	17.8	176.5	8	8	8	100	4.2	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH074	Corral Canyon	252.61	51.6	296.02	31.83	251.8	8	8	8	100	3.5	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH075	Corral Canyon	310.34	36.65	327.96	14.5	38.1	6	6	6	100	11	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH076	Corral Canyon	320.47	21.58	325.51	-2.9	237.1	7	7	7	100	3.9	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH077	Corral Canyon	317.91	58.61	338.72	23.51	56.7	8	8	8	100	7.4	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH078	Corral Canyon	308.14	0.01	295.71	-38.93	50.7	6	6	6	100	9.5	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH080	Corral Canyon	124.46	-52.52	153.67	-24.95	769.7	5	5	5	100	2.8	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH081	Corral Canyon	333.11	65.63	354.43	27.33	21.4	6	6	6	100	14.8	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH082	Corral Canyon	333.37	55.1	340.09	17.99	51.2	3	3	3	100	17.4	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH083	Corral Canyon	317.26	78.78	343.62	40.44	165.6	6	6	6	100	5.2	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH084	Corral Canyon	26.15	-62.98	125.65	-72.76	564	5	5	5	100	3.2	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH085	Corral Canyon	328.97	51.49	334.45	24.29	154.6	3	3	3	100	9.9	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545
+CH087	Corral Canyon	330.26	48.71	337.02	7.24	34.1	5	5	5	100	13.3	31.4	249.3	Extrusive:Igneous	Ash flow	Andesite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BFL	g	i	175	Ma	Rb-Sr age	10.1029/jb091ib11p11545

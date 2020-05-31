@@ -1,0 +1,4 @@
+tab 	sites																					
+site	location	demag_level	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+1	Newfoundland	30		14.6	54.1	278.5	6	6	6	0	4	46.97	-53.42	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e80-045
+2	Newfoundland	30		11	50.5	156.1	6	6	6	0	5.4	47.18	-52.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	10.1139/e80-045

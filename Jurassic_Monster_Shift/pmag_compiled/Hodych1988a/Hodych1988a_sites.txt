@@ -1,0 +1,16 @@
+tab 	sites																							
+site	location	demag_level	note	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dip_trend	dip	citations
+N-1	North Mountain	550	thermal demag	357.8	60.7	145.540952	3	3	3	100	6.7	45.29	-64.775	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	188	20	10.1139/e88-185
+N-2	North Mountain	600	thermal demag	17.7	62.6	59.17159763	4	4	4	100	9.1	45.292	-64.773	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	188	20	10.1139/e88-185
+N-3	North Mountain	525	thermal demag	9.4	50.4	22.37034332	4	4	4	100	14.8	45.303	-64.767	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	188	20	10.1139/e88-185
+N-4	North Mountain	555	thermal demag	22.4	57.4	91.94970914	4	4	4	100	7.3	45.317	-64.757	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	188	30	10.1139/e88-185
+N-5	North Mountain	525	thermal demag	36.8	44.7	109.155714	4	4	4	100	6.7	45.368	-64.333	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	179	20	10.1139/e88-185
+N-6	North Mountain	600	thermal demag	25.7	28.5	94.52160494	4	4	4	100	7.2	45.395	-64.198	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	255	24	10.1139/e88-185
+N-7	North Mountain		unstable				4	4	4	100		45.395	-64.198	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	255	24	10.1139/e88-185
+N-8	North Mountain	550	thermal demag	12.2	25.8	12.00862661	4	4	4	100	20.2	45.395	-64.197	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	255	24	10.1139/e88-185
+N-9	North Mountain	600	thermal demag	14.5	25	33.60768176	5	5	5	100	10.8	45.385	-64.058	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	30	40	10.1139/e88-185
+N-10	North Mountain	525	thermal demag	20.3	46.6	20.88550269	5	5	5	100	13.7	45.408	-64.003	Extrusive:Igneous	Lava flow	basalt	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	347	17	10.1139/e88-185
+C-1	Caraquet	550	thermal demag	10.1	47.8	125.5927207	6	6	6	100	5.1	47.795	-64.942	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	0	0	10.1139/e88-185
+C-2	Caraquet	475	thermal demag	9.1	56.7	18.46722068	6	6	6	100	13.3	47.827	-64.888	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	0	0	10.1139/e88-185
+A-3a	Avalon	525	thermal demag	24.4	57.1	45.32315875	5	5	5	100	9.3	47.173	-52.888	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	0	0	10.1139/e88-185
+A-3b	Avalon	525	thermal demag	15.4	56.1	70.64590542	6	6	6	100	6.8	47.173	-52.885	Intrusive:Igneous	Dike	Diabase	LT-T-Z:LP-T-DIR-DE-BLANKET	g	i	190	Ma	0	0	10.1139/e88-185
