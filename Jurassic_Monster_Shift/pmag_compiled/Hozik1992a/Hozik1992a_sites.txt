@@ -1,0 +1,21 @@
+tab 	sites																						
+site	location	note	dir_dec	dir_inc	dec_tc	inc_tc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	citations
+CB-01	Culpeper basin	from Raymond (1982 B.S. thesis)	19.6	39.7	9.9	30.6	46.9	5	5	5	100	11.2	38.65	-77.65	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-02	Culpeper basin	from Raymond (1982 B.S. thesis)	14.3	41.6	9.3	28.6	433.2	6	6	6	100	3.2	38.35	-77.37	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-03	Culpeper basin	from Raymond (1982 B.S. thesis)	12.4	39.9	7.5	27.6	517	6	6	6	100	2.9	38.35	-77.38	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-04	Culpeper basin	from Raymond (1982 B.S. thesis)	14.5	23.8	5.8	29.6	529.7	7	7	7	100	2.6	38.83	-77.5	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-08	Culpeper basin	from Raymond (1982 B.S. thesis)	16.4	39.7	5.5	28.7	243.3	5	5	5	100	4.9	38.77	-77.53	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-09	Culpeper basin	from Raymond (1982 B.S. thesis)	14.5	35.8	356.3	24.4	754.7	6	6	6	100	2.4	39.07	-77.53	Intrusive:Igneous	Sill	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-05	Culpeper basin	from Raymond (1982 B.S. thesis)	345.1	49.8	328.9	13.9	45.5	5	5	5	100	13	38.87	-77.63	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-06	Culpeper basin	from Raymond (1982 B.S. thesis)	16.4	35.7	5.6	13	91.6	6	6	6	100	7	38.85	-77.67	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Hickory Grove	Culpeper basin	Hozik unpublished data	16.4	40.2	358.9	35.6	99.1	11	12	12	100	4.6	38.66	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Base	Culpeper basin	Hozik unpublished data	15	-2.3	15.9	-4.8	153.2	7	7	7	100	4.9	38.67	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+1st bench	Culpeper basin	Hozik unpublished data	18.1	2.7	17.3	1	170.4	6	6	6	100	5.2	38.67	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Near Dike	Culpeper basin	Hozik unpublished data	25.3	6.7	23.6	6.5	72.8	4	5	5	100	10.8	38.67	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Center	Culpeper basin	Hozik unpublished data	23.6	3.7	22.6	3.6	32.7	6	8	8	100	11.9	38.67	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Top	Culpeper basin	Hozik unpublished data	12.8	7.3	11.4	3.9	63.1	4	5	5	100	11.6	38.67	-77.7	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+Sander Gabbro	Culpeper basin	Hozik unpublished data	16.6	27.7	9.4	25.6	30.4	5	6	6	100	14.1	38.67	-77.7	Intrusive:Igneous	Dike	Gabbro	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-10	Culpeper basin	from Raymond (1982 B.S. thesis)	17.5	40.6	5.1	36.6	81.9	4	4	4	100	10.2	39.03	-77.5	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-11	Culpeper basin	from Raymond (1982 B.S. thesis)	11.5	29.6	3.8	31.2	98.7	6	6	6	100	7	39.22	-77.43	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-12	Culpeper basin	from Raymond (1982 B.S. thesis)	14.5	41.3	4	29.1	208.2	4	4	4	100	6.4	39.98	-77.5	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279
+CB-13	Culpeper basin	from Raymond (1982 B.S. thesis)	4.8	40.7	345.7	36.9	261.7	6	6	6	100	4.1	39.98	-77.47	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LP-AF-DIR:DE-BFL	g	i	200	Ma	10.1130/spe268-p279

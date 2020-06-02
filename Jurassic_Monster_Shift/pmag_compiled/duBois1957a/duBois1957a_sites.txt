@@ -1,4 +1,4 @@
-tab 	sites																				
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	note	citations
-1	Massachusetts	10	14		8	8	8	0	11	42	-73	Extrusive:Igneous	Lava flow	basalt		g	i	200	Ma	Holyoke	10.1038/1801186a0
-2	Connecticut	12	14		12	12	12	0	15	42	-73	Extrusive:Igneous	Lava flow	basalt		g	i	200	Ma	lava and sediments in Connecticut	10.1038/1801186a0
+tab 	sites																					
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	note	group	citations
+1	Massachusetts	10	14		8	8	8	0	11	42	-73	Extrusive:Igneous	Lava flow	basalt		g	i	200	Ma	Holyoke	Deerfield_Holyoke	10.1038/1801186a0
+2	Connecticut	12	14		12	12	12	0	15	42	-73	Extrusive:Igneous	Lava flow	basalt		g	i	200	Ma	lava and sediments in Connecticut	Deerfield_Holyoke	10.1038/1801186a0
