@@ -1,30 +1,30 @@
 tab 	sites																						
 site	location	dir_dec	dir_inc	dec_tc	inc_tc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	note	citations
-CH050	Parker Canyon Lower	357.9	29.5	2.9	35.9	352.5	8	8	8	100	3	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH051	Parker Canyon Lower	2.3	31.8	358.7	33.9	469.1	6	6	6	100	3.1	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH052	Parker Canyon Lower	3.5	37.5	359	39.7	529.8	6	6	6	100	2.9	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH053	Parker Canyon Lower	6.1	32.5	5.2	22.6	340.8	8	8	8	100	3	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH054	Parker Canyon Upper	18.5	29.2	20.7	22.7	309.3	8	8	8	100	3.2	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH055	Parker Canyon Upper	21.5	27.9	33.6	38.7	535.9	6	6	6	100	2.9	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH056	Parker Canyon Upper	22.2	25.7	22.2	25.7	296.5	5	5	5	100	4.5	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH057	Parker Canyon Upper	23.5	29.1	26.8	40.2	776.6	8	8	8	100	2	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH058	Parker Canyon Upper	21.6	34.8	31.9	31.5	105.8	4	4	4	100	9	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH059	Parker Canyon Upper	27.2	30.2	34.5	28.7	142.1	4	4	4	100	7.7	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH060	Parker Canyon Upper	25.2	28.4	32.1	25.1	305	5	5	5	100	4.4	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH061	Parker Canyon Upper	14	30.2	16.1	19.1	542.5	6	6	6	100	2.9	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH062	Parker Canyon Upper	22.7	24.9	31.5	22.4	1027.2	8	8	8	100	1.7	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH063	Parker Canyon Upper	18.6	30	23.3	37.2	657.7	8	8	8	100	2.2	31.45	249.55	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH150	Collins Canyon	13.7	13.8	11.8	22	56.1	4	4	4	100	12.4	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH151	Collins Canyon	3.3	10.1	0.6	14.1	347.8	5	5	5	100	4.1	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH152	Collins Canyon	358.2	16.3	349.7	33.9	193.7	6	6	6	100	4.8	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH153	Collins Canyon	1	17.4	352.6	29.1	172.4	6	6	6	100	5.1	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH154	Collins Canyon	10.5	10.2	4.9	30.3	154.6	6	6	6	100	5.4	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH155	Collins Canyon	0.2	17.4	350.7	35.8	262.2	6	6	6	100	4.1	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH156	Collins Canyon	22.3	23.4	9.1	37.3	118.3	6	6	6	100	6.2	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH157	Collins Canyon	24.1	24.5	6.5	40.1	207.4	6	6	6	100	4.7	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH158	Collins Canyon	27.9	21.1	17.6	30.5	80.4	6	6	6	100	7.5	31.4	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH064	Canelo Pass	0.7	32.8	356.2	18.5	130.1	8	8	8	100	4.9	31.5	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH066	Canelo Pass	7.5	34.5	359	23	200.1	8	8	8	100	3.9	31.5	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH067	Canelo Pass	26.1	33.7	14	25.4	273.6	5	5	5	100	4.6	31.5	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH068	Canelo Pass	350.6	40.3	348	19.8	145.1	6	6	6	100	5.6	31.5	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
-CH069	Canelo Pass	354.7	38.9	351.3	18.8	198.9	5	5	5	100	5.4	31.5	249.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH050	Parker Canyon Lower	357.9	29.5	2.9	35.9	352.5	8	8	8	100	3	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH051	Parker Canyon Lower	2.3	31.8	358.7	33.9	469.1	6	6	6	100	3.1	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH052	Parker Canyon Lower	3.5	37.5	359	39.7	529.8	6	6	6	100	2.9	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH053	Parker Canyon Lower	6.1	32.5	5.2	22.6	340.8	8	8	8	100	3	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH054	Parker Canyon Upper	18.5	29.2	20.7	22.7	309.3	8	8	8	100	3.2	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH055	Parker Canyon Upper	21.5	27.9	33.6	38.7	535.9	6	6	6	100	2.9	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH056	Parker Canyon Upper	22.2	25.7	22.2	25.7	296.5	5	5	5	100	4.5	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH057	Parker Canyon Upper	23.5	29.1	26.8	40.2	776.6	8	8	8	100	2	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH058	Parker Canyon Upper	21.6	34.8	31.9	31.5	105.8	4	4	4	100	9	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH059	Parker Canyon Upper	27.2	30.2	34.5	28.7	142.1	4	4	4	100	7.7	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH060	Parker Canyon Upper	25.2	28.4	32.1	25.1	305	5	5	5	100	4.4	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH061	Parker Canyon Upper	14	30.2	16.1	19.1	542.5	6	6	6	100	2.9	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH062	Parker Canyon Upper	22.7	24.9	31.5	22.4	1027.2	8	8	8	100	1.7	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH063	Parker Canyon Upper	18.6	30	23.3	37.2	657.7	8	8	8	100	2.2	31.45	-110.45	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH150	Collins Canyon	13.7	13.8	11.8	22	56.1	4	4	4	100	12.4	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH151	Collins Canyon	3.3	10.1	0.6	14.1	347.8	5	5	5	100	4.1	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH152	Collins Canyon	358.2	16.3	349.7	33.9	193.7	6	6	6	100	4.8	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH153	Collins Canyon	1	17.4	352.6	29.1	172.4	6	6	6	100	5.1	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH154	Collins Canyon	10.5	10.2	4.9	30.3	154.6	6	6	6	100	5.4	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH155	Collins Canyon	0.2	17.4	350.7	35.8	262.2	6	6	6	100	4.1	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH156	Collins Canyon	22.3	23.4	9.1	37.3	118.3	6	6	6	100	6.2	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH157	Collins Canyon	24.1	24.5	6.5	40.1	207.4	6	6	6	100	4.7	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH158	Collins Canyon	27.9	21.1	17.6	30.5	80.4	6	6	6	100	7.5	31.4	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH064	Canelo Pass	0.7	32.8	356.2	18.5	130.1	8	8	8	100	4.9	31.5	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH066	Canelo Pass	7.5	34.5	359	23	200.1	8	8	8	100	3.9	31.5	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH067	Canelo Pass	26.1	33.7	14	25.4	273.6	5	5	5	100	4.6	31.5	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH068	Canelo Pass	350.6	40.3	348	19.8	145.1	6	6	6	100	5.6	31.5	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
+CH069	Canelo Pass	354.7	38.9	351.3	18.8	198.9	5	5	5	100	5.4	31.5	-110.5	Extrusive:Igneous	Tuff	Rhyolite	LT-AF-Z:LT-T-Z:LP-AF-DIR:LP-T-DIR:DE-BLANKET	g	i	175	Ma	Rb-Sr age	Steven May PhD thesis
