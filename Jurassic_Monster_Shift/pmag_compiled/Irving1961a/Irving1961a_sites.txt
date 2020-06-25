@@ -1,7 +1,7 @@
-tab 	sites																						
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dir_dip	dip	note	citations
-1	Granby	14	37	125	3	6	6	100	5.112077203	42.29	-72.52	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	198.6	Ma	90	12	Lava in the Granby tuff	10.1029/jz066i006p01935
-2	Granby	357	21	250	3	6	6	100	3.614784456	42.27	-72.61	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	198.6	Ma	19	12	Lava in the Granby tuff	10.1029/jz066i006p01935
-3	Holyoke	1	18	100	3	6	6	100	5.715476066	41.7	-72.83	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	355	15	age from 10.1016/j.lithos.2008.12.011	10.1029/jz066i006p01935
-4	Holyoke	20	3	88	4	8	8	100	5.27644853	42.17	-72.66	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	23	13	age from 10.1016/j.lithos.2008.12.011	10.1029/jz066i006p01935
-5	Holyoke	14	1	23	3	6	6	100	11.91759143	42.31	-72.52	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	78	19	age from 10.1016/j.lithos.2008.12.011	10.1029/jz066i006p01935
+tab 	sites																							
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dir_dip	dip	note		citations
+1	Granby	14	37	125	3	6	6	100	5.112077203	42.29	-72.52	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	198.6	Ma	90	12	Lava in the Granby tuff	Hartford	10.1029/jz066i006p01935
+2	Granby	357	21	250	3	6	6	100	3.614784456	42.27	-72.61	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	198.6	Ma	19	12	Lava in the Granby tuff	Hartford	10.1029/jz066i006p01935
+3	Holyoke	1	18	100	3	6	6	100	5.715476066	41.7	-72.83	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	355	15	age from 10.1016/j.lithos.2008.12.011	Deerfield_Holyoke	10.1029/jz066i006p01935
+4	Holyoke	20	3	88	4	8	8	100	5.27644853	42.17	-72.66	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	23	13	age from 10.1016/j.lithos.2008.12.011	Deerfield_Holyoke	10.1029/jz066i006p01935
+5	Holyoke	14	1	23	3	6	6	100	11.91759143	42.31	-72.52	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIRF:DE-BLANKET	g	i	199.3	Ma	78	19	age from 10.1016/j.lithos.2008.12.011	Deerfield_Holyoke	10.1029/jz066i006p01935

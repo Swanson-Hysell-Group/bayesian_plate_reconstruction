@@ -1,9 +1,9 @@
-tab 	sites																					
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	pole_lon	pole_lat	citations
-1	Talcott	18	12	185	111	111	111	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	78	51	10.1029/jz072i008p02237
-2	Holyoke	12	25	146	150	150	150	0	3	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	83	60	10.1029/jz072i008p02237
-3	Hampden	4	43	102	146	146	146	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	92	73	10.1029/jz072i008p02237
-4	West Rock	9	29	136	40	40	40	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	89	63	10.1029/jz072i008p02237
-5	Hampden	0	49	34	54	54	54	0	7	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	106	79	10.1029/jz072i008p02237
-6	Mt Carmel	10	26	32	67	67	67	0	4	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	87	61	10.1029/jz072i008p02237
-7	Cheshire	1	47	31	41	41	41	0	4	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	103	76	10.1029/jz072i008p02237
+tab 	sites																						
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	pole_lon	pole_lat	group	citations
+1	Talcott	18	12	185	111	111	111	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	78	51	Hartford	10.1029/jz072i008p02237
+2	Holyoke	12	25	146	150	150	150	0	3	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	83	60	Deerfield_Holyoke	10.1029/jz072i008p02237
+3	Hampden	4	43	102	146	146	146	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	92	73	Hartford	10.1029/jz072i008p02237
+4	West Rock	9	29	136	40	40	40	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	89	63	Hartford	10.1029/jz072i008p02237
+5	Hampden	0	49	34	54	54	54	0	7	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	106	79	Hartford	10.1029/jz072i008p02237
+6	Mt Carmel	10	26	32	67	67	67	0	4	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	87	61	Hartford	10.1029/jz072i008p02237
+7	Cheshire	1	47	31	41	41	41	0	4	41.3	-72.45	Intrusive:Igneous	Dike	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	103	76	Gettysburg_Newark_York_Haven	10.1029/jz072i008p02237
