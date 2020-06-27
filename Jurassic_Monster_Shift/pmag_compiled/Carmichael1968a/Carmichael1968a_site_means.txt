@@ -1,4 +1,4 @@
 tab 	sites																						
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	PLon	PLat	note	citations
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	vgp_lon	vgp_lat	note	citations
 sites	North Mountains	3.6	47.3	33	25	25	25	0	5	45	-66.5	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	104	73	sites as units	10.1029/jb073i008p02811
 samples	Grand Manan	2.5	55	12	8	8	8	0	16.5	45	-66.5	Extrusive:Igneous	Lava flow	Basalt	LT-AF-Z:LP-AF-DIR:DE-BLANKET	g	i	200	Ma	100.5	80.5	sample as units	10.1029/jb073i008p02811

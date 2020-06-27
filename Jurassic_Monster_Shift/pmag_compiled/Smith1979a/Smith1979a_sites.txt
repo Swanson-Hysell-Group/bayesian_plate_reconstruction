@@ -1,35 +1,35 @@
-tab 	sites																							
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_high	age_low	age_unit	dir_dip	dip	citations
-WR-1	West Rock	14.5	31.7	75	6	6	6	0	7.8	41.33	-72.97	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-2	West Rock	354	19.1	354	8	8	8	0	2.9	41.37	-72.97	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-3	West Rock	359.6	26	178	9	9	9	0	3.9	41.37	-72.78	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-4	West Rock	358.6	27	131	10	10	10	0	4.2	41.38	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-5	West Rock	7.3	58.7	10	5	5	5	0	25.6	41.38	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-6	West Rock	25.3	10.5	9	12	12	12	0	15.5	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-7	West Rock	347.6	31.1	62	7	7	7	0	7.7	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-8	West Rock	356.4	31.8	806	8	8	8	0	1.9	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-9	West Rock	356	24.8	315	13	13	13	0	2.3	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-10	West Rock	98.6	62.6	7	5	5	5	0	32.1	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-11	West Rock	22.7	87.8	5	6	6	6	0	34.1	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-WR-12	West Rock	344.9	38.4	134	9	9	9	0	4.5	41.53	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	25	10.2475/ajs.279.7.778
-ER-1	East Rock	6.2	27.3	261	14	14	14	0	2.5	41.35	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	25	10.2475/ajs.279.7.778
-ER-2	East Rock	354.7	28	205	12	12	12	0	3	41.35	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	25	10.2475/ajs.279.7.778
-ER-3	East Rock	357.6	38.3	139	8	8	8	0	4.7	41.35	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	25	10.2475/ajs.279.7.778
-ER-4	East Rock	358	28.3	226	9	9	9	0	3.4	41.35	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	30	10.2475/ajs.279.7.778
-ER-5	East Rock	359.4	33.7	257	9	9	9	0	3.2	41.33	-72.88	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-ER-6	East Rock	359.1	34.5	284	9	9	9	0	3.1	41.33	-72.88	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-MC-1	Carmel	316.1	39.3	6	6	6	6	0	29.1	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					125	25	10.2475/ajs.279.7.778
-MC-2	Carmel	355.9	34.1	485	10	10	10	0	2.2	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-MC-3	Carmel	4.6	24.5	126	9	9	9	0	4.6	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					115	25	10.2475/ajs.279.7.778
-MC-4	Carmel	0.1	23.8	126	14	14	14	0	3.6	41.43	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					130	15	10.2475/ajs.279.7.778
-BD-1	Barndoor	7.9	34.9	118	10	10	10	0	4.5	41.97	-72.78	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	25	10.2475/ajs.279.7.778
-BD-2	Barndoor	3.2	28.9	101	11	11	11	0	4.6	41.95	-72.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					110	15	10.2475/ajs.279.7.778
-BD-3	Barndoor	14.7	31.9	424	11	11	11	0	2.2	41.87	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					110	20	10.2475/ajs.279.7.778
-BD-4	Barndoor	11.5	22.4	59	6	6	6	0	7.4	41.87	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					110	20	10.2475/ajs.279.7.778
-BD-5	Barndoor	356.8	31.2	78	8	8	8	0	6.3	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-6	Barndoor	6.1	32.9	29	9	9	9	0	9.7	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-7	Barndoor	358.7	28.3	857	8	8	8	0	1.9	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-8	Barndoor	10.6	37.7	56	8	8	8	0	7.4	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-9	Barndoor	1.9	40.6	132	5	5	5	0	6.7	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-10	Barndoor	355.9	29.6	77	9	9	9	0	5.9	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
-BD-11	Barndoor	8.9	29.2	354	7	7	7	0	3.2	41.78	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i					120	20	10.2475/ajs.279.7.778
+tab 	sites																						
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	dir_dip	dip	group	citations
+WR-1	West Rock	14.5	31.7	75	6	6	6	0	7.8	41.33	-72.97	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	200	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-2	West Rock	354	19.1	354	8	8	8	0	2.9	41.37	-72.97	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	201	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-3	West Rock	359.6	26	178	9	9	9	0	3.9	41.37	-72.78	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	202	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-4	West Rock	358.6	27	131	10	10	10	0	4.2	41.38	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	203	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-5	West Rock	7.3	58.7	10	5	5	5	0	25.6	41.38	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	204	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-6	West Rock	25.3	10.5	9	12	12	12	0	15.5	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	205	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-7	West Rock	347.6	31.1	62	7	7	7	0	7.7	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	206	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-8	West Rock	356.4	31.8	806	8	8	8	0	1.9	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	207	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-9	West Rock	356	24.8	315	13	13	13	0	2.3	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	208	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-10	West Rock	98.6	62.6	7	5	5	5	0	32.1	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	209	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-11	West Rock	22.7	87.8	5	6	6	6	0	34.1	41.4	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	210	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+WR-12	West Rock	344.9	38.4	134	9	9	9	0	4.5	41.53	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	211	Ma	120	25	Hartford	10.2475/ajs.279.7.778
+ER-1	East Rock	6.2	27.3	261	14	14	14	0	2.5	41.35	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	212	Ma	120	25	Hartford	10.2475/ajs.279.7.778
+ER-2	East Rock	354.7	28	205	12	12	12	0	3	41.35	-72.95	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	213	Ma	120	25	Hartford	10.2475/ajs.279.7.778
+ER-3	East Rock	357.6	38.3	139	8	8	8	0	4.7	41.35	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	214	Ma	120	25	Hartford	10.2475/ajs.279.7.778
+ER-4	East Rock	358	28.3	226	9	9	9	0	3.4	41.35	-72.93	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	215	Ma	120	30	Hartford	10.2475/ajs.279.7.778
+ER-5	East Rock	359.4	33.7	257	9	9	9	0	3.2	41.33	-72.88	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	216	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+ER-6	East Rock	359.1	34.5	284	9	9	9	0	3.1	41.33	-72.88	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	217	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+MC-1	Carmel	316.1	39.3	6	6	6	6	0	29.1	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	218	Ma	125	25	Hartford	10.2475/ajs.279.7.778
+MC-2	Carmel	355.9	34.1	485	10	10	10	0	2.2	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	219	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+MC-3	Carmel	4.6	24.5	126	9	9	9	0	4.6	41.42	-72.9	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	220	Ma	115	25	Hartford	10.2475/ajs.279.7.778
+MC-4	Carmel	0.1	23.8	126	14	14	14	0	3.6	41.43	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	221	Ma	130	15	Hartford	10.2475/ajs.279.7.778
+BD-1	Barndoor	7.9	34.9	118	10	10	10	0	4.5	41.97	-72.78	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	222	Ma	120	25	Hartford	10.2475/ajs.279.7.778
+BD-2	Barndoor	3.2	28.9	101	11	11	11	0	4.6	41.95	-72.8	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	223	Ma	110	15	Hartford	10.2475/ajs.279.7.778
+BD-3	Barndoor	14.7	31.9	424	11	11	11	0	2.2	41.87	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	224	Ma	110	20	Hartford	10.2475/ajs.279.7.778
+BD-4	Barndoor	11.5	22.4	59	6	6	6	0	7.4	41.87	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	225	Ma	110	20	Hartford	10.2475/ajs.279.7.778
+BD-5	Barndoor	356.8	31.2	78	8	8	8	0	6.3	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	226	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-6	Barndoor	6.1	32.9	29	9	9	9	0	9.7	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	227	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-7	Barndoor	358.7	28.3	857	8	8	8	0	1.9	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	228	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-8	Barndoor	10.6	37.7	56	8	8	8	0	7.4	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	229	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-9	Barndoor	1.9	40.6	132	5	5	5	0	6.7	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	230	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-10	Barndoor	355.9	29.6	77	9	9	9	0	5.9	41.82	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	231	Ma	120	20	Hartford	10.2475/ajs.279.7.778
+BD-11	Barndoor	8.9	29.2	354	7	7	7	0	3.2	41.78	-72.87	Intrusive:Igneous	Dike	Diabase	LT-AF-Z:LT-T-Z:DE-BLANKET	g	i	232	Ma	120	20	Hartford	10.2475/ajs.279.7.778

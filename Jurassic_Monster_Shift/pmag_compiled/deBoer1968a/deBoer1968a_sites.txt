@@ -1,5 +1,5 @@
 tab 	sites																						
-site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	pole_lon	pole_lat	group	citations
+site	location	dir_dec	dir_inc	dir_k	dir_n_samples	dir_n_specimens	dir_n_total_specimens	dir_tilt_correction	dir_alpha95	lat	lon	geologic_classes	geologic_types	lithologies	method_codes	result_quality	result_type	age	age_unit	vgp_lon	vgp_lat	group	citations
 1	Talcott	18	12	185	111	111	111	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	78	51	Hartford	10.1029/jz072i008p02237
 2	Holyoke	12	25	146	150	150	150	0	3	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	83	60	Deerfield_Holyoke	10.1029/jz072i008p02237
 3	Hampden	4	43	102	146	146	146	0	4	41.3	-72.45	Exrusive:Igneous	lava flow	Basalt	LT-AF-Z:DE-BLANKET	g	i	200	Ma	92	73	Hartford	10.1029/jz072i008p02237
