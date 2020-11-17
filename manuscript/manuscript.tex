@@ -1,0 +1,175 @@
+%% 
+%% Copyright 2007, 2008, 2009 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+%% Template article for Elsevier's document class `elsarticle'
+%% with harvard style bibliographic references
+%% SP 2008/03/01
+
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times,authoryear]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,authoryear]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,authoryear]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn,authoryear]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{color, soul}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pdflscape}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+\usepackage{lineno}
+
+%% Block of code for fixing corresponding author bug 
+%% in elsarticle template... Don't really understand it
+\makeatletter
+\def\@author#1{\g@addto@macro\elsauthors{\normalsize%
+    \def\baselinestretch{1}%
+    \upshape\authorsep#1\unskip\textsuperscript{%
+      \ifx\@fnmark\@empty\else\unskip\sep\@fnmark\let\sep=,\fi
+      \ifx\@corref\@empty\else\unskip\sep\@corref\let\sep=,\fi
+      }%
+    \def\authorsep{\unskip,\space}%
+    \global\let\@fnmark\@empty
+    \global\let\@corref\@empty  %% Added
+    \global\let\sep\@empty}%
+    \@eadauthor={#1}
+}
+\makeatother
+%% End block of weird code
+
+
+%% Command for bold Greek symbols
+\newcommand{\mitbf}[1]{\hbox{\mathversion{bold}$#1$}}
+
+\journal{Earth and Planetary Science Letters}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{Bayesian inversion for paleomagnetic reconstruction and plate kinematics}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author{Ian Rose\corref{cor1}\fnref{ref1}}
+\author{Bruce Buffett\fnref{ref1}}
+\author{Nicholas Swanson-Hysell\fnref{ref1}}
+
+\fntext[ref1]{University of California, Berkeley}
+\cortext[cor1]{Corresponding author, \url{ian.rose@berkeley.edu}}
+
+\address{}
+
+\begin{abstract}
+
+\end{abstract}
+
+\begin{keyword}
+
+
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+%% main text
+\section{Introduction}
+significance of plate tectonics and doing reconstructions past plate tectonics-such as climate change, understanding the geodynamo activity of the past
+
+the past 200 Ma record is relatively well understood, based on the oceanic crust's magnetic anomalies 
+
+Beyond then, the oceanic record is gone due to the subduction of the oceanic lithosphere near plate boundaries, and our record is dominated by the paleomagnetic records from continental rocks, which usually consist of a pole with uncertainty ellipse and an associated age constraints. 
+
+typically a series of such records are needed to reconstruct a path along which a plate moves. 
+ 
+
+\section*{Acknowledgements}
+\label{sec:acknowledgements}
+This work was supported by National Science Foundation grant EAR-1246670. 
+We thank Dave Evans and Mike Tetley for useful discussions.
+MCMC analysis was performed using PyMC.
+Additional analysis was performed using the Python packages NumPy and Scipy, and figures were created using Matplotlib.
+
+\nocite{hunter2007matplotlib}
+\nocite{van2011numpy}
+\nocite{jones2001open}
+
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+\bibliographystyle{elsarticle-harv} 
+\bibliography{bayesian_plate_reconstruction}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+\end{document}
+
+\endinput
+%%
+%% End of file `elsarticle-template-harv.tex'.
